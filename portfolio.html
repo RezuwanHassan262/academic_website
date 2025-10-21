@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio | Md. Rezuwan Hassan</title>
+    <meta name="description" content="Portfolio projects by Md. Rezuwan Hassan">
+    <meta name="author" content="Md. Rezuwan Hassan">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- jQuery and other libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    
+    <!-- Custom JavaScript/TypeScript -->
+    <script src="dist/assets/js/_main.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <div class="site-title">
+                <a href="/">Md. Rezuwan Hassan</a>
+            </div>
+            <ul class="nav-list">
+                <li><a href="/">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="volunteering-and-achievements.html">Volunteering and Achievements</a></li>
+                <li><a href="teaching.html">Teaching</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="layout--single">
+        <div class="page">
+            <div class="page__inner-wrap">
+                
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="author__avatar">
+                        <img src="images/me_pic.jpg" alt="Md. Rezuwan Hassan" class="author__avatar-image">
+                    </div>
+                    
+                    <div class="author__content">
+                        <h3 class="author__name">Md. Rezuwan Hassan</h3>
+                        <p class="author__bio">Fall 26 Aspirant | AI Research Engineer @SysModeler, Inc.</p>
+                        
+                        <div class="author__urls-wrapper">
+                            <ul class="author__urls social-icons">
+                                <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Dhaka, Bangladesh</li>
+                                <li><a href="mailto:rezwanhasan262@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+                                <li><a href="https://www.rezuwan.me"><i class="fas fa-globe"></i> Website</a></li>
+                                <li><a href="https://scholar.google.com/citations?user=ZUrWZhQAAAAJ&hl=en"><i class="ai ai-google-scholar"></i> Google Scholar</a></li>
+                                <li><a href="https://www.researchgate.net/profile/Md-Hassan-82"><i class="ai ai-researchgate"></i> ResearchGate</a></li>
+                                <li><a href="https://github.com/RezuwanHassan262"><i class="fab fa-github"></i> GitHub</a></li>
+                                <li><a href="https://huggingface.co/Rezuwan"><i class="fas fa-robot"></i> HuggingFace</a></li>
+                                <li><a href="https://www.kaggle.com/mdrezuwanhassan"><i class="fab fa-kaggle"></i> Kaggle</a></li>
+                                <li><a href="https://www.linkedin.com/in/md-rezuwan-hassan/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main content area -->
+                <main class="page__content">
+                    <header>
+                        <h1 class="page__title">Portfolio</h1>
+                        <p style="font-style: italic; color: #666; margin-bottom: 2rem;">AI projects aren't built on code alone, but on curiosity, patience, and a thousand tiny experiments.</p>
+                    </header>
+
+                    <section class="page__content-inner">
+                        <!-- Filter Buttons -->
+                        <div class="project-filters" style="margin-bottom: 2rem;">
+                            <h3>Filter by Category:</h3>
+                            <div class="filter-buttons" style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                                <button class="filter-btn active" data-filter="all">All</button>
+                                <button class="filter-btn" data-filter="fl">Federated Learning</button>
+                                <button class="filter-btn" data-filter="nlp">Natural Language Processing</button>
+                                <button class="filter-btn" data-filter="cv">Computer Vision</button>
+                                <button class="filter-btn" data-filter="aai">Agentic AI</button>
+                                <button class="filter-btn" data-filter="mlds">Machine Learning & Data Science</button>
+                                <button class="filter-btn" data-filter="dsda">Data Science and Tableau Data Analysis</button>
+                                <button class="filter-btn" data-filter="hci">Human Computer Interaction</button>
+                                <button class="filter-btn" data-filter="web">Web Development</button>
+                                <button class="filter-btn" data-filter="ws">Web Scraping</button>
+                                <button class="filter-btn" data-filter="hmai">Healthcare/Medical AI</button>
+                                <button class="filter-btn" data-filter="ost">Open-Source Tools</button>
+                                <button class="filter-btn" data-filter="bnlp">Bangla NLP</button>
+                                <button class="filter-btn" data-filter="spch">Speech NLP</button>
+                            </div>
+                        </div>
+
+                        <!-- Projects Grid -->
+                        <div class="portfolio-grid" id="projects-container">
+                            
+                            <!-- Portfolio Website -->
+                            <div class="portfolio-item" data-category="web" data-year="2025">
+                                <div class="portfolio-image">
+                                    <img src="https://i.ibb.co/JWJBD2MW/Capture.png" alt="Portfolio Website">
+                                    <div class="project-year">2025</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Portfolio Website</h3>
+                                    <p>My personal portfolio website showcasing my projects and skills.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">React</span>
+                                        <span class="tag">TypeScript</span>
+                                        <span class="tag">CSS</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://www.rezuwan.me" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/personal_portfolio_website" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Background Remover -->
+                            <div class="portfolio-item" data-category="ost" data-year="2025">
+                                <div class="portfolio-image">
+                                    <img src="https://i.ibb.co/4g4tNWyj/Capture.png" alt="Background Remover">
+                                    <div class="project-year">2025</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Background Remover</h3>
+                                    <p>Open-Source background remover tool implementation through python, gradio and huggingface. Upload an image or use an example to remove its background. Not the best image background remover out there but good enough for a free tool.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Gradio</span>
+                                        <span class="tag">Hugging Face</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://huggingface.co/spaces/Rezuwan/Image_Background_Remove" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/Background_Remover" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ChemQuery -->
+                            <div class="portfolio-item" data-category="ost" data-year="2025">
+                                <div class="portfolio-image">
+                                    <img src="https://i.ibb.co/YTWWqFTV/5lhg17bzk0761.jpg" alt="ChemQuery">
+                                    <div class="project-year">2025</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>ChemQuery: Learn Molecules Easily</h3>
+                                    <p>ChemQuery is a free and open-source chemistry learning tool built as part of an educational initiative to support students worldwide. ChemQuery is Powered by PubChem & PubChemPy — designed to make chemistry learning simple and fun for students, teachers, and curious minds alike.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Gradio</span>
+                                        <span class="tag">Hugging Face</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://huggingface.co/spaces/Rezuwan/ChemQuery" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/ChemQuery" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AgriBuddy -->
+                            <div class="portfolio-item" data-category="bnlp nlp aai ws" data-year="2025">
+                                <div class="portfolio-image">
+                                    <img src="/images/agb.png" alt="AgriBuddy" onerror="this.src='https://via.placeholder.com/300x200?text=AgriBuddy'">
+                                    <div class="project-year">2025</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>AgriBuddy</h3>
+                                    <p>AI-powered agent-based agricultural assistant system for Bangladeshi farmers using RAG and Vision Models</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Langchain</span>
+                                        <span class="tag">OpenAI</span>
+                                        <span class="tag">+2</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://www.researchgate.net/publication/392194862_AgriBuddy_An_Agentic_AI_System_for_Bangladeshi_Agriculture_Using_RAG_and_Vision_Models" target="_blank" class="btn-link">View Report</a>
+                                        <a href="https://github.com/AgriBRACUtion" target="_blank" class="btn-link">View Code</a>
+                                        <a href="https://youtu.be/vTWUjcQ4wnM" target="_blank" class="btn-link">View Presentation</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Prototype system design of Bengali humor -->
+                            <div class="portfolio-item" data-category="bnlp nlp hci" data-year="2025">
+                                <div class="portfolio-image">
+                                    <img src="/images/ss2.PNG" alt="Bengali Humor System" onerror="this.src='https://via.placeholder.com/300x200?text=Bengali+Humor'">
+                                    <div class="project-year">2025</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Prototype system design of Bengali humor in Unmad style</h3>
+                                    <p>A Bangla satirical chatbot inspired by Unmad magazine's comedic, sarcastic writing style. It takes a user's question, retrieves relevant Bangla text snippets from a knowledge base, and answers with humorous, exaggerated, and witty satire never in a direct, serious tone.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">OpenAI</span>
+                                        <span class="tag">Vector Database</span>
+                                        <span class="tag">RAG</span>
+                                        <span class="tag">+3</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://huggingface.co/spaces/Rezuwan/USB_Unmad_Satirical_Bot?logs=container" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/USB_Unmad_Satirical_Bot" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Custom Training YOLOv8 -->
+                            <div class="portfolio-item" data-category="cv ws" data-year="2024">
+                                <div class="portfolio-image">
+                                    <img src="https://raw.githubusercontent.com/RezuwanHassan262/YOLOv8-Custom-Training-Object-Detection/main/images/streamlit_2.PNG" alt="YOLOv8 Custom Training">
+                                    <div class="project-year">2024</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Custom Training YOLOv8 to detect Vehicle, Pedestrians, and Signboards</h3>
+                                    <p>Fine‐tuned YOLOv8n on a custom dataset from video frames, auto‐labeled with Roboflow, and deployed on Hugging Face Spaces Streamlit, and locally without API support.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Image Classifier</span>
+                                        <span class="tag">Dataset Creation</span>
+                                        <span class="tag">+1</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://yolov8-custom-training-object-detection-j3besa9ppegzcdzslzsk8t.streamlit.app/" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/Custom-Training-YOLOv8-to-detect-Vehicle-Pedestrians-and-Signboards" target="_blank" class="btn-link">View Code</a>
+                                        <a href="https://huggingface.co/spaces/Rezuwan/Road_and_Pedestrian_Detection" target="_blank" class="btn-link">HuggingFace Space</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bengali Speech Recognition -->
+                            <div class="portfolio-item" data-category="bnlp nlp spch" data-year="2024">
+                                <div class="portfolio-image">
+                                    <img src="/images/w2v2_char_tok.png" alt="Bengali Speech Recognition" onerror="this.src='https://via.placeholder.com/300x200?text=Speech+Recognition'">
+                                    <div class="project-year">2024</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Bengali Speech Recognition with Regional Dialects</h3>
+                                    <p>My master's thesis involved building a regional speech corpus and fine‐tuning Wav2Vec2 for Bengali dialect transcription. The project led to a datathon using a dataset checkpoint, after which I fine‐tuned a Whisper model and deployed it on HuggingFace Space.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">PyTorch</span>
+                                        <span class="tag">HuggingFace</span>
+                                        <span class="tag">+3</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://huggingface.co/spaces/Rezuwan/Regional_Speech_ASR" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/Bengali-Speech-Recognition-with-Regional-Dialects" target="_blank" class="btn-link">View Code</a>
+                                        <a href="https://www.researchgate.net/publication/387686959_A_character_gram_modeling_approach_towards_Bengali_Speech_to_Text_with_Regional_Dialects" target="_blank" class="btn-link">View Report</a>
+                                        <a href="https://huggingface.co/Rezuwan/regional_asr_weights" target="_blank" class="btn-link">Model Weights</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Multi-label Film Genre Classifier -->
+                            <div class="portfolio-item" data-category="nlp ws" data-year="2024">
+                                <div class="portfolio-image">
+                                    <img src="https://raw.githubusercontent.com/RezuwanHassan262/Multi-label-Film-Classifier/main/images/fgcw.PNG" alt="Film Genre Classifier">
+                                    <div class="project-year">2024</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Multi-label Film Genre Classifier</h3>
+                                    <p>Scraped movie and TV data to build a multi-label genre classifier, fine-tuned a transformer model, converted it to ONNX for faster inference, and deployed it via Flask on HuggingFace Space and OnRender.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Text Classification</span>
+                                        <span class="tag">Roberta</span>
+                                        <span class="tag">+1</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://multi-label-film-classifier.onrender.com/" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/Multi-label-Film-Classifier/tree/main" target="_blank" class="btn-link">View Code</a>
+                                        <a href="https://huggingface.co/spaces/Rezuwan/film_genre_classifier" target="_blank" class="btn-link">HuggingFace Space</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Automatic Bengali Transcription System -->
+                            <div class="portfolio-item" data-category="bnlp nlp spch" data-year="2024">
+                                <div class="portfolio-image">
+                                    <img src="https://tds-images.thedailystar.net/sites/default/files/styles/social_share/public/images/2022/11/18/zoom_virtual_background.jpg" alt="Bengali Transcription">
+                                    <div class="project-year">2024</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Automatic Bengali Transcription System</h3>
+                                    <p>A robust Bangla speech recognition system has been prototyped, achieving exceptional transcription accuracy. We are now in the deployment phase, aiming to provide a user‐friendly web interface for generating CSV/Excel outputs from audio inputs</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">ASR</span>
+                                        <span class="tag">Whisper</span>
+                                        <span class="tag">+1</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://github.com/RezuwanHassan262/Automatic-Bangla-Transcription" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Titanic EDA and Survival Prediction -->
+                            <div class="portfolio-item" data-category="mlds dsda" data-year="2024">
+                                <div class="portfolio-image">
+                                    <img src="https://raw.githubusercontent.com/RezuwanHassan262/Titanic-EDA-and-Survival-Prediction/main/figures/11.png" alt="Titanic Prediction">
+                                    <div class="project-year">2024</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Titanic EDA and Survival Prediction</h3>
+                                    <p>This project analyzes factors like age, class, and gender affecting Titanic survival and predicts passenger survival chances based on given features using different machine learning algorithms.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Scikit Learn</span>
+                                        <span class="tag">Dataset Analysis</span>
+                                        <span class="tag">+1</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://github.com/RezuwanHassan262/Titanic-EDA-and-Survival-Prediction" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Parrot Classifier -->
+                            <div class="portfolio-item" data-category="cv ws" data-year="2023">
+                                <div class="portfolio-image">
+                                    <img src="/images/three.png" alt="Parrot Classifier" onerror="this.src='https://via.placeholder.com/300x200?text=Parrot+Classifier'">
+                                    <div class="project-year">2023</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Parrot Classifier</h3>
+                                    <p>Scraped parrot species images, fine‐tuned a fast.ai classifier (93% accuracy on 60 species), deployed on Hugging Face Spaces, and integrated the API into another custom website.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Image Classifier</span>
+                                        <span class="tag">Data Scraping</span>
+                                        <span class="tag">+1</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://parrot-classifier-60.netlify.app/" target="_blank" class="btn-link">Live Demo</a>
+                                        <a href="https://github.com/RezuwanHassan262/Parrot-Species-Classifier" target="_blank" class="btn-link">View Code</a>
+                                        <a href="https://huggingface.co/spaces/Rezuwan/parrot_classifier" target="_blank" class="btn-link">HuggingFace Space</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Demographics of Best CS Scientists Worldwide -->
+                            <div class="portfolio-item" data-category="ws dsda" data-year="2023">
+                                <div class="portfolio-image">
+                                    <img src="https://i.ibb.co.com/7tRsyj9Y/Capture.png" alt="CS Scientists Demographics">
+                                    <div class="project-year">2023</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Demographics of Best CS Scientists Worldwide</h3>
+                                    <p>This project involved web scraping from a dynamic site and using Tableau to analyze top computer scientists, highlighting key research regions and institutions.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Selenium</span>
+                                        <span class="tag">Web Scraping</span>
+                                        <span class="tag">+2</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://public.tableau.com/app/profile/md.reuzwan.hassan/viz/PracticeworkDemographicsofBestCSScientistsWorldwide/DemographicsofBestCSScientistsWorldwide" target="_blank" class="btn-link">Tableau Dashboard</a>
+                                        <a href="https://github.com/RezuwanHassan262/Tableau-Practice-work-Demographics-of-Best-CS-Scientists-Worldwide/tree/main?tab=readme-ov-file" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Last 100+ years of Earthquake Data -->
+                            <div class="portfolio-item" data-category="ws dsda" data-year="2023">
+                                <div class="portfolio-image">
+                                    <img src="https://raw.githubusercontent.com/RezuwanHassan262/Last-100-plus-years-Earthquake-Data-Analysis-And-Visualization/main/dashboard_images/8.%20Total%20Earthquake%20in%20Bangladesh%2C%20India%2C%20Bhutan%20%26%20Myanmar%20(BIBM)%20sub-region%20(Map).png" alt="Earthquake Data Analysis">
+                                    <div class="project-year">2023</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>Last 100+ years of Earthquake Data Scraping Analysis and Visualization</h3>
+                                    <p>Scraped earthquake data from a website covering Bangladesh and neighboring countries, cleaned, curated, and visualized insights using Tableau.</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Selenium</span>
+                                        <span class="tag">Web Scraping</span>
+                                        <span class="tag">+2</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://public.tableau.com/app/profile/md.reuzwan.hassan/viz/Last100yearsEarthquakeData-Analysis/LocationwiseEarthquakecountBINM" target="_blank" class="btn-link">Tableau Dashboard</a>
+                                        <a href="https://github.com/RezuwanHassan262/Last-100-plus-years-Earthquake-Data-Analysis-And-Visualization" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Heart Disease Detection using Federated Learning -->
+                            <div class="portfolio-item" data-category="fl hmai" data-year="2022">
+                                <div class="portfolio-image">
+                                    <img src="/images/federated-gif.gif" alt="Federated Learning" onerror="this.src='https://via.placeholder.com/300x200?text=Federated+Learning'">
+                                    <div class="project-year">2022</div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <h3>A prototype system design of Heart Disease Detection using Horizontal Federated Learning with Random Forest</h3>
+                                    <p>Horizontal Federated Random Forest for Heart Disease Detection from Decentralized Data</p>
+                                    <div class="portfolio-tags">
+                                        <span class="tag">Python</span>
+                                        <span class="tag">Scikit-learn</span>
+                                        <span class="tag">Federated Learning</span>
+                                        <span class="tag">+1</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="https://ieeexplore.ieee.org/document/9929490" target="_blank" class="btn-link">View Paper</a>
+                                        <a href="https://github.com/federated-heart-disease" target="_blank" class="btn-link">View Code</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page__footer">
+        <div class="page__footer-follow">
+            <ul class="social-icons">
+                <li><strong>Follow:</strong></li>
+                <li><a href="https://github.com/RezuwanHassan262"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+                <li><a href="https://twitter.com/rezuwan_hassan"><i class="fab fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+            </ul>
+        </div>
+        <div class="page__footer-copyright">
+            &copy; 2025 Md. Rezuwan Hassan. Powered by <a href="https://www.typescriptlang.org/" rel="nofollow">TypeScript</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io" rel="nofollow">Academic Pages</a>.
+        </div>
+    </footer>
+
+    <!-- Include portfolio filtering script -->
+    <script src="assets/js/portfolio-filter.js"></script>
+
+</body>
+</html>

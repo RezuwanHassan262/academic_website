@@ -1,0 +1,78 @@
+.about_card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #EEEEEE;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); // Subtle drop shadow
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); // Enhanced shadow on hover
+  }
+
+  &__logo {
+    margin: 0 25px;
+    width: 80px;
+    height: 80px;
+  }
+
+  &__content {
+    &__title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    &__subtitle {
+      font-style: italic;
+      color: #555;
+    }
+
+    &__date,
+    &__achievement {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    &__details {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.4;
+      text-align: justify;
+      text-justify: inter-word;
+      padding-right: 30px;
+    }
+  }
+}
+
+.skills_item {
+  border-left: 4px solid #d3d3d3;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  background-color: #fff; // White background for each item
+  padding: 15px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Light shadow on hover
+  }
+
+  strong {
+    font-size: 1.1em;
+    color: #333;
+  }
+
+  span {
+    font-size: 0.95em;
+    color: #666;
+  }
+}
