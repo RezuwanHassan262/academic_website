@@ -338,16 +338,11 @@
     padding-right: 0.5em;
     color: #fff;
     font-weight: bold;
-    background: $navbar-active-color;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(33, 188, 254, 0.15);
-    border: 2px solid $navbar-active-color;
-    transition: background 0.2s, box-shadow 0.2s;
+    background: $primary-color;
+    border-radius: $border-radius;
 
     &:hover {
       color: #fff;
-      background: darken($navbar-active-color, 10%);
-      box-shadow: 0 4px 12px rgba(33, 188, 254, 0.25);
     }
   }
 }
