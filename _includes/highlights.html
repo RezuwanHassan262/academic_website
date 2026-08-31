@@ -1,0 +1,85 @@
+{% comment %}
+  Compact "Highlights" board for the About page.
+
+  Everything here is DERIVED — workshops and talks come from the `talks`
+  collection, judging from _data/adjudications.yml — so there is no fourth copy
+  of the same facts to keep in sync. Deliberately terse: one line per item,
+  with a small photo strip pooled from the entries that have images.
+{% endcomment %}
+
+{% assign workshops = site.talks | where_exp: "t", "t.type contains 'Workshop'" | sort: 'date' | reverse %}
+{% assign talks = site.talks | where_exp: "t", "t.type contains 'Talk'" | sort: 'date' | reverse %}
+{% assign judging = site.data.adjudications.competitions | concat: site.data.adjudications.peer_review %}
+{% assign volunteering = site.data.volunteering.entries %}
+
+<div class="highlight-board">
+
+  <section class="highlight-card">
+    <h3 class="highlight-card__title"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> Workshops</h3>
+    <ul class="highlight-card__list">
+      {% for t in workshops %}
+        <li><strong>{{ t.venue }}</strong><span>{{ t.title }} &middot; {{ t.date | date: "%b %Y" }}</span></li>
+      {% endfor %}
+    </ul>
+    {% assign shown = 0 %}
+    <div class="highlight-card__strip">
+      {% for t in workshops %}{% for img in t.gallery limit: 2 %}{% if shown < 4 %}
+        <img src="{{ base_path }}/images/{{ img.src }}" alt="{{ img.alt }}" loading="lazy">
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}{% endfor %}{% endfor %}
+    </div>
+    <a class="highlight-card__more" href="{{ base_path }}/talks/">All talks &amp; workshops &rarr;</a>
+  </section>
+
+  <section class="highlight-card">
+    <h3 class="highlight-card__title"><i class="fas fa-microphone" aria-hidden="true"></i> Invited Talks</h3>
+    <ul class="highlight-card__list">
+      {% for t in talks %}
+        <li><strong>{{ t.venue }}</strong><span>{{ t.title }} &middot; {{ t.date | date: "%b %Y" }}</span></li>
+      {% endfor %}
+    </ul>
+    {% assign shown = 0 %}
+    <div class="highlight-card__strip">
+      {% for t in talks %}{% for img in t.gallery limit: 1 %}{% if shown < 4 %}
+        <img src="{{ base_path }}/images/{{ img.src }}" alt="{{ img.alt }}" loading="lazy">
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}{% endfor %}{% endfor %}
+    </div>
+    <a class="highlight-card__more" href="{{ base_path }}/talks/">All talks &amp; workshops &rarr;</a>
+  </section>
+
+  <section class="highlight-card">
+    <h3 class="highlight-card__title"><i class="fas fa-gavel" aria-hidden="true"></i> Judging &amp; Review</h3>
+    <ul class="highlight-card__list">
+      {% for j in judging %}
+        <li><strong>{{ j.org }}</strong><span>{{ j.role }} &middot; {{ j.date }}</span></li>
+      {% endfor %}
+    </ul>
+    {% assign shown = 0 %}
+    <div class="highlight-card__strip">
+      {% for j in judging %}{% for img in j.images limit: 1 %}{% if shown < 4 %}
+        <img src="{{ base_path }}/images/{{ img.src }}" alt="{{ img.alt }}" loading="lazy">
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}{% endfor %}{% endfor %}
+    </div>
+    <a class="highlight-card__more" href="{{ base_path }}/adjudications/">All adjudications &rarr;</a>
+  </section>
+
+  <section class="highlight-card">
+    <h3 class="highlight-card__title"><i class="fas fa-hands-helping" aria-hidden="true"></i> Volunteering</h3>
+    <ul class="highlight-card__list">
+      {% for v in volunteering %}
+        <li><strong>{{ v.org }}</strong><span>{{ v.role }} &middot; {{ v.date }}</span></li>
+      {% endfor %}
+    </ul>
+    {% assign shown = 0 %}
+    <div class="highlight-card__strip">
+      {% for v in volunteering %}{% for img in v.images limit: 2 %}{% if shown < 4 %}
+        <img src="{{ base_path }}/images/{{ img.src }}" alt="{{ img.alt }}" loading="lazy">
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}{% endfor %}{% endfor %}
+    </div>
+    <a class="highlight-card__more" href="{{ base_path }}/volunteering/">All volunteering &rarr;</a>
+  </section>
+
+</div>

@@ -1,0 +1,24 @@
+---
+layout: single
+title: "Awards & Achievements"
+permalink: /awards/
+author_profile: true
+toc: true
+toc_label: "On this page"
+redirect_from:
+  - /volunteering-and-achievements/
+---
+
+{% include base_path %}
+
+<p class="page__lead">Competition results, certifications, scholarships and honours.
+Community service lives on the <a href="{{ base_path }}/volunteering/">Volunteering</a> page;
+judging and peer review on the <a href="{{ base_path }}/adjudications/">Adjudications</a> page.</p>
+
+<h2 id="achievements">Achievements &amp; Certifications</h2>
+<hr />
+{% include service-entries.html entries=site.data.awards.achievements %}
+
+<h2 id="honours">Awards &amp; Honours</h2>
+<hr />
+{% include service-entries.html entries=site.data.awards.honours %}

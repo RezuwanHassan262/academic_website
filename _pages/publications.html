@@ -1,0 +1,58 @@
+---
+layout: archive
+title: "Publications"
+permalink: /publications/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p class="page__lead"><em>Machines require large datasets and extensive computational training to replicate
+what comes to you naturally &mdash; so embrace your innate abilities and prioritise your humanity.</em></p>
+
+<p>Research papers I contributed to, spanning Bangla NLP and speech recognition, agentic AI,
+federated learning, and power distribution system reliability.</p>
+
+{% include scholar-stats.html %}
+
+{% if site.author.googlescholar or site.author.researchgate %}
+  <div class="wordwrap">
+    You can also find my articles on
+    {% if site.author.googlescholar %}<a href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
+    {% if site.author.googlescholar and site.author.researchgate %} and {% endif %}
+    {% if site.author.researchgate %}<a href="{{ site.author.researchgate }}">ResearchGate</a>{% endif %}.
+  </div>
+{% endif %}
+
+<!-- New style rendering if publication categories are defined -->
+{% if site.publication_category %}
+  {% for category in site.publication_category  %}
+    {% assign title_shown = false %}
+    {% for post in site.publications reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.publications reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+<h2 id="research-interests">Research Interests</h2>
+<p>The topics that make me excited to explore, test ideas, and chase answers &mdash;
+and where the work above is heading next.</p>
+
+{% include research-interests.html %}
+
+<h2 id="ongoing-research">Ongoing Research</h2>
+<p>Threads currently in progress &mdash; datasets being built, models being trained,
+papers not yet written.</p>
+
+{% include ongoing-research.html %}

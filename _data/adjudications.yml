@@ -1,0 +1,93 @@
+# Competitions judged and manuscripts reviewed. Rendered by _pages/adjudications.html.
+#
+# IMAGES
+#   Each entry may carry an `images:` list of { src, alt } pairs.
+#   - `src` is a filename inside /images/ (or a full https:// URL).
+#   - Entries whose photos are not in the repo yet point at `placeholder.svg`;
+#     swap that filename for the real one and the gallery updates everywhere.
+#   - To show NO gallery for an entry, delete its `images:` block entirely
+#     (or set `images: []`). The include renders nothing in that case.
+
+competitions:
+  - role: "Adjudicator — DLSprint4"
+    org: "Bangladesh University of Engineering and Technology (BUET), Department of CSE"
+    date: "March 2026"
+    description: >
+      Invited to adjudicate the national deep learning competition <strong>DLSprint4</strong>,
+      organised by the CSE department of BUET. The problem set covered Bengali long-form audio
+      transcription and multi-speaker diarization.
+    images:
+      - src: "adj11.jpg"
+        alt: "DLSprint4 adjudication at BUET"
+      - src: "adj12.jpg"
+        alt: "DLSprint4 adjudication at BUET"
+      - src: "adj13.jpg"
+        alt: "DLSprint4 adjudication at BUET"
+
+  - role: "Adjudicator — Bhashabichitra: ASR for Regional Dialects"
+    org: "Islamic University of Technology (IUTCS)"
+    date: "April 2024"
+    description: >
+      The dataset used in this national ICT fest's datathon segment was an extended version of the
+      corpus I developed from scratch as part of my master's thesis research, which I later extended
+      with my team at Bengali.AI. Huge thanks to the IUT Computer Society for orchestrating such a
+      fantastic event.
+    images:
+      - src: "adj2.jpg"
+        alt: "Bhashabichitra datathon at IUT"
+      - src: "adj3.jpg"
+        alt: "Bhashabichitra datathon at IUT"
+      - src: "adj4.jpg"
+        alt: "Bhashabichitra datathon at IUT"
+
+  - role: "Adjudicator — Bhashamul: Bengali Text with Regional Dialects to IPA Transcription Modeling"
+    org: "United International University (UIU CSE &amp; UIU Computer Club)"
+    date: "March 2024"
+    description: >
+      The dataset used in this national-level datathon was a prototype from one of the research
+      projects I currently lead with my team at Bengali.AI.
+    images:
+      - src: "adj5.jpg"
+        alt: "Bhashamul datathon at UIU"
+      - src: "adj6.jpg"
+        alt: "Bhashamul datathon at UIU"
+      - src: "adj7.jpg"
+        alt: "Bhashamul datathon at UIU"
+
+  - role: "Adjudicator — Datathon Challenge, Cefalo presents ITverse 2023"
+    org: "University of Dhaka, IIT Software Engineers' Community"
+    date: "November 2023"
+    description: >
+      The dataset from one of my co-authored research papers (Bengali text to IPA transcription) was
+      used in this national deep learning competition. I was invited to judge on behalf of Bengali.AI
+      and evaluated the submissions of the top participating teams from across Bangladesh.
+    images:
+      - src: "adj8.jpg"
+        alt: "ITverse 2023 datathon at University of Dhaka"
+      - src: "adj9.jpg"
+        alt: "ITverse 2023 datathon at University of Dhaka"
+      - src: "adj10.jpg"
+        alt: "ITverse 2023 datathon at University of Dhaka"
+
+  # No photos exist for this event — the `images:` block is deliberately omitted,
+  # so no gallery is rendered for this entry.
+  - role: "Adjudicator — Electroditor (Tech Write-up Contest)"
+    org: "BRAC University Electrical and Electronic Club (BUEEC)"
+    date: "March 2021"
+    description: >
+      Invited to evaluate the writings of participants in the technical write-up contest "Electroditor".
+    images:
+      - src: "bueec_logo.jpg"
+        alt: "BRAC University Electrical and Electronic Club"
+        kind: logo
+
+peer_review:
+  - role: "Manuscript Reviewer"
+    org: "IEEE International Conference on Advanced Computing Technologies (ICACT 2025)"
+    date: "September 2025"
+    description: >
+      Invited to serve as a paper reviewer by the organising committee. Reviewed submissions focusing
+      on AI-driven innovations, contributing to the conference's academic quality and integrity.
+    images:
+      - src: "ieee_reviewer.PNG"
+        alt: "IEEE ICACT 2025 reviewer certificate"

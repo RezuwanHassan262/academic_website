@@ -1,0 +1,18 @@
+# Authors
+# Used by `_includes/author-profile.html` when a page sets `author: <key>`.
+# Pages that do not set `author:` fall back to `site.author` in _config.yml.
+
+Md. Rezuwan Hassan:
+  name          : "Md. Rezuwan Hassan"
+  uri           : "https://www.rezuwan.me"
+  email         : "rezwanhasan262@gmail.com"
+  bio           : "Sr. Technical Project Manager @ SysModeler, Inc. &middot; AI Engineer &middot; Bengali NLP & Speech researcher."
+  location      : "Dhaka, Bangladesh"
+  employer      : "SysModeler, Inc."
+  avatar        : "profile-img.jpg"
+  googlescholar : "https://scholar.google.com/citations?user=ZUrWZhQAAAAJ&hl=en"
+  researchgate  : "https://www.researchgate.net/profile/Md-Hassan-82"
+  github        : "RezuwanHassan262"
+  huggingface   : "Rezuwan"
+  kaggle        : "mdrezuwanhassan"
+  linkedin      : "md-rezuwan-hassan"

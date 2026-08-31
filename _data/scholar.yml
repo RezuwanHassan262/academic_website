@@ -1,0 +1,15 @@
+# Google Scholar metrics.
+#
+# Mirrors the `scholarData.json` payload from the previous React site so the
+# metrics card can be rendered by Liquid without a build step.
+# Keep this file machine-writable: a scheduled job may overwrite it wholesale.
+profile_url: "https://scholar.google.com/citations?user=ZUrWZhQAAAAJ&hl=en"
+citations: 33
+citations_since: 33
+h_index: 4
+h_index_since: 4
+i10_index: 1
+i10_index_since: 1
+since_year: "2021"
+last_updated: "2026-08-26"
+note: "Scraped and synced with Google Scholar every 24 hours."

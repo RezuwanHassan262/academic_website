@@ -1,0 +1,125 @@
+# Achievements, certifications, awards and honours. Rendered by _pages/awards.html.
+#
+# IMAGES — see the note at the top of _data/adjudications.yml. Same convention:
+# `images:` is a list of { src, alt }; `src` is a filename in /images/ or a full URL;
+# delete the `images:` block to render no gallery for that entry.
+
+achievements:
+  - role: "IELTS Academic"
+    org: "British Council"
+    date: "December 2025"
+    description: >
+      Did a very rushed prep in the final 1.5 days, and honestly couldn't have pulled it off without
+      two of my favourite juniors — grateful to
+      <a href="https://www.linkedin.com/in/u-mong-sain-chak-b055241a6/" rel="noopener">U Mong Sain Chak</a>
+      for the last-minute push when I needed it most, and to
+      <a href="https://www.linkedin.com/in/rubayet-sabbir-faruque/" rel="noopener">Rubayet Sabbir Faruque</a>
+      for being my mock examiner through all the speaking practice and honest feedback.
+    images:
+      - src: "ielts_score.jpg"
+        alt: "IELTS Academic score report"
+
+  - role: "Runners-up — National AI Hackathon"
+    org: "Bangladesh Innovation Conclave"
+    date: "May 2025"
+    description: >
+      Competed with team <strong>AgriBRACUion</strong> in the Agriculture category, presenting
+      <a href="/portfolio/agribuddy/">AgriBuddy</a> — an AI-powered agentic support system delivering
+      personalised, real-time agricultural guidance to farmers in Bangladesh via a Bangla-language
+      chatbot combining a RAG framework, vision models and a modular agent design.
+      Teammates: <a href="https://www.linkedin.com/in/tontus/" rel="noopener">MD. Shaleh Islam Tonmoy</a>,
+      <a href="https://www.linkedin.com/in/tanmoy-shome/" rel="noopener">Tanmoy Shome</a>,
+      <a href="https://www.linkedin.com/in/rawhatur-rabbi-rafin/" rel="noopener">Rawhatur Rabbi</a> and
+      <a href="https://www.linkedin.com/in/ruwad-naswan-612673245/" rel="noopener">Ruwad Naswan</a>.
+      A big shoutout to <a href="https://scholar.google.com/citations?user=2DhrWFgAAAAJ&amp;hl=en" rel="noopener">Dr. Swakkhar Shatabda</a>
+      — this project wouldn't have taken shape without his initial push.
+    images:
+      - src: "pic_1.jpg"
+        alt: "AI Hackathon team photo"
+      - src: "ss.PNG"
+        alt: "AI Hackathon presentation"
+      - src: "ht3.jpg"
+        alt: "AI Hackathon award ceremony"
+      - src: "ht4.jpg"
+        alt: "AI Hackathon team discussion"
+      - src: "ht5.jpg"
+        alt: "AI Hackathon project demo"
+      - src: "ht6.jpg"
+        alt: "AI Hackathon final results"
+
+  # No photos for this one — `images:` omitted on purpose.
+  - role: "Contributed to a Google Project"
+    org: "Google"
+    date: "December 2023"
+    description: >
+      Google approached Bengali.AI's founder
+      <a href="https://www.linkedin.com/in/ahmed-imtiaz-prio/" rel="noopener">Ahmed Imtiaz Humayun</a>
+      about a collaboration on a research project concerning Bengali. A small team was formed and I was
+      one of the selected members; we wrapped the project within a few months and submitted the work to Google.
+
+  - role: "Invitee — Google Foo Bar Challenge"
+    org: "Google"
+    date: "July 2023"
+    description: >
+      While coding for a research project in 2023, I googled the Lambda function syntax and unexpectedly
+      got invited to Google's Foo Bar Challenge — an invitation-only recruitment program for Google career
+      opportunities, events and programs. The program was shut down in April 2024.
+    images:
+      - src: "foo1.jpg"
+        alt: "Google Foo Bar Challenge invitation"
+      - src: "foo2.jpg"
+        alt: "Google Foo Bar Challenge terminal"
+
+  - role: "Winner — Photography Contest, \"All about Green\""
+    org: "Fotoboss"
+    date: "July 2023"
+    description: >
+      Won the photography contest themed "All about Green".
+    images:
+      - src: "winp1.jpg"
+        alt: "Winning photograph"
+      - src: "winp2.jpg"
+        alt: "Contest result announcement"
+
+honours:
+  - role: "Recognition from the Ministry of Foreign Affairs, Bangladesh"
+    org: "Ministry of Foreign Affairs, Bangladesh"
+    date: "June 2023"
+    description: >
+      Invited to talk about multiple open-source linguistic project initiatives and to represent
+      Bengali.AI to the Ministry of Foreign Affairs of Bangladesh.
+    images:
+      - src: "rec1.jpg"
+        alt: "At the Ministry of Foreign Affairs"
+      - src: "rec2.jpg"
+        alt: "At the Ministry of Foreign Affairs"
+
+  - role: "100% Merit-Based Scholarship Waiver — Summer 2022"
+    org: "BRAC University"
+    date: "April 2022"
+    description: >
+      Received a 100% tuition fee waiver as a merit scholarship based on academic results
+      (CGPA 4.00/4.00) up to the Summer 2022 semester.
+    images:
+      - src: "placeholder.svg"
+        alt: "Summer 2022 scholarship letter"
+
+  - role: "100% Merit-Based Scholarship Waiver — Spring 2022"
+    org: "BRAC University"
+    date: "January 2022"
+    description: >
+      Received a 100% tuition fee waiver as a merit scholarship based on academic results
+      (CGPA 4.00/4.00) up to the Spring 2022 semester.
+    images:
+      - src: "placeholder.svg"
+        alt: "Spring 2022 scholarship letter"
+
+  - role: "Vice Chancellor's List"
+    org: "BRAC University"
+    date: "April 2020"
+    description: >
+      Named to the Vice Chancellor's list for achieving a GPA of 4.00 out of 4.00 across 18 credits
+      in the Spring 2020 semester.
+    images:
+      - src: "placeholder.svg"
+        alt: "Vice Chancellor's List certificate"

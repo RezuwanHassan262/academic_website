@@ -1,0 +1,43 @@
+---
+layout: single
+title: "Interests & Hobbies"
+permalink: /interests/
+author_profile: true
+toc: true
+toc_label: "On this page"
+---
+
+{% include base_path %}
+
+<h2 id="research-interests">Research Interests</h2>
+<p class="page__lead">The topics that make me excited to explore, test ideas, and chase answers.</p>
+
+{% include research-interests.html %}
+
+<h2 id="hobbies">Hobbies</h2>
+<p class="page__lead">Apart from work and studies, I have a lot of hobbies &mdash; the things
+I enjoy and the interests I pursue in my free time.</p>
+
+<ul class="icon-grid">
+  {% for item in site.data.hobbies %}
+  <li class="icon-card" style="border-left-color: {{ item.color }};">
+    <img class="icon-card__img" src="{{ item.icon }}" alt="" loading="lazy">
+    <span class="icon-card__body">
+      <span class="icon-card__title">{{ item.title }}</span>
+      <span class="icon-card__desc">{{ item.description }}</span>
+    </span>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2 id="other-platforms">Find Me on Other Platforms</h2>
+
+<ul class="platform-links">
+  <li><a class="platform-link" href="https://open.spotify.com/user/0efb57bct29kilrcjvkw9jnjk" rel="noopener"><i class="fab fa-spotify" aria-hidden="true"></i> Spotify</a></li>
+  <li><a class="platform-link" href="https://soundcloud.com/listener-rezwan-9" rel="noopener"><i class="fab fa-soundcloud" aria-hidden="true"></i> SoundCloud</a></li>
+  <li><a class="platform-link" href="https://www.flickr.com/photos/139437500@N06/page1" rel="noopener"><i class="fab fa-flickr" aria-hidden="true"></i> Flickr</a></li>
+  <li><a class="platform-link" href="https://www.deviantart.com/noobdoodlerrazor" rel="noopener"><i class="fab fa-deviantart" aria-hidden="true"></i> DeviantArt</a></li>
+  <li><a class="platform-link" href="https://www.imdb.com/user/ur62837581/" rel="noopener"><i class="fab fa-imdb" aria-hidden="true"></i> IMDb</a></li>
+  <li><a class="platform-link" href="https://medium.com/@rezwanhasan626" rel="noopener"><i class="fab fa-medium" aria-hidden="true"></i> Medium</a></li>
+  <li><a class="platform-link" href="https://public.tableau.com/app/profile/md.reuzwan.hassan" rel="noopener"><i class="fas fa-chart-bar" aria-hidden="true"></i> Tableau Public</a></li>
+</ul>

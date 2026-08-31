@@ -1,0 +1,19 @@
+# Ongoing research threads, rendered at the end of _pages/publications.html.
+# Add `link:` to any entry once there is something public to point at.
+- title: "Regional Speech-to-Text"
+  description: "Automatic speech recognition across Bengali regional dialects"
+
+- title: "Indigenous Speech-to-Text"
+  description: "Speech corpora and ASR for indigenous languages of Bangladesh"
+
+- title: "Dialect to IPA Transcription"
+  description: "Mapping regional Bengali speech and text to a consistent IPA standard"
+
+- title: "Regional Transliteration Project"
+  description: "Transliteration and standardisation across Bengali dialect varieties"
+
+- title: "Word Sense Disambiguation Dictionary"
+  description: "A sense-annotated lexical resource for Bengali"
+
+- title: "Text to IPA Conversion"
+  description: "Grapheme-to-phoneme conversion for Bengali text"

@@ -1,0 +1,37 @@
+{% comment %}
+  LinkedIn recommendations, from _data/testimonials.yml.
+  Every card (and the section footer) links to the live recommendations page.
+{% endcomment %}
+
+{% include base_path %}
+{% assign t = site.data.testimonials %}
+
+<div class="testimonial-grid">
+  {% for p in t.people %}
+  <figure class="testimonial">
+    <header class="testimonial__head">
+      <img class="testimonial__avatar no-lightbox" src="{{ base_path }}/images/{{ p.avatar }}" alt="{{ p.name }}" loading="lazy">
+      <span class="testimonial__who">
+        <a class="testimonial__name" href="{{ t.link }}" target="_blank" rel="noopener">{{ p.name }}</a>
+        <span class="testimonial__title">{{ p.title }}</span>
+        <span class="testimonial__meta">{{ p.relation }} &middot; {{ p.date }}</span>
+      </span>
+      {% if p.screenshot %}
+        <img class="testimonial__shot" src="{{ base_path }}/images/{{ p.screenshot }}" alt="LinkedIn recommendation from {{ p.name }}" loading="lazy">
+      {% endif %}
+    </header>
+    <blockquote class="testimonial__quote">{{ p.quote }}</blockquote>
+    <figcaption class="testimonial__more">
+      <a href="{{ t.link }}" target="_blank" rel="noopener">
+        {% if p.truncated %}Read the full recommendation{% else %}View on LinkedIn{% endif %} &rarr;
+      </a>
+    </figcaption>
+  </figure>
+  {% endfor %}
+</div>
+
+<p class="testimonial-all">
+  <a href="{{ t.link }}" target="_blank" rel="noopener">
+    <i class="fab fa-linkedin" aria-hidden="true"></i> All recommendations on LinkedIn &rarr;
+  </a>
+</p>

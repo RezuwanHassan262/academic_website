@@ -1,0 +1,49 @@
+# Research interests, rendered by _includes/research-interests.html.
+#
+# Single source of truth: the About page, the Publications page and the
+# Interests page all read this list, so order and wording stay in sync.
+# The first entries are the ones shown when a page asks for a short snippet.
+- title: "Systems Engineering"
+  description: "Model-based systems engineering, requirements modelling and safety-critical design"
+  color: "#20BEFF"
+  icon: "https://cdn-icons-png.flaticon.com/512/1055/1055646.png"
+
+- title: "Computational Cognitive Science"
+  description: "Understanding human cognition through computational models and AI"
+  color: "#ffbb2c"
+  icon: "https://cdn-icons-png.flaticon.com/512/1610/1610171.png"
+
+- title: "Human-Computer Interaction"
+  description: "Designing intuitive interfaces and user experiences"
+  color: "#5578ff"
+  icon: "https://cdn-icons-png.flaticon.com/512/1828/1828778.png"
+
+- title: "Computational Social Science"
+  description: "Understanding social behaviour through computational models"
+  color: "#e80368"
+  icon: "https://cdn-icons-png.flaticon.com/512/2103/2103633.png"
+
+- title: "Natural Language Processing"
+  description: "Enabling machines to understand and respond to human language"
+  color: "#33fd70"
+  icon: "https://cdn-icons-png.flaticon.com/512/9831/9831356.png"
+
+- title: "Generative AI"
+  description: "Creating new content and ideas through AI"
+  color: "#9e13ee"
+  icon: "https://cdn-icons-png.flaticon.com/512/8618/8618881.png"
+
+- title: "Federated Learning"
+  description: "Distributed machine learning with privacy preservation"
+  color: "#d3c015"
+  icon: "https://cdn-icons-png.flaticon.com/512/2103/2103658.png"
+
+- title: "Reinforcement Learning"
+  description: "AI agents learning through interaction and feedback"
+  color: "#ffa76e"
+  icon: "https://cdn-icons-png.flaticon.com/512/9304/9304481.png"
+
+- title: "Healthcare / Medical AI"
+  description: "AI applications in healthcare and medical diagnosis"
+  color: "#11dbcf"
+  icon: "https://cdn-icons-png.flaticon.com/512/2966/2966327.png"

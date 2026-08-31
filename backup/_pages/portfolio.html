@@ -1,0 +1,41 @@
+---
+layout: archive
+title: "Portfolio"
+permalink: /portfolio/
+author_profile: true
+---
+
+{% include base_path %}
+
+<div style='position: relative; padding-bottom: 80px;'>
+{% if site.portfolio_category %}
+  {% for category in site.portfolio_category  %}
+    {% assign title_shown = false %}
+    {% for post in site.portfolio %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        {% assign title_shown = true %}
+      {% endunless %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% for post in site.portfolio reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+<div class="floating-button-scroll-top"> 
+  <span id='toTopBtn' class="btn--floating-action" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <svg class="svgIcon" viewBox="0 0 384 512">
+      <path
+        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+      ></path>
+    </svg>
+  </span>
+</div>
+
+</div>

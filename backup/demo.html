@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Website TypeScript Demo</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <!-- jQuery plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FitVids.js/1.2.0/jquery.fitvids.min.js"></script>
+    
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    
+    <!-- Leaflet for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .demo-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .header {
+            background: #f0f0f0;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin: 10px 0;
+        }
+        
+        .content {
+            padding: 15px;
+            background: #f9f9f9;
+            display: none;
+        }
+        
+        #map {
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        .image-popup {
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .page__footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        #site-nav {
+            background: #eee;
+            padding: 10px;
+            margin: 20px 0;
+        }
+        
+        .visible-links {
+            display: inline-block;
+        }
+        
+        .hidden-links {
+            display: none;
+        }
+        
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        
+        .demo-controls {
+            margin: 20px 0;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+        }
+        
+        .generated-files {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 3px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Academic Website TypeScript Demo</h1>
+    <p>This page demonstrates the converted TypeScript functionality from the original Jekyll academic website.</p>
+    
+    <div class="demo-section">
+        <h2>1. Collapsible Sections</h2>
+        <p>Click the headers below to expand/collapse content:</p>
+        
+        <div class="header">Expand</div>
+        <div class="content">
+            <p>This content can be expanded and collapsed. The header text changes between "Expand" and "Collapse".</p>
+        </div>
+        
+        <div class="header">Expand</div>
+        <div class="content">
+            <p>Another collapsible section with different content.</p>
+        </div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>2. Image Lightbox</h2>
+        <p>Click on these images to open them in a lightbox:</p>
+        
+        <a href="https://via.placeholder.com/800x600/ff0000/ffffff?text=Image+1" class="image-popup">
+            <img src="https://via.placeholder.com/200x150/ff0000/ffffff?text=Image+1" alt="Demo Image 1">
+        </a>
+        
+        <a href="https://via.placeholder.com/800x600/00ff00/ffffff?text=Image+2" class="image-popup">
+            <img src="https://via.placeholder.com/200x150/00ff00/ffffff?text=Image+2" alt="Demo Image 2">
+        </a>
+        
+        <a href="https://via.placeholder.com/800x600/0000ff/ffffff?text=Image+3" class="image-popup">
+            <img src="https://via.placeholder.com/200x150/0000ff/ffffff?text=Image+3" alt="Demo Image 3">
+        </a>
+    </div>
+    
+    <div class="demo-section">
+        <h2>3. Publications Generator</h2>
+        <p>Test the publications TSV to markdown converter:</p>
+        
+        <label for="pubTsv">Publications TSV Data:</label>
+        <textarea id="pubTsv" placeholder="Paste TSV data here...">pub_date	title	venue	excerpt	citation	site_url	paper_url	url_slug
+2024-01-01	Sample Publication	Sample Conference	This is a sample publication for demonstration.	Author, A. (2024). Sample Publication. Sample Conference.	https://example.com	https://example.com/paper.pdf	sample-publication
+2023-12-15	Another Paper	Journal Name	Another example publication.	Author, A. (2023). Another Paper. Journal Name.	https://example.com	https://example.com/paper2.pdf	another-paper</textarea>
+        
+        <div class="demo-controls">
+            <button onclick="generatePublications()">Generate Publications</button>
+            <button onclick="downloadPublications()">Download Generated Files</button>
+        </div>
+        
+        <div id="pubOutput" class="generated-files" style="display: none;"></div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>4. Talks Generator</h2>
+        <p>Test the talks TSV to markdown converter:</p>
+        
+        <label for="talkTsv">Talks TSV Data:</label>
+        <textarea id="talkTsv" placeholder="Paste TSV data here...">title	type	url_slug	venue	date	location	talk_url	description
+Sample Talk	Conference talk	sample-talk	Demo Conference	2024-01-15	New York, NY	https://example.com/talk	This is a sample talk for demonstration purposes.
+Workshop Session	Workshop	workshop-session	Tech Workshop	2023-11-20	San Francisco, CA	https://example.com/workshop	An interactive workshop session.</textarea>
+        
+        <div class="demo-controls">
+            <button onclick="generateTalks()">Generate Talks</button>
+            <button onclick="downloadTalks()">Download Generated Files</button>
+        </div>
+        
+        <div id="talkOutput" class="generated-files" style="display: none;"></div>
+    </div>
+    
+    <div class="demo-section">
+        <h2>5. Interactive Map</h2>
+        <p>Map showing sample locations (using the converted talkmap functionality):</p>
+        
+        <div id="map"></div>
+        
+        <div class="demo-controls">
+            <button onclick="generateMapData()">Generate Map Data</button>
+        </div>
+    </div>
+    
+    <!-- Navigation demo (would be in header in real site) -->
+    <nav id="site-nav">
+        <ul class="visible-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#talks">Talks</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="hidden-links"></ul>
+        <button class="hidden">Menu</button>
+    </nav>
+    
+    <!-- Footer for sticky footer demo -->
+    <footer class="page__footer">
+        <p>This is the footer used for the sticky footer functionality demonstration.</p>
+    </footer>
+    
+    <!-- Compiled TypeScript would go here -->
+    <script>
+        // Since we don't have compiled TypeScript yet, here's a simplified JavaScript version
+        // that demonstrates the functionality
+        
+        let generatedPubFiles = [];
+        let generatedTalkFiles = [];
+        
+        // Initialize demo functionality
+        $(document).ready(function() {
+            console.log('Demo page loaded');
+            
+            // Initialize map
+            initializeMap();
+            
+            // Make fitvids available globally
+            window.fitvids = function() {
+                $('body').fitVids();
+            };
+        });
+        
+        function generatePublications() {
+            const tsvData = document.getElementById('pubTsv').value;
+            const output = document.getElementById('pubOutput');
+            
+            // Simple TSV parsing (simplified version of the TypeScript implementation)
+            const lines = tsvData.trim().split('\n');
+            const headers = lines[0].split('\t');
+            const files = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split('\t');
+                const row = {};
+                headers.forEach((header, index) => {
+                    row[header] = values[index] || '';
+                });
+                
+                const filename = `${row.pub_date}-${row.url_slug}.md`;
+                let content = `---\ntitle: "${row.title}"\n`;
+                content += `collection: publications\n`;
+                content += `permalink: /publication/${row.pub_date}-${row.url_slug}\n`;
+                if (row.excerpt) content += `excerpt: '${row.excerpt}'\n`;
+                content += `date: ${row.pub_date}\n`;
+                content += `venue: '${row.venue}'\n`;
+                if (row.paper_url) content += `paperurl: '${row.paper_url}'\n`;
+                content += `citation: '${row.citation}'\n`;
+                content += `---\n\n`;
+                if (row.paper_url) content += `[Download paper here](${row.paper_url})\n\n`;
+                if (row.excerpt) content += `${row.excerpt}\n\n`;
+                content += `Recommended citation: ${row.citation}`;
+                
+                files.push({ filename, content });
+            }
+            
+            generatedPubFiles = files;
+            
+            output.innerHTML = `<h4>Generated ${files.length} files:</h4>` + 
+                files.map(f => `<strong>${f.filename}</strong><br><pre>${f.content.substring(0, 200)}...</pre>`).join('<br>');
+            output.style.display = 'block';
+        }
+        
+        function generateTalks() {
+            const tsvData = document.getElementById('talkTsv').value;
+            const output = document.getElementById('talkOutput');
+            
+            // Simple TSV parsing (simplified version of the TypeScript implementation)
+            const lines = tsvData.trim().split('\n');
+            const headers = lines[0].split('\t');
+            const files = [];
+            
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split('\t');
+                const row = {};
+                headers.forEach((header, index) => {
+                    row[header] = values[index] || '';
+                });
+                
+                const filename = `${row.date}-${row.url_slug}.md`;
+                let content = `---\ntitle: "${row.title}"\n`;
+                content += `collection: talks\n`;
+                content += `type: "${row.type || 'Talk'}"\n`;
+                content += `permalink: /talks/${row.date}-${row.url_slug}\n`;
+                if (row.venue) content += `venue: "${row.venue}"\n`;
+                content += `date: ${row.date}\n`;
+                if (row.location) content += `location: "${row.location}"\n`;
+                content += `---\n\n`;
+                if (row.talk_url) content += `[More information here](${row.talk_url})\n\n`;
+                if (row.description) content += `${row.description}`;
+                
+                files.push({ filename, content });
+            }
+            
+            generatedTalkFiles = files;
+            
+            output.innerHTML = `<h4>Generated ${files.length} files:</h4>` + 
+                files.map(f => `<strong>${f.filename}</strong><br><pre>${f.content.substring(0, 200)}...</pre>`).join('<br>');
+            output.style.display = 'block';
+        }
+        
+        function downloadPublications() {
+            generatedPubFiles.forEach(file => {
+                downloadFile(file.content, file.filename);
+            });
+        }
+        
+        function downloadTalks() {
+            generatedTalkFiles.forEach(file => {
+                downloadFile(file.content, file.filename);
+            });
+        }
+        
+        function downloadFile(content, filename) {
+            const blob = new Blob([content], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        function initializeMap() {
+            const map = L.map('map').setView([40.0, -100.0], 4);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Sample locations
+            const addressPoints = [
+                ["New York, NY", 40.7128, -74.0060],
+                ["San Francisco, CA", 37.7749, -122.4194],
+                ["Berkeley, CA", 37.8708, -122.2728],
+                ["London, UK", 51.5074, -0.1278]
+            ];
+            
+            const markers = L.markerClusterGroup ? L.markerClusterGroup() : L.layerGroup();
+            
+            addressPoints.forEach(point => {
+                const marker = L.marker([point[1], point[2]], { title: point[0] });
+                marker.bindPopup(point[0]);
+                markers.addLayer(marker);
+            });
+            
+            map.addLayer(markers);
+        }
+        
+        function generateMapData() {
+            alert('Map data generated! This would create org-locations.js and map.html files in a real implementation.');
+        }
+    </script>
+</body>
+</html>

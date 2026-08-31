@@ -1,0 +1,27 @@
+{% comment %}
+  Photo strip for an event / entry.
+
+  Usage:  {% include gallery-strip.html images=entry.images %}
+          {% include gallery-strip.html images=page.gallery %}
+
+  `images` is a list of { src, alt }. `src` is either a bare filename inside
+  /images/ or a full https:// URL. Renders nothing at all when the list is
+  missing or empty, so entries without photos stay clean.
+{% endcomment %}
+
+{% if include.images and include.images.size > 0 %}
+  {% include base_path %}
+  <div class="gallery-strip" role="group" aria-label="Photos">
+    {% for image in include.images %}
+      {% if image.src contains "://" %}
+        {% assign img_src = image.src %}
+      {% else %}
+        {% assign img_src = image.src | prepend: "/images/" | prepend: base_path %}
+      {% endif %}
+      <figure class="gallery-strip__item{% if image.src == 'placeholder.svg' %} gallery-strip__item--placeholder{% endif %}{% if image.kind == 'logo' %} gallery-strip__item--logo{% endif %}">
+        <img src="{{ img_src }}" alt="{{ image.alt | default: '' }}" loading="lazy">
+        {% if image.caption %}<figcaption>{{ image.caption }}</figcaption>{% endif %}
+      </figure>
+    {% endfor %}
+  </div>
+{% endif %}

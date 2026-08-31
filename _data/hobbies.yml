@@ -1,0 +1,61 @@
+# Hobbies, rendered by the Interests page via the same card markup as
+# _data/research_interests.yml.
+- title: "Music"
+  description: "Enjoying and exploring various genres and artists — both playing and listening"
+  color: "#ff6b6b"
+  icon: "https://cdn-icons-png.flaticon.com/512/3659/3659784.png"
+
+- title: "Songwriting"
+  description: "Composing lyrics and melodies as a creative outlet — both writing and analysing"
+  color: "#4ecdc4"
+  icon: "https://cdn-icons-png.flaticon.com/512/2907/2907253.png"
+
+- title: "Workout"
+  description: "Maintaining fitness and strength through regular workouts"
+  color: "#6a0572"
+  icon: "https://cdn-icons-png.flaticon.com/512/2936/2936886.png"
+
+- title: "Sketching"
+  description: "Drawing portraits, landscapes and conceptual art"
+  color: "#45b7d1"
+  icon: "https://cdn-icons-png.flaticon.com/512/1547/1547093.png"
+
+- title: "Photography"
+  description: "Capturing moments and exploring visual storytelling"
+  color: "#f8a055"
+  icon: "https://cdn-icons-png.flaticon.com/512/1042/1042390.png"
+
+- title: "Writing"
+  description: "Expressing ideas through creative and technical writing"
+  color: "#f67280"
+  icon: "https://cdn-icons-png.flaticon.com/512/2593/2593482.png"
+
+- title: "Movies"
+  description: "Watching and analysing films across different genres"
+  color: "#8675a9"
+  icon: "https://cdn-icons-png.flaticon.com/512/3418/3418886.png"
+
+- title: "Reading"
+  description: "Exploring literature, fiction and non-fiction"
+  color: "#88d498"
+  icon: "https://cdn-icons-png.flaticon.com/512/2436/2436882.png"
+
+- title: "Cycling"
+  description: "Exploring scenic routes and staying active on two wheels"
+  color: "#c06c84"
+  icon: "https://cdn-icons-png.flaticon.com/512/6669/6669767.png"
+
+- title: "Basketball"
+  description: "The only sport I find a spiritual connection with"
+  color: "#ff7f50"
+  icon: "https://cdn-icons-png.flaticon.com/512/2633/2633966.png"
+
+- title: "Swimming"
+  description: "Swimming for cardiovascular fitness and relaxation"
+  color: "#20b2aa"
+  icon: "https://cdn-icons-png.flaticon.com/512/9896/9896650.png"
+
+- title: "Martial Arts"
+  description: "Practising basic MMA moves for self-defence and mental focus"
+  color: "#dc143c"
+  icon: "https://cdn-icons-png.flaticon.com/512/921/921675.png"

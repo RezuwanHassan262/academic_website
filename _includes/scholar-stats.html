@@ -1,0 +1,39 @@
+{% comment %}
+  Google Scholar metrics card.
+  Data lives in _data/scholar.yml so it can be refreshed by a scheduled job
+  without touching any page markup. Renders nothing if the data file is absent.
+{% endcomment %}
+
+{% assign s = site.data.scholar %}
+{% if s %}
+<div class="scholar-stats">
+  <div class="scholar-stats__header">
+    <h3 class="scholar-stats__title">
+      <i class="ai ai-google-scholar" aria-hidden="true"></i> Google Scholar Metrics
+    </h3>
+    <a class="scholar-stats__link" href="{{ s.profile_url }}" rel="noopener">View full profile &rarr;</a>
+  </div>
+
+  <div class="scholar-stats__grid">
+    <div class="scholar-stat">
+      <span class="scholar-stat__value">{{ s.citations }}</span>
+      <span class="scholar-stat__label">Citations</span>
+      <span class="scholar-stat__sub">{{ s.citations_since }} since {{ s.since_year }}</span>
+    </div>
+    <div class="scholar-stat">
+      <span class="scholar-stat__value">{{ s.h_index }}</span>
+      <span class="scholar-stat__label">h-index</span>
+      <span class="scholar-stat__sub">{{ s.h_index_since }} since {{ s.since_year }}</span>
+    </div>
+    <div class="scholar-stat">
+      <span class="scholar-stat__value">{{ s.i10_index }}</span>
+      <span class="scholar-stat__label">i10-index</span>
+      <span class="scholar-stat__sub">{{ s.i10_index_since }} since {{ s.since_year }}</span>
+    </div>
+  </div>
+
+  <p class="scholar-stats__note">
+    {{ s.note }}{% if s.last_updated %} Last updated {{ s.last_updated | date: "%B %-d, %Y" }}.{% endif %}
+  </p>
+</div>
+{% endif %}

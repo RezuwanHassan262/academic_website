@@ -1,0 +1,19 @@
+{% comment %}
+  Renders a list of service / award / volunteering entries loaded from _data/.
+
+  Usage:  {% include service-entries.html entries=site.data.awards.achievements %}
+
+  Each entry: { role, org, date, description, images? }
+  `description` may contain inline HTML; `images` is optional (see gallery-strip.html).
+{% endcomment %}
+
+<ul class="service-list">
+  {% for entry in include.entries %}
+  <li>
+    <span class="service-list__role">{{ entry.role }}</span>
+    <span class="service-list__org">{{ entry.org }}{% if entry.date %}<span class="service-list__date">{{ entry.date }}</span>{% endif %}</span>
+    <p>{{ entry.description }}</p>
+    {% include gallery-strip.html images=entry.images %}
+  </li>
+  {% endfor %}
+</ul>

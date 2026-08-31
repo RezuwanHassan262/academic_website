@@ -1,0 +1,13 @@
+{% comment %}
+  Ongoing research threads, from _data/ongoing_research.yml.
+  Add `link:` to an entry once there is something public to point at.
+{% endcomment %}
+
+<ul class="ongoing-list">
+  {% for item in site.data.ongoing_research %}
+  <li class="ongoing-item">
+    <span class="ongoing-item__title">{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</span>
+    <span class="ongoing-item__desc">{{ item.description }}</span>
+  </li>
+  {% endfor %}
+</ul>

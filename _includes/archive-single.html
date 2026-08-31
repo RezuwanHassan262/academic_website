@@ -1,0 +1,131 @@
+{% include base_path %}
+
+{% if post.header.teaser %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+{% endif %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<div class="{{ include.type | default: "list" }}__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if post.collection == 'publications' and teaser %}
+      <div class="publication-figure">
+        <img src=
+          {% if teaser contains "://" %}
+            "{{ teaser }}"
+          {% else %}
+            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+          {% endif %}
+          alt="{{ post.header.teaser_alt | default: post.title }}" loading="lazy">
+      </div>
+    {% endif %}
+
+    {% if include.type == "grid" and teaser %}
+      <div class="archive__item-teaser">
+        <img src=
+          {% if teaser contains "://" %}
+            "{{ teaser }}"
+          {% else %}
+            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+          {% endif %}
+          alt="">
+      </div>
+    {% endif %}
+
+    <h2 class="archive__item-title" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h2>
+    
+    {% if post.read_time %}
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+    {% endif %}
+
+        {% if post.collection == 'teaching' %}
+          <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif post.collection == 'publications' %}
+          <div class="publication-authors">
+            {{ post.authors | markdownify | remove: "<p>" | remove: "</p>" }}
+            <br />
+            Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}
+          </div>
+        {% elsif post.collection == 'portfolio' and post.description %}
+          <div> {{ post.description | markdownify | remove: "<p>" | remove: "</p>" }} </div>
+        {% elsif post.date %}
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+
+    {% if post.excerpt and site.read_more != 'enabled' %}
+    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+    {% elsif post.excerpt and site.read_more == 'enabled' %}
+    <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+    {% endif %}
+
+    
+    {% if post.citation %}
+    <code>Recommended citation: {{ post.citation }}</code>
+    {% endif %}
+    
+    <div style='display: flex; flex-wrap: wrap; gap: 10px;'>
+      {% assign paper_link = post.paperurl | default: post.paper %}
+      {% assign code_link  = post.projecturl | default: post.github %}
+      {% assign demo_link  = post.demourl | default: post.demo | default: post.live %}
+      {% assign slides_link = post.slidesurl | default: post.slides %}
+      {% assign poster_link = post.posterurl | default: post.poster %}
+      {% assign video_link  = post.videourl | default: post.video %}
+      {% if paper_link %}
+      <a href="{{ paper_link }}" class="btn btn--inverse" style="text-decoration: none;">
+        <i class="fa-regular fa-file"></i> Paper
+      </a>
+      {% endif %}  
+    
+      {% if slides_link %}
+      <a href="{{ slides_link }}" class="btn btn--inverse" style="text-decoration: none;">
+        <i class="fa-regular fa-file-powerpoint"></i> Slides
+      </a>
+      {% endif %}  
+    
+      {% if poster_link %}
+      <a href="{{ poster_link }}" class="btn btn--inverse" style="text-decoration: none;">
+        <i class="fa-regular fa-image"></i> Poster
+      </a>
+      {% endif %}  
+    
+      {% if video_link %}
+      <a href="{{ video_link }}" class="btn btn--inverse" style="text-decoration: none;">
+        <i class="fa-brands fa-youtube"></i> Video
+      </a>
+      {% endif %}  
+    
+      {% if code_link %}
+      <a href="{{ code_link }}" class="btn btn--inverse" style="text-decoration: none;">
+        <i class="fa-solid fa-code"></i> Code
+      </a>
+      {% endif %}  
+    
+      {% if demo_link %}
+      <a href="{{ demo_link }}" class="btn btn--inverse" style="text-decoration: none;">
+        <i class="fas fa-play-circle"></i> Demo
+      </a>
+      {% endif %}
+    </div>
+
+    {% include gallery-strip.html images=post.gallery %}
+
+    {% if post.tags and post.tags.size > 0 %}
+    <div class="portfolio-tags" style="margin-top: 10px;">
+      {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+
+  </article>
+</div>

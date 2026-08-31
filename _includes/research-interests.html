@@ -1,0 +1,25 @@
+{% comment %}
+  Research interests grid, read from _data/research_interests.yml so the About,
+  Publications and Interests pages never drift apart.
+
+  Usage:  {% include research-interests.html %}
+          {% include research-interests.html limit=6 %}
+{% endcomment %}
+
+{% if include.limit %}
+  {% assign interests = site.data.research_interests | slice: 0, include.limit %}
+{% else %}
+  {% assign interests = site.data.research_interests %}
+{% endif %}
+
+<ul class="icon-grid">
+  {% for item in interests %}
+  <li class="icon-card" style="border-left-color: {{ item.color }};">
+    <img class="icon-card__img" src="{{ item.icon }}" alt="" loading="lazy">
+    <span class="icon-card__body">
+      <span class="icon-card__title">{{ item.title }}</span>
+      <span class="icon-card__desc">{{ item.description }}</span>
+    </span>
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,35 @@
+# The following is the order of the links in the header of the website.
+#
+# Changing the order here will adjust the order and you can also add additional
+# links. Removing a link prevents it from showing in the header, but does not
+# prevent it from being included in the site.
+
+main:
+  - title: "Publications"
+    url: /publications/
+
+  - title: "Projects"
+    url: /projects/
+
+  - title: "Talks"
+    url: /talks/
+
+  - title: "Teaching"
+    url: /teaching/
+
+  - title: "Adjudications"
+    url: /adjudications/
+
+  - title: "Awards"
+    url: /awards/
+
+  - title: "Volunteering"
+    url: /volunteering/
+
+  - title: "Interests"
+    url: /interests/
+
+  # Opens the CV PDF. Single source of truth for the CV link — the About page
+  # rail reads this same entry, so changing the URL here changes it everywhere.
+  - title: "CV"
+    url: https://github.com/RezuwanHassan262/academic_website/files/Md_Rezuwan_Hassan_CV.pdf

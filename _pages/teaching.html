@@ -1,0 +1,16 @@
+---
+layout: archive
+title: "Teaching"
+permalink: /teaching/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p class="page__lead">Courses I designed and delivered, students I supervised, and the
+people I taught to write their first line of Python.</p>
+
+{% assign ordered_teaching = site.teaching | sort: 'date' | reverse %}
+{% for post in ordered_teaching %}
+  {% include archive-single.html %}
+{% endfor %}

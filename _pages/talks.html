@@ -1,0 +1,21 @@
+---
+layout: archive
+title: "Talks & Workshops"
+permalink: /talks/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p class="page__lead">Invited talks, panel discussions, webinars and hands-on workshops &mdash;
+mostly on Bangla NLP, speech recognition for regional dialects, and putting AI to work
+in non-technical everyday workflows.</p>
+
+{% assign ordered_talks = site.talks | sort: 'date' | reverse %}
+{% for post in ordered_talks %}
+  {% include archive-single-talk.html %}
+{% endfor %}
+
+{% if site.talkmap_link == true %}
+  <p><a href="{{ base_path }}/talkmap/">See a map of all the places I have given a talk!</a></p>
+{% endif %}

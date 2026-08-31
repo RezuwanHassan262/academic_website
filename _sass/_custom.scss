@@ -1,0 +1,1391 @@
+.about_card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #EEEEEE;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); // Subtle drop shadow
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); // Enhanced shadow on hover
+  }
+
+  &__logo {
+    margin: 0 25px;
+    width: 80px;
+    height: 80px;
+  }
+
+  &__content {
+    &__title {
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    &__subtitle {
+      font-style: italic;
+      color: #555;
+    }
+
+    &__date,
+    &__achievement {
+      display: block;
+      margin-top: 5px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    &__details {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.4;
+      text-align: justify;
+      text-justify: inter-word;
+      padding-right: 30px;
+    }
+  }
+}
+
+.skills_item {
+  border-left: 4px solid #d3d3d3;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  background-color: #fff; // White background for each item
+  padding: 15px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Light shadow on hover
+  }
+
+  strong {
+    font-size: 1.1em;
+    color: #333;
+  }
+
+  span {
+    font-size: 0.95em;
+    color: #666;
+  }
+}
+/* ==========================================================================
+   Migration additions — Google Scholar metrics, interest/hobby grids,
+   external-platform chips and adjudication cards.
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* --- Google Scholar metrics card ---------------------------------------- */
+.scholar-stats {
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 0 0 2.5rem;
+  background: #fafafa;
+}
+
+.scholar-stats__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.scholar-stats__title {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.scholar-stats__link {
+  font-size: 0.85rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.scholar-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.scholar-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.9rem 0.5rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #ececec;
+}
+
+.scholar-stat__value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #20BEFF;
+}
+
+.scholar-stat__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.scholar-stat__sub {
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 0.15rem;
+}
+
+.scholar-stats__note {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #777;
+}
+
+/* --- Research interests / hobbies icon grid ----------------------------- */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid #e6e6e6;
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: #fff;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.icon-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.09);
+  transform: translateY(-2px);
+}
+
+.icon-card__img {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f4f4f4;
+  padding: 4px;
+}
+
+.icon-card__body {
+  min-width: 0;
+}
+
+.icon-card__title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.3;
+  margin-bottom: 0.2rem;
+}
+
+.icon-card__desc {
+  display: block;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #666;
+}
+
+/* --- External platform chips -------------------------------------------- */
+.platform-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.platform-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  text-decoration: none;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.platform-link:hover {
+  border-color: #20BEFF;
+  box-shadow: 0 2px 8px rgba(32, 190, 255, 0.18);
+}
+
+.platform-link img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* --- Service / adjudication entries ------------------------------------- */
+.service-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+}
+
+.service-list > li {
+  padding: 1rem 0 1rem 1.1rem;
+  border-left: 3px solid #20BEFF;
+  margin-bottom: 1rem;
+  background: #fbfbfb;
+  border-radius: 0 8px 8px 0;
+}
+
+.service-list__role {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.service-list__org {
+  display: block;
+  font-size: 0.88rem;
+  color: #555;
+  margin: 0.15rem 0 0.5rem;
+}
+
+.service-list__org .service-list__date::before {
+  content: " \00b7  ";
+}
+
+.service-list p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* --- Dark theme ---------------------------------------------------------- */
+[data-theme="dark"] .scholar-stats,
+[data-theme="dark"] .service-list > li {
+  background: #1e1e1e;
+  border-color: #333;
+}
+
+[data-theme="dark"] .scholar-stat,
+[data-theme="dark"] .icon-card,
+[data-theme="dark"] .platform-link {
+  background: #252525;
+  border-color: #383838;
+}
+
+[data-theme="dark"] .scholar-stat__sub,
+[data-theme="dark"] .scholar-stats__note,
+[data-theme="dark"] .icon-card__desc,
+[data-theme="dark"] .service-list__org {
+  color: #a9a9a9;
+}
+
+[data-theme="dark"] .icon-card__img {
+  background: #333;
+}
+
+/* ==========================================================================
+   Round 2 fixes
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* --- Author-name highlight in publication/author lists ------------------- */
+:root { --author-highlight: #c2410c; }
+[data-theme="dark"] { --author-highlight: #ffa657; }
+
+.publication-authors strong,
+.publication-authors b,
+.about_card__content__details strong,
+[data-theme="dark"] .publication-authors strong,
+[data-theme="dark"] .publication-authors b,
+[data-theme="dark"] .about_card__content__details strong {
+  color: var(--author-highlight);
+  font-weight: 700;
+}
+
+/* --- 1a. Site title must never wrap onto a second line ------------------- */
+.nav-container {
+  gap: 1em;
+  /* keeps nav links clear of the fixed theme-toggle button */
+  padding-right: 5em;
+}
+
+.site-title {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.site-title a {
+  display: block;
+  white-space: nowrap;
+  font-size: clamp(0.95rem, 2.4vw, 1.5rem);
+  line-height: 1.2;
+}
+
+.nav-list {
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75em 1.25em;
+}
+
+/* --- 1b. One line per item in the sidebar bio ---------------------------- */
+.author__bio {
+  margin-bottom: 1.5em;
+}
+
+.author__bio-line {
+  display: block;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.author__bio-line + .author__bio-line {
+  margin-top: 0.35em;
+}
+
+/* --- 2a. Publication type badge no longer overlaps the title ------------- */
+.publication-type {
+  position: static;
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.35;
+}
+
+.publication-content {
+  /* the badge is in normal flow now, so no reserved gutter is needed */
+  padding-right: 0;
+}
+
+/* --- c. Theme toggle must not sit on top of the navbar ------------------- */
+.theme-toggle {
+  top: auto;
+  bottom: 24px;
+  right: 24px;
+  width: 46px;
+  height: 46px;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding-right: 1em;
+  }
+  .nav-list {
+    justify-content: flex-start;
+  }
+  .theme-toggle {
+    bottom: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* --- Photo galleries ----------------------------------------------------- */
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.gallery-strip__item {
+  margin: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.gallery-strip__item img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-strip__item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-strip__item--placeholder {
+  border-style: dashed;
+}
+
+.gallery-strip__item--placeholder img {
+  object-fit: contain;
+  background: #e9edf2;
+}
+
+.gallery-strip__item figcaption {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Keep the portfolio scroll-to-top button clear of the fixed theme toggle. */
+.floating-button-scroll-top {
+  right: 5.5rem;
+}
+
+/* ==========================================================================
+   Round 3
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* --- Wider sidebar so the full name fits on one line --------------------- */
+.sidebar {
+  flex: 0 0 300px;
+  max-width: 300px;
+}
+
+.author__name {
+  white-space: nowrap;
+  font-size: 1.15em;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    flex: none;
+    max-width: none;
+  }
+  .author__name {
+    white-space: normal;
+  }
+}
+
+/* --- On-this-page navigation --------------------------------------------
+   Static build renders `.page-toc` in the left sidebar; the Jekyll `single`
+   layout renders `.sidebar__right`, which is floated left here so both builds
+   put the table of contents on the same side. */
+.sidebar__right {
+  float: left;
+  margin: 0 1.5em 1em 0;
+  max-width: 260px;
+}
+
+.page-toc {
+  margin-top: 1.75em;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+
+.page-toc__title {
+  margin: 0;
+  padding: 0.6em 0.9em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.page-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-toc__list li + li {
+  border-top: 1px solid var(--border-color);
+}
+
+.page-toc__list a {
+  display: block;
+  padding: 0.55em 0.9em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+}
+
+.page-toc__list a:hover,
+.page-toc__list a.is-active {
+  background: var(--hover-bg);
+  border-left-color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* --- Highlights board (About page) --------------------------------------- */
+.highlight-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2rem;
+}
+
+.highlight-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: var(--card-bg);
+}
+
+.highlight-card__title {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.highlight-card__title i {
+  color: var(--accent-color);
+  margin-right: 0.4em;
+}
+
+.highlight-card__list {
+  list-style: none;
+  margin: 0 0 0.85rem;
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+.highlight-card__list li {
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--border-color);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.highlight-card__list li:last-child {
+  border-bottom: 0;
+}
+
+.highlight-card__list strong {
+  display: block;
+  font-weight: 700;
+}
+
+.highlight-card__list span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.highlight-card__strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.highlight-card__strip img {
+  width: 54px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.highlight-card__strip:empty {
+  display: none;
+}
+
+.highlight-card__more {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* --- Ongoing research ---------------------------------------------------- */
+.ongoing-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  margin: 1.25rem 0 2rem;
+  padding: 0;
+}
+
+.ongoing-item {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+  background: var(--card-bg);
+}
+
+.ongoing-item__title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 0.15rem;
+}
+
+.ongoing-item__desc {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* --- Under-review badge -------------------------------------------------- */
+.publication-item[data-category="under_review"] .publication-type {
+  background: #b45309;
+}
+
+/* --- Lightbox ------------------------------------------------------------ */
+img.is-zoomable {
+  cursor: zoom-in;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 3.5rem 1rem 4.5rem;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(2px);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox__stage {
+  margin: 0;
+  max-width: min(1100px, 92vw);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: calc(100vh - 11rem);
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+
+.lightbox__caption {
+  color: #e6e6e6;
+  font-size: 0.85rem;
+  text-align: center;
+  max-width: 70ch;
+}
+
+.lightbox__caption[hidden] {
+  display: none;
+}
+
+.lightbox__close,
+.lightbox__nav {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox__close:hover,
+.lightbox__nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.08);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 42px;
+  height: 42px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.lightbox__nav {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  font-size: 1.2rem;
+}
+
+.lightbox__nav[hidden] {
+  display: none;
+}
+
+.lightbox__counter {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #cfcfcf;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 3.5rem 0.5rem 4rem;
+  }
+  .lightbox__nav {
+    position: absolute;
+    bottom: 1rem;
+  }
+  .lightbox__nav--prev { left: 1rem; }
+  .lightbox__nav--next { right: 1rem; }
+  .lightbox__counter { bottom: 1.9rem; }
+}
+
+/* ==========================================================================
+   Round 4
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* --- 1. "On this page" moves to the right and follows the scroll ---------
+   Static build renders `.toc-rail` as a third flex column; the Jekyll `single`
+   layout renders `.sidebar__right`, which floats right. Both stay sticky. */
+.toc-rail {
+  flex: 0 0 230px;
+  align-self: flex-start;
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.sidebar__right {
+  float: right;
+  margin: 0 0 1em 1.5em;
+  max-width: 240px;
+  position: sticky;
+  top: 100px;
+}
+
+.toc-rail .page-toc {
+  margin-top: 0;
+}
+
+@media (max-width: 1100px) {
+  /* not enough room for three columns — tuck the TOC above the content */
+  .page__inner-wrap {
+    flex-wrap: wrap;
+  }
+  .toc-rail {
+    flex: 1 1 100%;
+    position: static;
+    max-height: none;
+    order: -1;
+  }
+  .toc-rail .page-toc {
+    margin-bottom: 1.5em;
+  }
+  .sidebar__right {
+    float: none;
+    margin: 0 0 1.5em;
+    max-width: none;
+    position: static;
+  }
+}
+
+/* --- 2. Navigation stays on a single line -------------------------------- */
+.nav-container {
+  /* the theme toggle lives at the bottom-right now, so the old right gutter
+     was only costing us the room that made "Interests" wrap */
+  padding-right: 1em;
+  gap: 0.75em;
+}
+
+.site-title a {
+  font-size: clamp(0.85rem, 1.5vw, 1.35rem);
+}
+
+.nav-list {
+  flex-wrap: nowrap;
+  gap: 0;
+  overflow: visible;
+}
+
+.nav-list li {
+  flex: 0 0 auto;
+}
+
+.nav-list a {
+  white-space: nowrap;
+  padding: 0.5em 0.55em;
+  font-size: clamp(0.72rem, 1.02vw, 0.92rem);
+}
+
+@media (max-width: 768px) {
+  /* stacked layout has a full row to itself — wrapping is fine here */
+  .nav-list {
+    flex-wrap: wrap;
+    gap: 0.25em;
+  }
+  .nav-list a {
+    font-size: 0.85rem;
+    padding: 0.4em 0.6em;
+  }
+  .site-title a {
+    font-size: 1.15rem;
+  }
+}
+
+/* --- 3. Bigger highlight thumbnails, two per row ------------------------- */
+.highlight-card__strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.highlight-card__strip img {
+  width: 100%;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.25s ease;
+}
+
+.highlight-card__strip img:hover {
+  transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Round 5
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* --- Download CV entry at the foot of the "On this page" rail ------------- */
+.page-toc__cv a,
+.toc__menu .page-toc__cv a {
+  background: var(--accent-color);
+  color: #fff;
+  border-left-color: transparent;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.page-toc__cv a:hover,
+.toc__menu .page-toc__cv a:hover {
+  background: var(--link-color);
+  color: #fff;
+  border-left-color: transparent;
+}
+
+.page-toc__cv i {
+  margin-right: 0.45em;
+}
+
+/* --- Logo tiles inside a photo strip -------------------------------------
+   Institution logos are not event photos: contain them on a neutral ground
+   rather than cropping them to fill like a photograph. */
+.gallery-strip__item--logo img {
+  object-fit: contain;
+  background: #fff;
+  padding: 10px;
+}
+
+[data-theme="dark"] .gallery-strip__item--logo img {
+  background: #f2f4f7;
+}
+
+/* ==========================================================================
+   Round 6 — visible panel borders
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* The three page panels (author sidebar, main content, "On this page" rail)
+   were outlined with --border-color, which is #EEEEEE in light mode and so
+   effectively invisible. They now carry an explicit accent border that is
+   identical in both themes. */
+:root,
+[data-theme="light"],
+[data-theme="dark"] {
+  --panel-border: #20bdff;
+}
+
+.sidebar,
+.page__content,
+.page-toc,
+.sidebar__right .toc {
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+}
+
+/* the content column had no padding, so a border would sit against the text */
+.page__content {
+  padding: 1.5em 1.75em;
+}
+
+/* the rail's own heading bar sits flush inside the rounded border */
+.page-toc {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .page__content {
+    padding: 1.25em;
+  }
+}
+
+/* ==========================================================================
+   Round 7 — testimonials, publication figures, mobile hardening
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* --- Testimonials -------------------------------------------------------- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 1rem;
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--panel-border);
+  border-radius: 0 10px 10px 0;
+  background: var(--card-bg);
+}
+
+.testimonial__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.testimonial__avatar {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--panel-border);
+}
+
+.testimonial__who {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.testimonial__name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.testimonial__title,
+.testimonial__meta {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.testimonial__meta {
+  margin-top: 0.15rem;
+  font-style: italic;
+}
+
+/* small screenshot thumbnail — click opens it in the lightbox */
+.testimonial__shot {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px dashed var(--border-color);
+  background: #e9edf2;
+}
+
+.testimonial__quote {
+  flex: 1 1 auto;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: 0;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.testimonial__quote::before {
+  content: "\201C";
+  font-size: 1.6rem;
+  line-height: 0;
+  vertical-align: -0.35rem;
+  margin-right: 0.15rem;
+  color: var(--panel-border);
+}
+
+.testimonial__more a,
+.testimonial-all a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.testimonial-all {
+  margin: 0 0 2rem;
+}
+
+/* --- Publication thumbnails, like the project cards ---------------------- */
+.publication-item--has-figure {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.publication-figure {
+  flex: 0 0 190px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+}
+
+.publication-figure img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.publication-figure img:hover {
+  transform: scale(1.04);
+}
+
+.publication-item--has-figure .publication-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   Mobile hardening
+   ========================================================================== */
+
+/* Nothing may force the page wider than the viewport.
+   `clip` rather than `hidden`: `overflow-x: hidden` on html/body creates a
+   scroll container and silently breaks `position: sticky` on the sidebar and
+   the TOC rail. Browsers without `clip` simply ignore the line. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Long URLs, author lists and Bangla strings must wrap rather than overflow. */
+.page__content,
+.publication-authors,
+.publication-venue,
+.about_card__content__details,
+.service-list p,
+.testimonial__quote {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Wide tables (Quick Facts) scroll inside their own box. */
+.page__content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.page__content table td,
+.page__content table th {
+  padding: 0.4em 0.6em;
+  vertical-align: top;
+}
+
+/* Media can never exceed its column. */
+.page__content img,
+.gallery-strip img,
+.portfolio-image img,
+.publication-figure img,
+.highlight-card__strip img {
+  max-width: 100%;
+}
+
+/* The project grid demanded a 350px minimum, which overflows a 360px phone. */
+.portfolio-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+}
+
+@media (max-width: 900px) {
+  /* stack the publication thumbnail above the text before it gets squeezed */
+  .publication-item--has-figure {
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .publication-figure {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  .publication-figure img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout--single {
+    padding: 1em 0.75em;
+  }
+  .page,
+  .page__inner-wrap {
+    gap: 1.25em;
+  }
+  .sidebar {
+    padding: 1.25em;
+  }
+  .author__avatar-image {
+    width: 120px;
+    height: 120px;
+  }
+  .gallery-strip {
+    grid-template-columns: repeat(auto-fill, minmax(min(140px, 47%), 1fr));
+  }
+  .highlight-board,
+  .icon-grid,
+  .ongoing-list,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+  .scholar-stats {
+    padding: 1rem;
+  }
+  .scholar-stat__value {
+    font-size: 1.6rem;
+  }
+  .page__title {
+    font-size: 1.6rem;
+  }
+  .testimonial__shot {
+    flex-basis: 48px;
+    width: 48px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout--single {
+    padding: 0.75em 0.5em;
+  }
+  .page__content {
+    padding: 1em 0.9em;
+  }
+  .sidebar {
+    padding: 1em;
+  }
+  .gallery-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .highlight-card__strip img {
+    height: 78px;
+  }
+  .platform-links {
+    gap: 0.45rem;
+  }
+  .platform-link {
+    font-size: 0.78rem;
+    padding: 0.4rem 0.7rem;
+  }
+  /* the header buttons need room for a thumb */
+  .btn-link {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* ==========================================================================
+   Round 8 — avatar border + mobile hardening pass 2
+   Shared verbatim between _sass/_custom.scss (Jekyll) and
+   assets/css/main.css (static webpages/ build).
+   ========================================================================== */
+
+/* --- Profile photo border, identical on every page and in both themes ----- */
+:root,
+[data-theme="light"],
+[data-theme="dark"] {
+  --avatar-border: #1cb6f6;
+}
+
+.author__avatar-image,
+.author__avatar img,
+.sidebar .author__avatar img {
+  border: 3px solid var(--avatar-border);
+  box-shadow: var(--box-shadow);
+}
+
+/* ==========================================================================
+   Mobile hardening, pass 2
+   ========================================================================== */
+
+/* The nav has ten items now. `nowrap` only relaxed at 768px, which left a
+   769–1024px band where the row could push past the viewport. Let it wrap
+   onto a second line well before that happens. */
+@media (max-width: 1024px) {
+  .nav-list {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.15em;
+  }
+}
+
+/* Any remaining long string wraps instead of widening its column. */
+.testimonial__title,
+.testimonial__name,
+.testimonial__meta,
+.highlight-card__list span,
+.highlight-card__list strong,
+.service-list__role,
+.service-list__org,
+.ongoing-item__title,
+.icon-card__title,
+.page-toc__list a,
+.publication-title strong {
+  overflow-wrap: anywhere;
+}
+
+/* Code and pre scroll inside their own box rather than stretching the page. */
+.page__content pre,
+.page__content code {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Button rows wrap on narrow screens (one of the two rules lacked wrapping). */
+.portfolio-links,
+.publication-tags,
+.portfolio-tags {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  /* the site title and nav each get their own row here, so allow full width */
+  .nav-container {
+    align-items: flex-start;
+  }
+  .nav-list {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  /* the sticky sidebar is unhelpful once everything is stacked */
+  .sidebar {
+    position: static;
+    top: auto;
+  }
+
+  .author__avatar {
+    text-align: center;
+  }
+  .author__content,
+  .author__name,
+  .author__bio {
+    text-align: center;
+  }
+  .author__urls {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .testimonial__head {
+    flex-wrap: wrap;
+  }
+
+  .lightbox__caption {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .author__avatar-image {
+    width: 108px;
+    height: 108px;
+  }
+  .page-toc__list a {
+    font-size: 0.76rem;
+    padding: 0.5em 0.7em;
+  }
+  .highlight-card,
+  .testimonial {
+    padding: 0.9rem 1rem;
+  }
+  .publication-figure img {
+    height: 150px;
+  }
+  .scholar-stats__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .scholar-stat {
+    padding: 0.6rem 0.25rem;
+  }
+  .scholar-stat__value {
+    font-size: 1.3rem;
+  }
+  .scholar-stat__label {
+    font-size: 0.72rem;
+  }
+  .scholar-stat__sub {
+    font-size: 0.62rem;
+  }
+}
