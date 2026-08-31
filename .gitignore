@@ -11,3 +11,7 @@ Gemfile.lock
 
 # Ingore files created by npm
 node_modules
+
+# Vercel build output
+public/
+.vercel/
