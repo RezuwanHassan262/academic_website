@@ -1,5 +1,5 @@
-# Builds the static site with scripts/build-static.js and publishes it to
-# GitHub Pages. The Jekyll sources (_layouts, _includes, _sass, _pages) are no
+# Publishes the committed webpages/ pages to GitHub Pages. webpages/ is the
+# source of truth and is edited by hand; the Jekyll sources are no
 # longer built here — `webpages/` is the site, and this deploys the same output
 # that `npm start` previews locally and that Vercel serves.
 name: Deploy static site to Pages
@@ -28,10 +28,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+      # Only assembles public/ from the committed webpages/ pages. It must not
+      # run scripts/build-static.js: that regenerates webpages/ from the Jekyll
+      # sources and would discard anything edited in the HTML directly.
       - name: Build site
-        run: |
-          node scripts/build-static.js
-          node scripts/build-site.js
+        run: node scripts/build-site.js
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

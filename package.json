@@ -44,10 +44,10 @@
     "webpack-cli": "^5.1.0"
   },
   "scripts": {
-    "start": "npm run build:static && npm run serve",
+    "start": "npm run serve",
     "build:static": "node scripts/build-static.js",
     "serve": "node scripts/serve.js",
-    "dev": "concurrently \"npm run watch:static\" \"npm run serve\"",
+    "dev": "npm run serve",
     "build": "npm run build:ts && npm run build:js",
     "build:ts": "tsc",
     "build:js": "webpack --mode production",

@@ -35,9 +35,24 @@ const OUT = path.join(ROOT, 'public');
 // Top-level directories the pages link to, copied verbatim.
 const ASSET_DIRS = ['assets', 'images', 'files'];
 
-// `../assets/x` and `../images/x` -> `assets/x` / `images/x`, now that the
-// pages sit alongside those directories instead of one level below.
-const PARENT_REF = new RegExp(`\.\./(${ASSET_DIRS.join('|')})/`, 'g');
+// `../assets/x` -> `assets/x`, now that the pages sit alongside those
+// directories instead of one level below.
+//
+// Plain string replacement, NOT a regex. The previous version built the
+// pattern in a template literal, where `.` is not a recognised escape and
+// collapses to a bare `.` — so `../` became "any two characters then a
+// slash" and silently ate three characters out of every URL that happened
+// to contain one, e.g. .../sites/default/files/ -> .../sites/defaufiles/.
+function flattenAssetLinks(html) {
+  let out = html;
+  let count = 0;
+  for (const dir of ASSET_DIRS) {
+    const parts = out.split("../" + dir + "/");
+    count += parts.length - 1;
+    out = parts.join(dir + "/");
+  }
+  return { html: out, count: count };
+}
 
 if (!fs.existsSync(PAGES)) {
   console.error(`No ${path.relative(ROOT, PAGES)}/ directory — run scripts/build-static.js first.`);
@@ -52,8 +67,9 @@ let rewritten = 0;
 
 for (const page of pages) {
   const html = fs.readFileSync(path.join(PAGES, page), 'utf8');
-  const flat = html.replace(PARENT_REF, (_, dir) => { rewritten++; return `${dir}/`; });
-  fs.writeFileSync(path.join(OUT, page), flat);
+  const flat = flattenAssetLinks(html);
+  rewritten += flat.count;
+  fs.writeFileSync(path.join(OUT, page), flat.html);
 }
 
 const copiedDirs = [];
