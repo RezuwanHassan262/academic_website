@@ -160,7 +160,7 @@ a:hover {
 }
 
 .author__avatar {
-  text-align: left;
+  text-align: center;
   margin-bottom: 1.5em;
 }
 
@@ -2849,4 +2849,40 @@ body {
        reading on a phone. */
     font-size: 0.7rem;
   }
+}
+
+/* ==========================================================================
+   Anchor offset and Personal Philosophy labels
+   ========================================================================== */
+
+/* .site-nav is sticky at top: 0, so an in-page jump used to land with the
+   heading hidden underneath it. --nav-h is measured and kept current by
+   assets/js/page-toc.js: the nav is 57px tall on a desktop but grows past
+   170px once the ten links wrap on a narrow phone, so a fixed value would be
+   wrong at one end or the other. The value here is the pre-script fallback. */
+:root {
+  --nav-h: 57px;
+}
+
+[id] {
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* "Core belief:", "Learning style:", "Mission:" on the About page.
+   [data-theme="dark"] strong forces #fff at (0,1,1), so the class is
+   repeated under the theme attribute to outrank it in both themes. */
+.philosophy-label,
+[data-theme="dark"] .philosophy-label,
+[data-theme="light"] .philosophy-label {
+  color: #35baf6;
 }

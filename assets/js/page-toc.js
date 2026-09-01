@@ -7,7 +7,26 @@
 (function () {
   'use strict';
 
+  // The sticky nav overlaps whatever an in-page link jumps to. Publish its
+  // real height as --nav-h so CSS scroll-margin-top can clear it; the height
+  // changes as the nav wraps, so re-measure whenever it can have changed.
+  function trackNavHeight() {
+    var nav = document.querySelector(".site-nav");
+    if (!nav) return function () { return 0; };
+    var height = 0;
+    function measure() {
+      height = Math.round(nav.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--nav-h", height + "px");
+    }
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("load", measure);
+    if (window.ResizeObserver) new ResizeObserver(measure).observe(nav);
+    return function () { return height; };
+  }
+
   function init() {
+    var navHeight = trackNavHeight();
     var toc = document.querySelector('.page-toc');
     if (!toc) return;
 
@@ -21,7 +40,7 @@
     if (!targets.length) return;
 
     function sync() {
-      var top = window.scrollY + 120;
+      var top = window.scrollY + navHeight() + 24;
       var current = targets[0];
       for (var i = 0; i < targets.length; i++) {
         if (targets[i].el.offsetTop <= top) current = targets[i];

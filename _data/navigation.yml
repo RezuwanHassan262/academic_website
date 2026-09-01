@@ -32,4 +32,4 @@ main:
   # Opens the CV PDF. Single source of truth for the CV link — the About page
   # rail reads this same entry, so changing the URL here changes it everywhere.
   - title: "CV"
-    url: https://github.com/RezuwanHassan262/academic_website/files/Md_Rezuwan_Hassan_CV.pdf
+    url: ../files/Md_Rezuwan_Hassan_CV.pdf

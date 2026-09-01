@@ -358,10 +358,10 @@ What colleagues, supervisors and teachers have written about working with me.
 
 ## Personal Philosophy
 
-**Core belief:** *"Never memorize what you can look up in books."* Einstein's quote is a cornerstone of my
+<strong class="philosophy-label">Core belief:</strong> *"Never memorize what you can look up in books."* Einstein's quote is a cornerstone of my
 learning philosophy — I remember the process, not the syntax. Even as a daily Pandas user I look things up
 as needed rather than overloading my memory with syntax.
 
-**Learning style:** A heuristic learner who believes in hands-on experimentation and practical application.
+<strong class="philosophy-label">Learning style:</strong> A heuristic learner who believes in hands-on experimentation and practical application.
 
-**Mission:** Making people's lives easier by developing open-source technologies and advancing Bangla NLP research.
+<strong class="philosophy-label">Mission:</strong> Making people's lives easier by developing open-source technologies and advancing Bangla NLP research.
