@@ -2231,8 +2231,15 @@ body.lightbox-open {
   margin-top: 0;
 }
 
-@media (max-width: 1100px) {
-  /* not enough room for three columns — tuck the TOC above the content */
+@media (min-width: 769px) and (max-width: 1100px) {
+  /* Two-to-three column band: not enough room for three columns, so wrap the
+     TOC onto its own full-width row above the content.
+
+     Bounded below at 769px on purpose. Under 768px .page__inner-wrap switches
+     to flex-direction: column, and `flex-wrap: wrap` on a column container
+     makes it wrap into extra *columns* — with .toc-rail claiming a full column
+     via flex-basis: 100% (of the height, in a column container), everything
+     else was pushed into a second column off the side of the screen. */
   .page__inner-wrap {
     flex-wrap: wrap;
   }
@@ -2250,6 +2257,37 @@ body.lightbox-open {
     margin: 0 0 1.5em;
     max-width: none;
     position: static;
+  }
+}
+
+/* Single-column stack. The base .toc-rail/.sidebar/.page__content flex values
+   are written for a row container, where they size the width; in a column
+   container the same values size the *height* (a 230px-tall clipped TOC, a
+   250px-tall sidebar), so each one is reset here. */
+@media (max-width: 768px) {
+  .page,
+  .page__inner-wrap {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .toc-rail {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    order: -1;
+    position: static;
+    align-self: stretch;
+    max-height: none;
+    overflow-y: visible;
+  }
+  .toc-rail .page-toc {
+    margin-bottom: 1.5em;
+  }
+  .sidebar,
+  .page__content {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -2807,6 +2845,8 @@ body {
     font-size: 0.72rem;
   }
   .scholar-stat__sub {
-    font-size: 0.62rem;
+    /* 0.62rem lands at 9.9px — under the ~11px floor for comfortable
+       reading on a phone. */
+    font-size: 0.7rem;
   }
 }
