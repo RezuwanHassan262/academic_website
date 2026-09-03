@@ -1736,8 +1736,8 @@ a:hover {
    ========================================================================== */
 
 /* --- Author-name highlight in publication/author lists ------------------- */
-:root { --author-highlight: #c2410c; }
-[data-theme="dark"] { --author-highlight: #ffa657; }
+:root { --author-highlight: #1668b8; } /* author names: blue, so they read distinctly against the orange venue line */
+[data-theme="dark"] { --author-highlight: #64b5f6; }
 
 .publication-authors strong,
 .publication-authors b,
@@ -2885,4 +2885,180 @@ html {
 [data-theme="dark"] .philosophy-label,
 [data-theme="light"] .philosophy-label {
   color: #35baf6;
+}
+
+/* ==========================================================================
+   Requested styling additions
+   ========================================================================== */
+
+/* --- Venue / conference line on publication entries ----------------------
+   .about_card__content__date is shared with the Education and Work Experience
+   cards, so the About-page publication cards carry an explicit
+   .about_card--publication modifier and only that variant is recoloured. */
+.publication-venue,
+.publication-venue small,
+.about_card--publication .about_card__content__date,
+[data-theme="dark"] .publication-venue,
+[data-theme="dark"] .publication-venue small,
+[data-theme="dark"] .publication-item .publication-venue,
+[data-theme="dark"] .about_card--publication .about_card__content__date {
+  color: #ffa657 !important;
+}
+
+/* --- Education "Concentration:" / "Achievement:" labels ------------------ */
+.about_card__content__achievement .edu-label,
+[data-theme="dark"] .about_card__content__achievement .edu-label {
+  color: #64b5f6 !important;
+  font-weight: 600;
+}
+
+.about_card__content__achievement .edu-value,
+[data-theme="dark"] .about_card__content__achievement .edu-value {
+  color: #e6edf3 !important;
+}
+
+/* #e6edf3 is near-white, so it only works on the dark ground. In the light
+   theme the value reverts to the normal body colour. */
+:root[data-theme="light"] .about_card__content__achievement .edu-value {
+  color: var(--text-color) !important;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .about_card__content__achievement .edu-value {
+    color: var(--text-color) !important;
+  }
+}
+
+/* --- Compact Scholar strip above Selected Publications ------------------- */
+.scholar-mini {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1.5rem;
+  margin: 0 0 1.4rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+}
+
+.scholar-mini__stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.scholar-mini__value,
+[data-theme="dark"] .scholar-mini__value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  /* repeated under the theme attribute to outrank the generic
+     [data-theme="dark"] text-colour rules */
+  color: var(--link-color);
+}
+
+.scholar-mini__label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.scholar-mini__link {
+  margin-left: auto;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* --- Monogram above the sidebar photo ------------------------------------ */
+.author__brand {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.author__brand-image {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+}
+
+/* --- Map My Visitors widget in the footer -------------------------------- */
+.page__footer-visitors {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.page__footer-visitors img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  opacity: 0.85;
+}
+
+/* --- Tag filter bar on Publications and Projects ------------------------- */
+.tag-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.5rem;
+}
+
+.tag-filter__btn {
+  font: inherit;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.tag-filter__btn:hover {
+  border-color: var(--link-color);
+  color: var(--link-color);
+}
+
+.tag-filter__btn[aria-pressed="true"] {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+
+.tag-filter__count {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  align-self: center;
+  margin-left: auto;
+}
+
+/* Set by the filter script. An attribute rather than an inline style, so each
+   card keeps its own display mode (block/flex/grid) when shown again. */
+[data-filter-hidden] {
+  display: none !important;
+}
+
+/* Empty groups are hidden with their heading and rule, so a filtered view does
+   not leave a bare "Under Review" header with nothing under it. */
+.tag-filter__empty {
+  display: none !important;
+}
+
+@media (max-width: 480px) {
+  .scholar-mini { gap: 0.3rem 1rem; }
+  .scholar-mini__link { margin-left: 0; }
+  .tag-filter__count { margin-left: 0; width: 100%; }
+}
+
+/* --- Education detail rows ------------------------------------------------
+   Thesis / Supervisor / Publication / Courses used to be separated only by a
+   <br>, which ran them together. Each is now its own block with breathing
+   room. */
+.about_card__content__details .edu-row {
+  display: block;
+  margin-bottom: 0.7em;
+}
+
+.about_card__content__details .edu-row:last-child {
+  margin-bottom: 0;
 }

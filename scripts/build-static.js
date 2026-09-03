@@ -711,7 +711,6 @@ ${tocHtml(content, cvUrl)}
         </div>
         <div class="page__footer-copyright">
             &copy; ${new Date().getFullYear()} ${author.name}. All rights reserved.
-            Built from the Jekyll sources by <code>scripts/build-static.js</code>.
         </div>
     </footer>
 

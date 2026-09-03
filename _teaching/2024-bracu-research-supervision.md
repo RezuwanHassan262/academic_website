@@ -1,7 +1,7 @@
 ---
 title: "Undergraduate Thesis Co-supervision & Laboratory Instruction"
 collection: teaching
-type: "Research Engineer, Department of CSE"
+type: "Graduate Research Assistant, Department of CSE"
 permalink: /teaching/2024-bracu-research-supervision
 venue: "BRAC University"
 date: 2024-02-01
@@ -13,7 +13,7 @@ gallery:
     kind: logo
 ---
 
-As a Research Engineer at BRAC University (February 2024 – September 2025), teaching and supervision were part of the role alongside research.
+As a Graduate Research Assistant at BRAC University (February 2024 – September 2025), teaching and supervision were part of the role alongside research.
 
 ### Responsibilities
 - Co-supervise and evaluate undergraduate thesis students

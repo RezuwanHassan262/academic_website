@@ -138,7 +138,7 @@ Processing as my core research area.
 <div class="about_card">
     <img class="about_card__logo" src="/images/BRACUniversityLogo.png" alt="BRAC University Logo">
   <div class="about_card__content">
-    <div class="about_card__content__title">Research Engineer</div>
+    <div class="about_card__content__title">Graduate Research Assistant</div>
     <div class="about_card__content__subtitle"><a href="https://www.bracu.ac.bd/">BRAC University</a></div>
     <div class="about_card__content__date">February 2024 – September 2025 &middot; Full-Time &middot; Hybrid (Dhaka, Bangladesh)</div>
     <p class="about_card__content__details">

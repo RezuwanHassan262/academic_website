@@ -24,6 +24,7 @@
     <script src="../assets/js/theme-toggle.js"></script>
     <script src="../assets/js/lightbox.js"></script>
     <script src="../assets/js/page-toc.js"></script>
+    <script src="../assets/js/tag-filter.js"></script>
 </head>
 
 <body>
@@ -56,6 +57,10 @@
 
                 <!-- Sidebar -->
                 <aside class="sidebar">
+                    <div class="author__brand">
+                        <img src="../images/mrh.png" alt="Md. Rezuwan Hassan monogram" class="author__brand-image">
+                    </div>
+
                     <div class="author__avatar">
                         <img src="../images/profile-img.jpg" alt="Md. Rezuwan Hassan" class="author__avatar-image">
                     </div>
@@ -106,6 +111,7 @@
 
 <p>You can also find my articles on <a href="https://scholar.google.com/citations?user=ZUrWZhQAAAAJ&amp;hl=en">Google Scholar</a> and <a href="https://www.researchgate.net/profile/Md-Hassan-82">ResearchGate</a>.</p>
 
+<div class="tag-filter" data-tag-filter=".publication-item" aria-label="Filter publications by topic"></div>
 <h2>Under Review</h2><hr />
 <div class="publications-grid">
 <div class="publication-item publication-item--has-figure" data-category="under_review" data-year="2026">
@@ -114,8 +120,9 @@
     <div class="publication-type">Under Review</div>
     <div class="publication-title"><strong>UnmadBot: Towards Culturally Grounded Bangla Satire and Humor with Foundation Models</strong></div>
     <div class="publication-venue"><small>Under review — ACM CHI Conference on Human Factors in Computing Systems (CHI) &middot; 2026</small></div>
-    <div class="publication-authors"><small><strong>Md. Rezuwan Hassan</strong>, S M Taiabul Haque</small></div>
+    <div class="publication-authors"><small><strong>Md. Rezuwan Hassan</strong>, Tanmoy Shome, Md. Ishmam Tasin, Syed Ishtiaque Ahmed, S M Taiabul Haque, Nusrat Jahan Mim</small></div>
     <div class="publication-abstract"><p>An end-to-end Bangla satire chatbot trained on Unmad magazine's archive, probing whether foundation models can understand and generate culturally grounded humor.</p></div>
+    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Large Language Models</span><span class="tag">Human-Computer Interaction</span><span class="tag">NLP</span></div>
     
   </div>
 </div>
@@ -131,6 +138,7 @@
     <div class="publication-venue"><small>DialRes Workshop, Language Resources and Evaluation Conference (LREC), 2026 &middot; 2026</small></div>
     <div class="publication-authors"><small>Soumik Deb Niloy, Subhey Sadi Rahman, Mahbub E Sobhani, Golam Rabiul Alam, Farig Sadeque, <strong>Md. Rezuwan Hassan</strong></small></div>
     <div class="publication-abstract"><p>A multi-metric benchmark of large language models on Bangla dialect translation, published at the DialRes workshop, LREC 2026.</p></div>
+    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Large Language Models</span><span class="tag">NLP</span></div>
     <div class="portfolio-links"><a href="https://aclanthology.org/2026.dialres-1.24/" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a></div>
   </div>
 </div>
@@ -142,6 +150,7 @@
     <div class="publication-venue"><small>2025 Association for Computational Linguistics – International Joint Conference on Natural Language Processing (AACL-IJCNLP) &middot; 2025</small></div>
     <div class="publication-authors"><small>Tawsif Tashwar Dipto, Azmol Hossain, Rubayet Sabbir Faruque, <strong>Md. Rezuwan Hassan</strong>, Kanij Fatema, Tanmoy Shome, Ruwad Naswan, Md. Foriduzzaman Zihad, Mohaymen Ul Anam, Nazia Tasnim, Hasan Mahmud, Md Kamrul Hasan, Md. Mehedi Hasan Shawon, Farig Sadeque, Tahsin Reasat</small></div>
     <div class="publication-abstract"><p>Developed a 78-hour annotated Bengali Speech-to-Text (STT) corpus named <strong>Ben-10</strong>. Investigated effects of dialectal variations on ASR, showing that speech foundation models struggle heavily in regional dialect ASR in both zero-shot and fine-tuned settings. Dialect-specific model training was found to alleviate the issue. Dataset and code are publicly available.</p></div>
+    <div class="publication-tags"><span class="tag">ASR</span><span class="tag">Speech NLP</span><span class="tag">Bangla NLP</span></div>
     <div class="portfolio-links"><a href="https://aclanthology.org/2025.ijcnlp-short.17/" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a><a href="../images/asr_poster.PNG" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-image"></i> Poster</a></div>
   </div>
 </div>
@@ -153,6 +162,7 @@
     <div class="publication-venue"><small>2022 IEEE 10th Region 10 Humanitarian Technology Conference (R10-HTC), pp. 191–196 &middot; 2022</small></div>
     <div class="publication-authors"><small>Shafin Mahmud Jalal, <strong>Md. Rezuwan Hassan</strong>, Md Ashfaqul Haque, Md Golam Rabiul Alam</small></div>
     <div class="publication-abstract"><p>Designed a federated central model combining Random Forest with Horizontal Federated Learning for heart disease detection. Implemented secure model parameter sharing across multiple hospital clients without exposing patient data. Achieved accuracy improvements of 7.1%, 2%, and 6% for the federated central model and both clients respectively.</p></div>
+    <div class="publication-tags"><span class="tag">Federated Learning</span><span class="tag">Privacy-Preserving ML</span><span class="tag">Healthcare AI</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://ieeexplore.ieee.org/document/9929490" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a></div>
   </div>
 </div>
@@ -164,6 +174,7 @@
     <div class="publication-venue"><small>2022 International Conference on Energy and Power Engineering (ICEPE), IEEE &middot; 2022</small></div>
     <div class="publication-authors"><small>Md Tanjil Ahmed, <strong>Md Rezuwan Hassan</strong>, Palash Chandra Ghosh, Mohammad Saiful Huq, Mohaimenul Islam, AS Nazmul Huda</small></div>
     <div class="publication-abstract"><p>Applied sequential Monte Carlo (MC) simulation for reliability worth assessment of electric power distribution systems considering momentary interruptions. Conducted case studies on the Roy Billinton Test System (BUS4). Results show that MC simulation results are complementary to the analytical method, and uncertainty of random variables can be accounted for.</p></div>
+    <div class="publication-tags"><span class="tag">Power Systems</span></div>
     <div class="portfolio-links"><a href="https://ieeexplore.ieee.org/document/10044904" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a></div>
   </div>
 </div>
@@ -179,6 +190,7 @@
     <div class="publication-venue"><small>ArXiv, 2025 &middot; 2025</small></div>
     <div class="publication-authors"><small><strong>Md. Rezuwan Hassan</strong>, Azmol Hossain, Kanij Fatema, Rubayet Sabbir Faruque, Tanmoy Shome, Ruwad Naswan, Trina Chakraborty, Md. Foriduzzaman Zihad, Tawsif Tashwar Dipto, Nazia Tasnim, Nazmuddoha Ansary, Md. Mehedi Hasan Shawon, Ahmed Imtiaz Humayun, Md. Golam Rabiul Alam, Farig Sadeque, Asif Sushmit</small></div>
     <div class="publication-abstract"><p>Documents and analyzes phonetic and morphological properties of five principal Bengali dialect groups (Eastern Bengali, Manbhumi, Rangpuri, Varendri, Rarhi), exploring feasibility of building ASR systems for regional varieties including Chittagong, Sylhet, Rangpur, Rajshahi, Noakhali, and Barishal. Dataset released publicly.</p></div>
+    <div class="publication-tags"><span class="tag">ASR</span><span class="tag">Speech NLP</span><span class="tag">Bangla NLP</span></div>
     <div class="portfolio-links"><a href="https://arxiv.org/abs/2510.24096" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a><a href="../images/regspeech12_poster.png" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-image"></i> Poster</a></div>
   </div>
 </div>
@@ -190,6 +202,7 @@
     <div class="publication-venue"><small>Technical Report, 2025 &middot; 2025</small></div>
     <div class="publication-authors"><small>Shaleh Islam Tonmoy, Rawhatur Rabbi, <strong>Md. Rezuwan Hassan</strong>, Ruwad Naswan, Tanmoy Shome</small></div>
     <div class="publication-abstract"><p>Presents AgriBuddy, an AI-powered agent-based system delivering localized agricultural recommendations in natural Bangla dialogue. Combines a RAG framework with Smart Query Handler, User Memory Agent, and Expert Advisory Agent, plus a CNN-based vision module for rice disease detection (10 classes). Mobile-first chatbot deployment. Source repository and demo released as open-source.</p></div>
+    <div class="publication-tags"><span class="tag">Agentic AI</span><span class="tag">RAG</span><span class="tag">Computer Vision</span><span class="tag">Smart Agriculture</span><span class="tag">Bangla NLP</span></div>
     <div class="portfolio-links"><a href="https://www.researchgate.net/publication/392194862_AgriBuddy_An_Agentic_AI_System_for_Bangladeshi_Agriculture_Using_RAG_and_Vision_Models" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a><a href="https://youtu.be/vTWUjcQ4wnM" class="btn-link" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> Video</a></div>
   </div>
 </div>
@@ -201,6 +214,7 @@
     <div class="publication-venue"><small>OpenReview, 2024 &middot; 2024</small></div>
     <div class="publication-authors"><small>Kanij Fatema, Fazle Dawood Haider, Nirzona Ferdousi Turpa, Azmol Hossain, Sourav Ahmed, Navid Hasan, Mohammad Akhlaqur Rahman, Biplab Kumar Sarkar, Afrar Jahin, <strong>Md. Rezuwan Hassan</strong>, Md Foriduzzaman Zihad, Rubayet Sabbir Faruque, Asif Sushmit, Mashrur Imtiaz, Farig Sadeque, Syed Shahrier Rahman</small></div>
     <div class="publication-abstract"><p>Examines prior research on Bengali IPA standards and proposes a comprehensive Bengali IPA transcription framework, incorporating a novel dataset with deep learning-based benchmarks.</p></div>
+    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">NLP</span><span class="tag">Speech NLP</span></div>
     <div class="portfolio-links"><a href="https://openreview.net/forum?id=W9gVRjWL8e" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a></div>
   </div>
 </div>
@@ -216,6 +230,7 @@
     <div class="publication-venue"><small>M.Sc. Thesis, BRAC University Institutional Repository &middot; 2023</small></div>
     <div class="publication-authors"><small><strong>Md. Rezuwan Hassan</strong></small></div>
     <div class="publication-abstract"><p>Investigates regional Bengali dialects (Chittagong, Sylhet, Rangpur, Rajshahi, Noakhali, Barishal) through data-driven linguistic analysis, phonetic and morphological studies, and ASR model development using character-gram tokenization with Wav2Vec2. Supervised by Dr. Golam Rabiul Alam, BRAC University.</p></div>
+    <div class="publication-tags"><span class="tag">ASR</span><span class="tag">Speech NLP</span><span class="tag">Bangla NLP</span></div>
     <div class="portfolio-links"><a href="https://dspace.bracu.ac.bd/xmlui/handle/10361/25982" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a></div>
   </div>
 </div>
@@ -227,6 +242,7 @@
     <div class="publication-venue"><small>B.Sc. Thesis, BRAC University Institutional Repository &middot; 2020</small></div>
     <div class="publication-authors"><small>Tanjil Ahmed, <strong>Md. Rezuwan Hassan</strong>, Palash Chandra Ghosh, Mohammad Saiful Huq</small></div>
     <div class="publication-abstract"><p>Evaluates the reliability of the BUS4 power distribution system using the Roy Billinton Test System, accounting for momentary interruptions. Supervised by Dr. A.S. Nazmul Huda, BRAC University.</p></div>
+    <div class="publication-tags"><span class="tag">Power Systems</span></div>
     <div class="portfolio-links"><a href="https://dspace.bracu.ac.bd/xmlui/handle/10361/14487" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a></div>
   </div>
 </div>
@@ -344,7 +360,11 @@
         </div>
         <div class="page__footer-copyright">
             &copy; 2026 Md. Rezuwan Hassan. All rights reserved.
-            Built from the Jekyll sources by <code>scripts/build-static.js</code>.
+        </div>
+        <div class="page__footer-visitors">
+            <a href="https://mapmyvisitors.com/web/1c808" title="Visit tracker" target="_blank" rel="noopener">
+                <img src="https://mapmyvisitors.com/map.png?d=oZ7twHnHRCM2pyNbeV_7e1COrf67qUQgkA9FCDx-HgA&cl=ffffff" alt="Map of website visitors" loading="lazy">
+            </a>
         </div>
     </footer>
 
