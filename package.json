@@ -25,6 +25,7 @@
     "node": ">= 18.0.0"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "fitvids": "^2.1.1",
     "jquery": "^3.7.1",
     "jquery-smooth-scroll": "^2.2.0",
@@ -57,6 +58,7 @@
     "install:python": "pip install pandas numpy requests beautifulsoup4 getorg geopy typing-extensions",
     "convert:python": "python scripts/convert_python_to_ts.py",
     "watch:static": "onchange \"_config.yml\" \"_data/**/*.yml\" \"_pages/**/*\" \"_publications/**/*\" \"_portfolio/**/*\" \"_talks/**/*\" \"_teaching/**/*\" \"scripts/build-static.js\" -- npm run build:static",
-    "serve:noopen": "node scripts/serve.js --no-open"
+    "serve:noopen": "node scripts/serve.js --no-open",
+    "update-scholar": "node scripts/scholarScraper.js"
   }
 }

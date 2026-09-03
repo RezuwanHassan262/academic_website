@@ -1,0 +1,122 @@
+# Hand-run twin of update-scholar-stats.yml, for debugging and for forcing a
+# commit when the numbers happen to be unchanged.
+#
+# Differences from the scheduled workflow: no retry loop (a failure surfaces
+# immediately instead of after three minutes), the resulting JSON is printed to
+# the log, force_update can commit even with no change, and the committer name
+# and commit message differ so manual and scheduled updates are told apart in
+# git log.
+name: Manual Scholar Stats Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Commit even when the data has not changed'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      committed: ${{ steps.commit.outputs.committed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install scholarly
+        run: pip install scholarly
+
+      # Deliberately a single attempt: when debugging by hand you want the
+      # failure now, not after three minutes of retries.
+      - name: Run the scraper (single attempt)
+        id: scrape
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+        run: node scripts/scholarScraper.js
+
+      - name: Show the resulting data
+        run: cat _data/scholar.json | jq '.'
+
+      - name: Detect whether the data actually changed
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain _data/scholar.json)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git --no-pager diff -- _data/scholar.json
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No change."
+          fi
+
+      - name: Commit and push
+        id: commit
+        if: steps.diff.outputs.changed == 'true' || inputs.force_update
+        run: |
+          git config user.name "GitHub Action (Manual)"
+          git config user.email "action@github.com"
+          git add _data/scholar.json
+          if git diff --cached --quiet; then
+            # force_update was set but nothing differs; --allow-empty keeps the
+            # requested commit visible in the log.
+            git commit --allow-empty -m "🔧 Manual Scholar stats refresh (no change) - $(date '+%Y-%m-%d')"
+          else
+            git commit -m "🔧 Manual Scholar stats refresh - $(date '+%Y-%m-%d')"
+          fi
+          git push origin main
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Manual Scholar stats update"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Data changed | \`${{ steps.diff.outputs.changed || 'false' }}\` |"
+            echo "| force_update | \`${{ inputs.force_update }}\` |"
+            echo "| Committed | \`${{ steps.commit.outputs.committed || 'false' }}\` |"
+            echo "| Run finished (UTC) | $(date -u '+%Y-%m-%d %H:%M:%S') |"
+            echo ""
+            if [ -f _data/scholar.json ]; then
+              echo "Current \`_data/scholar.json\`:"
+              echo ""
+              echo '```json'
+              cat _data/scholar.json
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # See the note in update-scholar-stats.yml: a GITHUB_TOKEN commit cannot
+  # trigger the Pages deploy workflow, so it is called explicitly.
+  deploy:
+    needs: update
+    if: needs.update.outputs.committed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml

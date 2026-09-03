@@ -291,3 +291,107 @@ Same license as the original academic website template (MIT).
 - Original Python scripts: `../markdown_generator/`, `../talkmap.py`
 - Jekyll configuration: `../_config.yml`
 - Package configuration: `../package.json`
+## 📊 Google Scholar statistics (automated)
+
+The citation count, h-index and i10-index on the **Publications** page are
+refreshed automatically from
+[this Scholar profile](https://scholar.google.com/citations?user=ZUrWZhQAAAAJ&hl=en).
+
+The current values are **not** listed here on purpose — they would go stale.
+Read `_data/scholar.json`, which is the single source of truth.
+
+### How it works
+
+1. A scheduled GitHub Actions job runs `scripts/scholarScraper.js`.
+2. The scraper writes the metrics to **`_data/scholar.json`** and commits it.
+3. `scripts/build-site.js` substitutes those numbers into the card at build
+   time, filling every element marked `data-scholar="…"` in
+   `webpages/publications.html`.
+
+Because the numbers are baked in at build time, a visitor's browser never
+contacts Google: no CORS problem, no API key exposed to the client, and no
+spinner that can hang. If every scraping method breaks, the site keeps showing
+the last known good numbers.
+
+### The scraper's three methods
+
+Tried in order, stopping at the first success. Each failure logs a specific
+reason and falls through.
+
+| # | Method | Requires | Notes |
+|---|--------|----------|-------|
+| 1 | SerpAPI | `SERPAPI_KEY` | Most reliable. Skipped silently when the key is unset. |
+| 2 | `scholarly` (Python) | `pip install scholarly` | Optional `SCRAPERAPI_KEY` proxy. |
+| 3 | Direct page scrape | nothing | Last resort; frequently CAPTCHA-blocked from CI. |
+
+**A failed scrape is a no-op.** When all three fail, nothing is written — no
+zeros, no nulls, no partial object — and the process exits 1 so the run goes
+red and you get an email.
+
+Run it locally:
+
+```bash
+npm run update-scholar
+```
+
+### Optional repository secrets
+
+Both live under *Settings → Secrets and variables → Actions*. Neither is
+required; an unset secret resolves to an empty string and the scraper skips
+that method.
+
+- **`SERPAPI_KEY`** — the one worth adding. Free tier at
+  [serpapi.com](https://serpapi.com) allows 100 searches/month, comfortably
+  more than one run a day. Without it the pipeline falls back to hitting Google
+  from GitHub's shared runner IPs, which are heavily rate-limited, so expect
+  CAPTCHA blocks on a meaningful fraction of days. The practical effect is
+  "updates on some days rather than every day", not a broken site.
+- **`SCRAPERAPI_KEY`** — a proxy for method 2. Genuinely optional.
+
+### The workflows
+
+| File | Name | Trigger |
+|------|------|---------|
+| `.github/workflows/update-scholar-stats.yml` | Auto Update Google Scholar Stats | `cron: '0 6 * * *'` (06:00 UTC daily) and manual dispatch |
+| `.github/workflows/manual-scholar-update.yml` | Manual Scholar Stats Update | Manual dispatch only, with a `force_update` boolean |
+
+Both commit only when the data actually changed, which is what keeps a profile
+that gains a citation every few weeks from accruing a year of empty daily
+commits. `force_update` overrides that for the manual workflow.
+
+Two things worth knowing about GitHub's scheduler:
+
+- **Scheduled runs are not punctual.** GitHub queues cron jobs and routinely
+  delays them ten minutes or more, and skips them under load. Treat the
+  schedule as "about once a day".
+- **GitHub disables scheduled workflows after 60 days without repository
+  activity.** Any commit resets that clock, as does manually running a
+  workflow from the Actions tab.
+
+### Why the deploy is invoked explicitly
+
+A commit made with the default `GITHUB_TOKEN` does not trigger other
+workflows. Since this site deploys via `.github/workflows/pages.yml` on push,
+the auto-commit would update the JSON in git and never redeploy — the live site
+would show stale numbers while every run stayed green.
+
+Both Scholar workflows therefore call the deploy workflow directly as a
+`workflow_call` job, rather than relying on the push event. `pages.yml` carries
+`workflow_call:` among its triggers for this reason. No personal access token
+is needed. (The Vercel deployment is unaffected either way, because it runs
+from a webhook, which does fire.)
+
+### Changing the profile
+
+The author ID is a named constant at the top of two files. Change both:
+
+- `scripts/scholarScraper.js` — `SCHOLAR_AUTHOR_ID`
+- `scripts/fetch_scholar.py` — `SCHOLAR_AUTHOR_ID`
+
+### The `sinceYear` key
+
+Google's second column is always *the current year minus five*, so it rolls
+over each January. The five-year keys in the JSON are therefore **composed at
+runtime** (`citationsSince` + year), never hardcoded, and the build reads them
+through a fallback chain — composite key, then all-time key, then zero — so a
+half-migrated file renders real numbers instead of a row of zeros.

@@ -732,11 +732,11 @@ function scholarCard(s) {
     <a class="scholar-stats__link" href="${escapeAttr(s.profile_url)}" rel="noopener">View full profile &rarr;</a>
   </div>
   <div class="scholar-stats__grid">
-    <div class="scholar-stat"><span class="scholar-stat__value">${s.citations}</span><span class="scholar-stat__label">Citations</span><span class="scholar-stat__sub">${s.citations_since} since ${s.since_year}</span></div>
-    <div class="scholar-stat"><span class="scholar-stat__value">${s.h_index}</span><span class="scholar-stat__label">h-index</span><span class="scholar-stat__sub">${s.h_index_since} since ${s.since_year}</span></div>
-    <div class="scholar-stat"><span class="scholar-stat__value">${s.i10_index}</span><span class="scholar-stat__label">i10-index</span><span class="scholar-stat__sub">${s.i10_index_since} since ${s.since_year}</span></div>
+    <div class="scholar-stat"><span class="scholar-stat__value" data-scholar="citations">${s.citations}</span><span class="scholar-stat__label">Citations</span><span class="scholar-stat__sub" data-scholar="citationsSince">${s.citations_since} since ${s.since_year}</span></div>
+    <div class="scholar-stat"><span class="scholar-stat__value" data-scholar="hIndex">${s.h_index}</span><span class="scholar-stat__label">h-index</span><span class="scholar-stat__sub" data-scholar="hIndexSince">${s.h_index_since} since ${s.since_year}</span></div>
+    <div class="scholar-stat"><span class="scholar-stat__value" data-scholar="i10Index">${s.i10_index}</span><span class="scholar-stat__label">i10-index</span><span class="scholar-stat__sub" data-scholar="i10IndexSince">${s.i10_index_since} since ${s.since_year}</span></div>
   </div>
-  <p class="scholar-stats__note">${s.note} Last updated ${s.last_updated}.</p>
+  <p class="scholar-stats__note" data-scholar="note">${s.note} Last updated ${s.last_updated}.</p>
 </div>`;
 }
 

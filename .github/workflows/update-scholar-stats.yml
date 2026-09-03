@@ -1,0 +1,138 @@
+#  Refreshes _data/scholar.json from Google Scholar once a day and commits it.
+# scripts/build-site.js bakes those numbers into the published pages, so the
+# visitor's browser never contacts Google.
+#
+# A failed scrape is a no-op by design: scripts/scholarScraper.js writes nothing
+# and exits 1, this run goes red, and the site keeps serving the last known good
+# numbers.
+name: Auto Update Google Scholar Stats
+
+on:
+  schedule:
+    # 06:00 UTC daily. GitHub queues cron jobs and routinely runs them ten or
+    # more minutes late, and skips them under load - treat this as "about once
+    # a day", never as a punctual clock.
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+# Without contents: write the job does all its work correctly and then fails
+# with a 403 on the push.
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Leaves the token in .git/config so the later push works.
+          persist-credentials: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install scholarly
+        run: pip install scholarly
+
+      # Both secrets are optional. An unset secret resolves to an empty string,
+      # and the scraper treats an absent key as "skip this method".
+      - name: Run the scraper (up to 3 attempts)
+        id: scrape
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCRAPERAPI_KEY: ${{ secrets.SCRAPERAPI_KEY }}
+        run: |
+          success=false
+          for attempt in 1 2 3; do
+            echo "::group::Attempt $attempt of 3"
+            if node scripts/scholarScraper.js; then
+              success=true
+              echo "::endgroup::"
+              echo "Scrape succeeded on attempt $attempt."
+              break
+            fi
+            echo "::endgroup::"
+            if [ "$attempt" -lt 3 ]; then
+              echo "Attempt $attempt failed; sleeping 60s before retrying."
+              sleep 60
+            fi
+          done
+          echo "scraper_success=$success" >> "$GITHUB_OUTPUT"
+          if [ "$success" != "true" ]; then
+            echo "All 3 attempts failed. _data/scholar.json was left untouched."
+            exit 1
+          fi
+
+      # Guards against a year of daily empty commits on a profile that gains a
+      # citation every few weeks.
+      - name: Detect whether the data actually changed
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain _data/scholar.json)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Scholar data changed:"
+            git --no-pager diff -- _data/scholar.json
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No change - nothing to commit."
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add _data/scholar.json
+          git commit -m "🤖 Auto-update Google Scholar statistics - $(date '+%Y-%m-%d')"
+          git push origin main
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Google Scholar stats update"
+            echo ""
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Scrape succeeded | \`${{ steps.scrape.outputs.scraper_success || 'false' }}\` |"
+            echo "| Data changed | \`${{ steps.diff.outputs.changed || 'false' }}\` |"
+            echo "| Run finished (UTC) | $(date -u '+%Y-%m-%d %H:%M:%S') |"
+            echo ""
+            if [ -f _data/scholar.json ]; then
+              echo "Current \`_data/scholar.json\`:"
+              echo ""
+              echo '```json'
+              cat _data/scholar.json
+              echo '```'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # A commit made with the default GITHUB_TOKEN does NOT trigger other
+  # workflows, so the push above will not start .github/workflows/pages.yml on
+  # its own and the live site would keep showing stale numbers while every run
+  # stayed green. Calling the deploy workflow directly sidesteps that without
+  # needing a personal access token. (Vercel is unaffected - it deploys from a
+  # webhook, which does fire.)
+  deploy:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml
