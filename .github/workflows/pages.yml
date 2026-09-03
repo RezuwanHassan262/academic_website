@@ -12,6 +12,16 @@ on:
   # that commit is made with GITHUB_TOKEN, which cannot trigger a push event,
   # so the deploy has to be invoked explicitly.
   workflow_call:
+    inputs:
+      ref:
+        description: >-
+          Git ref to build and deploy. A caller that has just pushed a commit
+          must pass its branch here: by default actions/checkout resolves to
+          the SHA that STARTED the run, which predates that commit, so the
+          deploy would silently publish the pre-commit content.
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -28,6 +38,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Empty for push/dispatch, where checkout falls back to the
+          # triggering ref; set by a workflow_call that needs a newer commit.
+          ref: ${{ inputs.ref }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:

@@ -120,3 +120,7 @@ jobs:
       pages: write
       id-token: write
     uses: ./.github/workflows/pages.yml
+    with:
+      # Build the branch head, not the SHA this run started at - that one
+      # predates the commit the update job just pushed.
+      ref: main
