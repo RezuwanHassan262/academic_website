@@ -3062,3 +3062,80 @@ html {
 .about_card__content__details .edu-row:last-child {
   margin-bottom: 0;
 }
+
+/* ==========================================================================
+   Sidebar scrolling and section headings
+   ========================================================================== */
+
+/* --- Sidebar scrolls on its own ------------------------------------------
+   It is ~977px tall against a typical 800px viewport, and being sticky with no
+   max-height meant the lower half (the social links) could not be reached until
+   the whole page had scrolled to the bottom. Same pattern .toc-rail already
+   uses: cap it to the viewport and let it scroll independently.
+   overscroll-behavior keeps that scroll from chaining to the page once it
+   reaches its end. */
+@media (min-width: 769px) {
+  .sidebar {
+    align-self: flex-start;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 4px;
+  }
+
+  .sidebar:hover::-webkit-scrollbar-thumb {
+    background-color: var(--text-muted);
+  }
+}
+
+/* Stacked layout: never cap the height, or the sidebar clips its own content. */
+@media (max-width: 768px) {
+  .sidebar {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+/* --- Section headings ----------------------------------------------------
+   These were 20px and pure white against 16px white body text, so a new
+   section barely registered. Scoped to h2[id]: on every page those are the
+   real section headings, while the plain <h2> grouping labels on Publications
+   and Projects already sit above their own <hr>. */
+.page__content-inner h2[id],
+[data-theme="dark"] .page__content-inner h2[id] {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--link-color);
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* The first heading sits right under the page lead and needs no extra room. */
+.page__content-inner > h2[id]:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 768px) {
+  .page__content-inner h2[id],
+  [data-theme="dark"] .page__content-inner h2[id] {
+    font-size: 1.3rem;
+    margin-top: 1.9rem;
+  }
+}
