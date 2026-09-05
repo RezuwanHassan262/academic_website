@@ -2902,7 +2902,7 @@ html {
 [data-theme="dark"] .publication-venue small,
 [data-theme="dark"] .publication-item .publication-venue,
 [data-theme="dark"] .about_card--publication .about_card__content__date {
-  color: #ffa657 !important;
+  color: var(--venue-grey) !important;
 }
 
 /* --- Education "Concentration:" / "Achievement:" labels ------------------ */
@@ -3120,7 +3120,7 @@ html {
   font-size: 1.45rem;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--link-color);
+  color: var(--heading-accent);
   margin-top: 2.4rem;
   margin-bottom: 0.9rem;
   padding-bottom: 0.35rem;
@@ -3138,4 +3138,94 @@ html {
     font-size: 1.3rem;
     margin-top: 1.9rem;
   }
+}
+
+/* ==========================================================================
+   Palette: headings, venues and education labels
+
+   Every colour below is declared twice - a light-mode value on :root and a
+   dark-mode value under [data-theme="dark"] - so nothing depends on which
+   theme is active. Light values are darkened for contrast against white;
+   dark values are lightened for contrast against #0d1117.
+   ========================================================================== */
+
+:root {
+  --heading-accent: #b4460b;   /* "About Me", "Selected Publications" */
+  --venue-grey:     #57606a;   /* conference / venue lines */
+  --edu-concentration: #0b6e7f;
+  --edu-achievement:   #1a7f37;
+  --edu-thesis:        #6f42c1;
+  --edu-supervisor:    #a4133c;
+  --edu-publication:   #0969da;
+  --edu-courses:       #8a6100;
+}
+
+[data-theme="dark"] {
+  --heading-accent: #ffa657;
+  --venue-grey:     #b1bac4;
+  --edu-concentration: #56d4dd;
+  --edu-achievement:   #7ee787;
+  --edu-thesis:        #d2a8ff;
+  --edu-supervisor:    #ff9bb3;
+  --edu-publication:   #79c0ff;
+  --edu-courses:       #e3b341;
+}
+
+/* --- Page title ----------------------------------------------------------
+   Overrides [data-theme="dark"] .page__title, which forces #fff !important. */
+.page__title,
+[data-theme="dark"] .page__title {
+  color: var(--heading-accent) !important;
+}
+
+/* --- Education labels ----------------------------------------------------
+   One hue per label so Thesis / Supervisor / Publication / Courses are
+   distinguishable at a glance. The base .edu-label rule sets a blue with
+   !important, so each modifier repeats under the theme attribute to outrank
+   it in both directions. */
+.about_card__content__achievement .edu-label--concentration,
+[data-theme="dark"] .about_card__content__achievement .edu-label--concentration {
+  color: var(--edu-concentration) !important;
+}
+
+.about_card__content__achievement .edu-label--achievement,
+[data-theme="dark"] .about_card__content__achievement .edu-label--achievement {
+  color: var(--edu-achievement) !important;
+}
+
+.about_card__content__details .edu-tag,
+[data-theme="dark"] .about_card__content__details .edu-tag {
+  font-weight: 700;
+}
+
+.about_card__content__details .edu-tag--thesis,
+[data-theme="dark"] .about_card__content__details .edu-tag--thesis {
+  color: var(--edu-thesis) !important;
+}
+
+.about_card__content__details .edu-tag--supervisor,
+[data-theme="dark"] .about_card__content__details .edu-tag--supervisor {
+  color: var(--edu-supervisor) !important;
+}
+
+.about_card__content__details .edu-tag--publication,
+[data-theme="dark"] .about_card__content__details .edu-tag--publication {
+  color: var(--edu-publication) !important;
+}
+
+.about_card__content__details .edu-tag--courses,
+[data-theme="dark"] .about_card__content__details .edu-tag--courses {
+  color: var(--edu-courses) !important;
+}
+
+/* --- Supervisor lists ----------------------------------------------------
+   Reporting / Remote supervisors used to run together on one comma-separated
+   line. */
+.supervisor-list {
+  margin: 0.35rem 0 0.9rem;
+  padding-left: 1.25rem;
+}
+
+.supervisor-list li {
+  margin-bottom: 0.2rem;
 }
