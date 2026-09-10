@@ -7,15 +7,18 @@
 (function () {
   'use strict';
 
-  // The sticky nav overlaps whatever an in-page link jumps to. Publish its
-  // real height as --nav-h so CSS scroll-margin-top can clear it; the height
-  // changes as the nav wraps, so re-measure whenever it can have changed.
+  // When the nav is pinned it overlaps whatever an in-page link jumps to.
+  // Publish its real height as --nav-h so CSS scroll-margin-top can clear it;
+  // the height changes as the nav wraps, so re-measure whenever it can have
+  // changed. On phones the nav scrolls away instead of pinning (see main.css),
+  // and then there is nothing to clear, so the height published is 0.
   function trackNavHeight() {
     var nav = document.querySelector(".site-nav");
     if (!nav) return function () { return 0; };
     var height = 0;
     function measure() {
-      height = Math.round(nav.getBoundingClientRect().height);
+      var pinned = /^(sticky|fixed)$/.test(getComputedStyle(nav).position);
+      height = pinned ? Math.round(nav.getBoundingClientRect().height) : 0;
       document.documentElement.style.setProperty("--nav-h", height + "px");
     }
     measure();

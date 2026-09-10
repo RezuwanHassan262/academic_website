@@ -129,6 +129,49 @@ function injectScholarStats(html, data) {
   return { html: out, count: total };
 }
 
+/* ---------------------------------------------------------------------------
+ * Links to other sites open in a new tab
+ *
+ * Applied here rather than in webpages/ so it holds for every link, including
+ * ones added by hand later. Only absolute http(s) URLs on another host are
+ * touched; relative links (Publications, Teaching, ...), in-page #anchors,
+ * mailto:/tel: and absolute links back to this site keep opening in place.
+ * rel="noopener" stops the opened page reaching back through window.opener.
+ * ------------------------------------------------------------------------ */
+
+const SITE_HOSTS = ['rezuwanhassan262.github.io'];
+
+function externalLinksInNewTab(html) {
+  let changed = 0;
+  const out = html.replace(/<a\b[^>]*>/gi, (tag) => {
+    const href = tag.match(/\shref="([^"]*)"/i);
+    if (!href) return tag;
+
+    let url;
+    try {
+      url = new URL(href[1]);
+    } catch (e) {
+      return tag; // relative or in-page: same site
+    }
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') return tag;
+    if (SITE_HOSTS.includes(url.hostname.replace(/^www\./, ''))) return tag;
+
+    let next = /\starget="/i.test(tag)
+      ? tag.replace(/\starget="[^"]*"/i, ' target="_blank"')
+      : tag.replace(/^<a\b/i, '<a target="_blank"');
+
+    const rel = next.match(/\srel="([^"]*)"/i);
+    const values = new Set((rel ? rel[1] : '').split(/\s+/).filter(Boolean));
+    values.add('noopener');
+    const relAttr = ' rel="' + [...values].join(' ') + '"';
+    next = rel ? next.replace(/\srel="[^"]*"/i, relAttr) : next.replace(/^<a\b/i, '<a' + relAttr);
+
+    if (next !== tag) changed += 1;
+    return next;
+  });
+  return { html: out, count: changed };
+}
+
 if (!fs.existsSync(PAGES)) {
   console.error(`No ${path.relative(ROOT, PAGES)}/ directory — run scripts/build-static.js first.`);
   process.exit(1);
@@ -141,6 +184,7 @@ const pages = fs.readdirSync(PAGES).filter((f) => f.endsWith('.html'));
 const scholar = readScholarData();
 let rewritten = 0;
 let scholarFilled = 0;
+let linksRetargeted = 0;
 
 for (const page of pages) {
   const html = fs.readFileSync(path.join(PAGES, page), 'utf8');
@@ -148,7 +192,9 @@ for (const page of pages) {
   rewritten += flat.count;
   const withStats = injectScholarStats(flat.html, scholar);
   scholarFilled += withStats.count;
-  fs.writeFileSync(path.join(OUT, page), withStats.html);
+  const withTargets = externalLinksInNewTab(withStats.html);
+  linksRetargeted += withTargets.count;
+  fs.writeFileSync(path.join(OUT, page), withTargets.html);
 }
 
 const copiedDirs = [];
@@ -178,3 +224,4 @@ console.log(`public/: ${pages.length} pages, ${rewritten} asset links rewritten`
 console.log(`public/: asset directories ${copiedDirs.join(', ')}`);
 console.log(`public/: ${scholarFilled} Scholar stat fields filled from _data/scholar.json`
   + (scholar && scholar.lastUpdated ? ` (last updated ${scholar.lastUpdated})` : ''));
+console.log(`public/: ${linksRetargeted} links to other sites set to open in a new tab`);

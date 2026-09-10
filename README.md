@@ -34,7 +34,12 @@ public/           what gets deployed (git-ignored, rebuilt every deploy)
    Pages),
 3. substitutes the Google Scholar figures into any element tagged
    `data-scholar="…"`,
-4. copies `assets/`, `images/` and `files/`, and writes `.nojekyll`.
+4. makes every link to **another site** open in a new tab
+   (`target="_blank" rel="noopener"`). Links between pages of this site,
+   in-page `#anchors`, `mailto:`/`tel:` and absolute links back to
+   `rezuwanhassan262.github.io` still open in place. Because this happens at
+   build time, links you add to `webpages/` later are covered automatically,
+5. copies `assets/`, `images/` and `files/`, and writes `.nojekyll`.
 
 It fails loudly rather than shipping something broken: a missing `index.html`
 or a leftover `../` reference aborts the build.
@@ -239,10 +244,18 @@ Pick whichever you actually want:
 
 ## Accessibility and responsiveness
 
-- Every page is checked to have no horizontal overflow down to 320px.
-- The sticky nav's height is measured at runtime and published as `--nav-h`, so
-  in-page anchors clear it at any width (the nav wraps from 57px to over 170px).
-- The sidebar and the "On this page" rail scroll independently of the page.
+- Every page is checked for horizontal overflow, sub-11px text and undersized
+  tap targets at phone, tablet and desktop sizes, in portrait and landscape,
+  down to 320px wide.
+- Buttons and standalone links have a tap area of at least 24×24px (WCAG 2.2 AA).
+- **The nav is pinned on tablets and desktops but scrolls away below 768px.**
+  With ten links it wraps to 117–170px on a phone, which pinned would cover
+  around 30% of a small screen.
+- `assets/js/page-toc.js` publishes the nav's height as `--nav-h` only while the
+  nav is actually pinned (and `0` when it scrolls away), so in-page anchors land
+  just below the nav on desktop and at the top of the screen on a phone.
+- On desktop the sidebar and the "On this page" rail scroll independently of
+  the page.
 - Pages respect `prefers-reduced-motion` for smooth scrolling.
 
 ## License

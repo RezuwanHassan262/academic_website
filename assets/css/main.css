@@ -3156,7 +3156,8 @@ html {
   --edu-achievement:   #1a7f37;
   --edu-thesis:        #6f42c1;
   --edu-supervisor:    #a4133c;
-  --edu-publication:   #0969da;
+  --edu-publication:   #cf222e;   /* coral red - never blue, which reads as a link */
+  --edu-result:        #3f6212;   /* olive */
   --edu-courses:       #8a6100;
 }
 
@@ -3167,7 +3168,8 @@ html {
   --edu-achievement:   #7ee787;
   --edu-thesis:        #d2a8ff;
   --edu-supervisor:    #ff9bb3;
-  --edu-publication:   #79c0ff;
+  --edu-publication:   #ff7b72;   /* coral */
+  --edu-result:        #c3e88d;   /* lime */
   --edu-courses:       #e3b341;
 }
 
@@ -3228,4 +3230,49 @@ html {
 
 .supervisor-list li {
   margin-bottom: 0.2rem;
+}
+
+/* --- "Result:" label ------------------------------------------------------
+   Had no rule of its own, so it inherited the base .edu-label blue - the same
+   colour as a hyperlink. Lime in dark mode, olive in light: distinct from
+   Achievement green and Courses amber, and nowhere near blue. */
+.about_card__content__achievement .edu-label--result,
+[data-theme="dark"] .about_card__content__achievement .edu-label--result {
+  color: var(--edu-result) !important;
+}
+
+/* ==========================================================================
+   Touch targets and the phone nav
+   ========================================================================== */
+
+/* --- Tap targets ---------------------------------------------------------
+   These links rendered 16-23px tall, under the 24px minimum target size in
+   WCAG 2.2 AA, which makes them fiddly to hit with a thumb. Flex centring keeps
+   the text where it was while min-height enlarges the tappable box. None of
+   them carry margins, text-align or pseudo-elements this could disturb. */
+.site-title a,
+.scholar-mini__link,
+.scholar-stats__link,
+.highlight-card__more,
+.testimonial__name {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* --- Nav scrolls away on phones ------------------------------------------
+   With ten links the nav wraps to 117-170px on phones. Pinned to the top, that
+   was 30% of an iPhone SE screen in portrait and 31% in landscape, leaving
+   little room to read. Below 768px it now scrolls away with the page.
+   assets/js/page-toc.js sees the nav is no longer pinned and publishes
+   --nav-h: 0, so in-page anchors stop reserving space for it; the value here
+   covers visitors without JavaScript. */
+@media (max-width: 768px) {
+  .site-nav {
+    position: relative;
+  }
+
+  :root {
+    --nav-h: 0px;
+  }
 }
