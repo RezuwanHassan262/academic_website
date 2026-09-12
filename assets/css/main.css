@@ -3276,3 +3276,43 @@ html {
     --nav-h: 0px;
   }
 }
+
+/* ==========================================================================
+   Theme toggle placement and the testimonial closing quote
+   ========================================================================== */
+
+/* --- Theme toggle beside the page content --------------------------------
+   assets/js/theme-toggle.js drops the button into the "On this page" rail
+   where one exists, so on a desktop it sits just under that list instead of
+   floating in the far corner of the window. Pages without a rail keep the
+   fixed corner button. */
+.toc-rail .theme-toggle {
+  position: static;
+  margin: 0.85rem auto 0;
+  width: 44px;
+  height: 44px;
+}
+
+@media (max-width: 768px) {
+  /* Stacked layout puts the rail at the very top of the page, so a button
+     parked there would scroll out of reach - pin it within thumb reach. */
+  .toc-rail .theme-toggle {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    margin: 0;
+    z-index: 1000;
+  }
+}
+
+/* --- Testimonials close their quotation ----------------------------------
+   Only an opening curly quote was rendered, leaving every quotation visibly
+   unclosed. */
+.testimonial__quote::after {
+  content: "”";
+  font-size: 1.6rem;
+  line-height: 0;
+  vertical-align: -0.35rem;
+  margin-left: 0.15rem;
+  color: var(--panel-border);
+}

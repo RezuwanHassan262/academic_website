@@ -56,7 +56,13 @@
     // Initialize theme toggle when DOM is ready
     function initializeThemeToggle() {
         const toggle = createThemeToggle();
-        document.body.appendChild(toggle);
+        // Sit under the "On this page" rail when the page has one, so the
+        // button reads as part of the page instead of floating in the corner
+        // of the window. Pages without a rail keep the fixed corner button,
+        // and CSS re-pins it to the corner on phones, where the rail sits at
+        // the very top of a stacked page.
+        const host = document.querySelector(".toc-rail") || document.body;
+        host.appendChild(toggle);
     }
     
     // Wait for DOM to be ready
