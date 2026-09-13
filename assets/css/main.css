@@ -6,7 +6,7 @@
   --sidebar-bg: #eae7d9;
   --link-color: #1e6bb8;
   --text-color: #333;
-  --text-muted: #666;
+  --text-muted: #5c5c5c;   /* #666 fell to 4.45:1 on the warm sidebar */
   --accent-color: #0a5fc4;   /* white text clears AA on this; #007bff did not */
   --gray-light: #e6e3d4;
   --border-color: #d9d5c4;
@@ -419,7 +419,7 @@ a:hover {
 .page__footer-copyright {
   text-align: center;
   font-size: 0.9em;
-  color: #666;
+  color: var(--text-muted);
 }
 
 /* Social Icons */
@@ -2883,7 +2883,7 @@ html {
    repeated under the theme attribute to outrank it in both themes. */
 .philosophy-label,
 [data-theme="light"] .philosophy-label {
-  color: #0969da;
+  color: #0757b8;
 }
 [data-theme="dark"] .philosophy-label {
   color: var(--link-color);
