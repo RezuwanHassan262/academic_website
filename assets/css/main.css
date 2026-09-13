@@ -3,37 +3,37 @@
 /* Variables */
 :root {
   --primary-color: #494e52;
-  --sidebar-bg: #f8f9fa;
+  --sidebar-bg: #eae7d9;
   --link-color: #1e6bb8;
   --text-color: #333;
   --text-muted: #666;
-  --accent-color: #007bff;
-  --gray-light: #f1f1f1;
-  --border-color: #EEEEEE;
+  --accent-color: #0a5fc4;   /* white text clears AA on this; #007bff did not */
+  --gray-light: #e6e3d4;
+  --border-color: #d9d5c4;
   --box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  --background-color: #fff;
-  --nav-bg: #fff;
-  --card-bg: #fff;
-  --card-background: #fff;
-  --hover-bg: #f1f1f1;
+  --background-color: #f2f0e4;
+  --nav-bg: #f2f0e4;
+  --card-bg: #ffffff;
+  --card-background: #ffffff;
+  --hover-bg: #e6e3d4;
 }
 
 /* Dark theme variables */
 [data-theme="dark"] {
-  --primary-color: #8e9297;
-  --sidebar-bg: #1e2329;
-  --link-color: #64b5f6;
+  --primary-color: #4a4d57;
+  --sidebar-bg: #2a2b31;
+  --link-color: #7cc4ff;
   --text-color: #ffffff;
-  --text-muted: #8b949e;
-  --accent-color: #1f80e0;
-  --gray-light: #4a5568;
-  --border-color: #4a5568;
+  --text-muted: #b9bcc4;
+  --accent-color: #155ea8;
+  --gray-light: #3a3c44;
+  --border-color: #3d3f47;
   --box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
-  --background-color: #0d1117;
-  --nav-bg: #161b22;
-  --card-bg: #21262d;
-  --card-background: #21262d;
-  --hover-bg: #30363d;
+  --background-color: #232429;
+  --nav-bg: #1c1d21;
+  --card-bg: #2d2f36;
+  --card-background: #2d2f36;
+  --hover-bg: #3a3c44;
 }
 
 /* Base Styles */
@@ -561,7 +561,7 @@ a:hover {
 .nav-list a.current,
 .navbar-btn.active {
   background-color: #20beff;
-  color: #fff !important;
+  color: #0b2a3a !important;
   border-radius: 6px;
   box-shadow: 0 0 0 2px #20beff;
   outline: none;
@@ -810,11 +810,11 @@ a:hover {
 }
 
 [data-theme="dark"] .about_card__content__subtitle {
-  color: #64b5f6 !important;
+  color: var(--link-color) !important;
 }
 
 [data-theme="dark"] .about_card__content__date {
-  color: #8b949e !important;
+  color: var(--text-muted) !important;
 }
 
 [data-theme="dark"] .about_card__content__details {
@@ -1555,7 +1555,7 @@ a:hover {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.1;
-  color: #20BEFF;
+  color: var(--link-color);
 }
 
 .scholar-stat__label {
@@ -1566,7 +1566,7 @@ a:hover {
 
 .scholar-stat__sub {
   font-size: 0.75rem;
-  color: #777;
+  color: var(--text-muted);
   margin-top: 0.15rem;
 }
 
@@ -1574,7 +1574,7 @@ a:hover {
   margin: 1rem 0 0;
   font-size: 0.78rem;
   font-style: italic;
-  color: #777;
+  color: var(--text-muted);
 }
 
 /* --- Research interests / hobbies icon grid ----------------------------- */
@@ -1737,7 +1737,7 @@ a:hover {
 
 /* --- Author-name highlight in publication/author lists ------------------- */
 :root { --author-highlight: #1668b8; } /* author names: blue, so they read distinctly against the orange venue line */
-[data-theme="dark"] { --author-highlight: #64b5f6; }
+[data-theme="dark"] { --author-highlight: var(--link-color); }
 
 .publication-authors strong,
 .publication-authors b,
@@ -2079,7 +2079,7 @@ a:hover {
 
 /* --- Under-review badge -------------------------------------------------- */
 .publication-item[data-category="under_review"] .publication-type {
-  background: #b45309;
+  background: #9a4207;
 }
 
 /* --- Lightbox ------------------------------------------------------------ */
@@ -2882,9 +2882,11 @@ html {
    [data-theme="dark"] strong forces #fff at (0,1,1), so the class is
    repeated under the theme attribute to outrank it in both themes. */
 .philosophy-label,
-[data-theme="dark"] .philosophy-label,
 [data-theme="light"] .philosophy-label {
-  color: #35baf6;
+  color: #0969da;
+}
+[data-theme="dark"] .philosophy-label {
+  color: var(--link-color);
 }
 
 /* ==========================================================================
@@ -2908,7 +2910,7 @@ html {
 /* --- Education "Concentration:" / "Achievement:" labels ------------------ */
 .about_card__content__achievement .edu-label,
 [data-theme="dark"] .about_card__content__achievement .edu-label {
-  color: #64b5f6 !important;
+  color: var(--link-color) !important;
   font-weight: 600;
 }
 
@@ -3146,7 +3148,7 @@ html {
    Every colour below is declared twice - a light-mode value on :root and a
    dark-mode value under [data-theme="dark"] - so nothing depends on which
    theme is active. Light values are darkened for contrast against white;
-   dark values are lightened for contrast against #0d1117.
+   dark values are lightened for contrast against the #232429 ground.
    ========================================================================== */
 
 :root {
@@ -3163,14 +3165,14 @@ html {
 
 [data-theme="dark"] {
   --heading-accent: #ffa657;
-  --venue-grey:     #b1bac4;
-  --edu-concentration: #56d4dd;
+  --venue-grey:     #d0d6dc;
+  --edu-concentration: #7fe3ea;
   --edu-achievement:   #7ee787;
-  --edu-thesis:        #d2a8ff;
-  --edu-supervisor:    #ff9bb3;
-  --edu-publication:   #ff7b72;   /* coral */
+  --edu-thesis:        #e2c8ff;
+  --edu-supervisor:    #ffc2d1;
+  --edu-publication:   #ffbdb8;   /* coral, lifted */
   --edu-result:        #c3e88d;   /* lime */
-  --edu-courses:       #e3b341;
+  --edu-courses:       #f0cf70;
 }
 
 /* --- Page title ----------------------------------------------------------
@@ -3315,4 +3317,22 @@ html {
   vertical-align: -0.35rem;
   margin-left: 0.15rem;
   color: var(--panel-border);
+}
+
+/* --- Dark-mode overrides for the #232429 ground ---------------------------
+   The link colour is now light enough that white-on-link no longer reads, and
+   the toggle borrows --primary-color, which is a dark neutral in this theme. */
+[data-theme="dark"] .talk-date {
+  color: #1f1f1f;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #e6e6e6;
+  color: #2e2e2e;
+}
+
+/* .teaching-meta .term paints text with --accent-color, which is a button
+   background shade; in dark mode that is nearly invisible on the grey chip. */
+[data-theme="dark"] .teaching-meta .term {
+  color: var(--link-color);
 }

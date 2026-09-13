@@ -6,10 +6,16 @@
 (function() {
     'use strict';
 
-    // Dark is the site default. A visitor's explicit choice (stored under the
-    // 'theme' key) always wins; only first-time visitors get the default.
-    const DEFAULT_THEME = 'dark';
-    const savedTheme = localStorage.getItem('theme') || DEFAULT_THEME;
+    // The site always loads LIGHT unless this visitor has explicitly chosen dark
+    // with the toggle. The choice is stored under a versioned key: the old
+    // 'theme' key from the dark-by-default era is deliberately ignored (and
+    // cleared), so nobody is stuck on a stale dark preference. The OS colour
+    // scheme is never consulted.
+    const DEFAULT_THEME = 'light';
+    const STORAGE_KEY = 'theme-v2';
+    try { localStorage.removeItem('theme'); } catch (e) { /* storage may be blocked */ }
+    let savedTheme = DEFAULT_THEME;
+    try { savedTheme = localStorage.getItem(STORAGE_KEY) || DEFAULT_THEME; } catch (e) { /* ignore */ }
     
     // Apply saved theme on page load
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -33,7 +39,7 @@
             document.documentElement.setAttribute('data-theme', newTheme);
             
             // Save to localStorage
-            localStorage.setItem('theme', newTheme);
+            try { localStorage.setItem(STORAGE_KEY, newTheme); } catch (e) { /* ignore */ }
             
             // Update button icon
             updateToggleIcon(toggleButton, newTheme);
@@ -72,21 +78,4 @@
         initializeThemeToggle();
     }
     
-    // Handle system theme preference changes
-    if (window.matchMedia) {
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        mediaQuery.addEventListener('change', function(e) {
-            // Only auto-switch if user hasn't manually set a preference
-            if (!localStorage.getItem('theme')) {
-                const systemTheme = e.matches ? 'dark' : DEFAULT_THEME;
-                document.documentElement.setAttribute('data-theme', systemTheme);
-                
-                // Update toggle button if it exists
-                const toggleButton = document.querySelector('.theme-toggle');
-                if (toggleButton) {
-                    updateToggleIcon(toggleButton, systemTheme);
-                }
-            }
-        });
-    }
 })();

@@ -619,9 +619,9 @@ ${items.join('\n')}
 function shell({ site, author, nav, currentFile, title, lead, content, toc, cvUrl }) {
   content = rewriteLinks(content);
   return `<!DOCTYPE html>
-<!-- data-theme is set to the site default here so the page paints dark even
+<!-- data-theme is set to the site default here so the page paints light even
      before theme-toggle.js runs; a visitor's saved choice overrides it. -->
-<html lang="en" class="no-js" data-theme="dark">
+<html lang="en" class="no-js" data-theme="light">
 <head>
     <meta charset="utf-8">
     <title>${title} | ${site.title}</title>
