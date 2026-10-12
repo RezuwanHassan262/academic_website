@@ -1682,6 +1682,35 @@ a:hover {
   border-radius: 0 8px 8px 0;
 }
 
+.service-list__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-list__head .service-list__org {
+  margin-bottom: 0;
+}
+
+.service-list__titles {
+  line-height: 1.2;
+}
+
+.service-list__titles .service-list__role {
+  display: block;
+  margin-top: -0.1rem;
+}
+
+.service-list__logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: #fff;
+  border-radius: 8px;
+}
+
 .service-list__role {
   font-weight: 700;
   font-size: 1rem;

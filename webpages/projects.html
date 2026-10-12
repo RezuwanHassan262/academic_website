@@ -95,56 +95,85 @@
 
                     <section class="page__content-inner">
 
-<div class="tag-filter" data-tag-filter=".portfolio-item" data-tag-groups='{"Federated Learning":["Federated Learning","Privacy-Preserving ML"],"Natural Language Processing":["NLP","Large Language Models","Text Classification","RoBERTa"],"Human Computer Interaction":["Human-Computer Interaction"],"Web Development":["Web Development","React","TypeScript","Streamlit","Gradio"],"Computer Vision":["Computer Vision","YOLOv8","Roboflow"],"Agentic AI":["Agentic AI","RAG"],"Machine Learning & Data Science":["Machine Learning","Data Science","scikit-learn","Random Forest","fast.ai","Exploratory Data Analysis"],"Web Scraping":["Web Scraping","Selenium"],"Healthcare/Medical AI":["Healthcare AI"],"Open-Source Tools":["Open-Source Tools","Hugging Face","ONNX"],"Data Science and Tableau Data Analysis":["Tableau","Business Intelligence","Exploratory Data Analysis","Data Science"],"Bangla NLP":["Bangla NLP"],"Speech NLP":["Speech NLP","ASR","Whisper","Wav2Vec2"]}' aria-label="Filter projects by topic"></div>
-<h2>Machine Learning, NLP & Computer Vision</h2><hr />
+<div class="tag-filter" data-tag-filter=".portfolio-item" data-tag-groups='{
+  "Federated Learning":["Federated Learning","Privacy-Preserving ML"],
+  "Natural Language Processing":["NLP","Large Language Models","Text Classification","RoBERTa"],
+  "Human Computer Interaction":["Human-Computer Interaction"],
+  "Web Development":["Web Development","React","TypeScript","Streamlit","Gradio"],
+  "Computer Vision":["Computer Vision","YOLOv8","Roboflow"],
+  "Agentic AI":["Agentic AI","RAG"],
+  "Machine Learning & Data Science":["Machine Learning","Data Science","scikit-learn","Random Forest","fast.ai","Exploratory Data Analysis"],
+  "Web Scraping":["Web Scraping","Selenium"],
+  "Healthcare/Medical AI":["Healthcare AI"],
+  "Open-Source Tools":["Open-Source Tools","Hugging Face","ONNX"],
+  "Data Science and Tableau Data Analysis":["Tableau","Business Intelligence","Exploratory Data Analysis","Data Science"],
+  "Bangla NLP":["Bangla NLP"],
+  "Speech NLP":["Speech NLP","ASR","Whisper","Wav2Vec2", "Voice Cloning", "Speech Synthesis", "F5-TTS"]}' aria-label="Filter projects by topic"></div>
+
+  <h2>Machine Learning, AI, NLP & Computer Vision</h2><hr />
+
+
 <div class="portfolio-grid">
+<div class="portfolio-item" data-category="nlp" data-year="2026">
+  <div class="portfolio-image"><img src="../images/aktts_hfs_ss.PNG" alt="Voice Cloning & Text-to-Speech" loading="lazy"></div>
+  <div class="portfolio-content">
+    <span class="project-year">2026</span>
+    <h3>Voice Cloning & Text-to-Speech</h3>
+    <p>This was a experimental and non-commercial fun project. Tried to do voice cloning and speech synthesis around a fine-tuned F5-TTS model. Adapted to a single speaker, it generates speech from text through an interactive web demo.</p>
+    <div class="publication-tags"><span class="tag">Speech NLP</span><span class="tag">Machine Learning</span><span class="tag">Voice Cloning</span><span class="tag">Speech Synthesis</span><span class="tag">F5-TTS</span><span class="tag">NLP</span></div>
+    <div class="portfolio-links"><a href="https://github.com/RezuwanHassan262/zero-shot-voice-tts/tree/main" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a><a href="https://huggingface.co/spaces/Rezuwan/Aktar_Khan_TTS" class="btn-link" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> Demo</a></div>
+  </div>
+</div>
+
+<div class="portfolio-item" data-category="nlp" data-year="2026">
+  <div class="portfolio-image"><img src="../images/longform_audio_thumbnail.jpg" alt="Automatic Bangla Longform Audio Transcription" loading="lazy"></div>
+  <div class="portfolio-content">
+    <span class="project-year">2026</span>
+    <h3>Automatic Bangla Longform Audio Transcription System with diarization</h3>
+    <p>Robust Bangla longform ASR system using Whisper which returns the transcriptions and English translation diarized by speaker. The system is capable of generating CSV/Excel outputs from audio inputs.</p>
+    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Speech NLP</span><span class="tag">Whisper</span><span class="tag">ASR</span><span class="tag">NLP</span><span class="tag">Machine Learning</span></div>
+    <!-- <div class="portfolio-links"><a href="https://github.com/RezuwanHassan262/Automatic-Bangla-Transcription" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a></div> -->
+  </div>
+</div>
+
+
 <div class="portfolio-item" data-category="ml" data-year="2025">
   <div class="portfolio-image"><img src="../images/agb.png" alt="AgriBuddy — Agentic AI System for Bangladeshi Agriculture" loading="lazy"></div>
   <div class="portfolio-content">
     <span class="project-year">2025</span>
     <h3>AgriBuddy — Agentic AI System for Bangladeshi Agriculture</h3>
     <p>AI-powered agent system for Bangladeshi farmers: RAG-based Bangla advisory, CNN rice disease detection, mobile-first PWA. Runner-up at National AI Hackathon 2025.</p>
-    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Agentic AI</span><span class="tag">RAG</span><span class="tag">Computer Vision</span><span class="tag">Smart Agriculture</span></div>
+    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Agentic AI</span><span class="tag">RAG</span><span class="tag">Computer Vision</span><span class="tag">Smart Agriculture</span><span class="tag">NLP</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://www.researchgate.net/publication/392194862_AgriBuddy_An_Agentic_AI_System_for_Bangladeshi_Agriculture_Using_RAG_and_Vision_Models" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a><a href="https://github.com/AgriBRACUtion" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a></div>
   </div>
 </div>
-<div class="portfolio-item" data-category="ml" data-year="2025">
+<div class="portfolio-item" data-category="nlp" data-year="2025">
   <div class="portfolio-image"><img src="../images/ss2.PNG" alt="Bangla Satirical Chatbot — Unmad Style (USB)" loading="lazy"></div>
   <div class="portfolio-content">
     <span class="project-year">2025</span>
     <h3>Bangla Satirical Chatbot — Unmad Style (USB)</h3>
     <p>A RAG-powered Bangla satire chatbot inspired by Unmad magazine — retrieves snippets from a knowledge base and responds with humorous, exaggerated witty satire.</p>
-    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">RAG</span><span class="tag">Large Language Models</span><span class="tag">Human-Computer Interaction</span></div>
+    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">RAG</span><span class="tag">Large Language Models</span><span class="tag">Human-Computer Interaction</span><span class="tag">NLP</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://github.com/RezuwanHassan262/USB_Unmad_Satirical_Bot" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a><a href="https://huggingface.co/spaces/Rezuwan/USB_Unmad_Satirical_Bot?logs=container" class="btn-link" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> Demo</a></div>
   </div>
 </div>
-<div class="portfolio-item" data-category="ml" data-year="2024">
-  <div class="portfolio-image"><img src="https://tds-images.thedailystar.net/sites/default/files/styles/social_share/public/images/2022/11/18/zoom_virtual_background.jpg" alt="Automatic Bengali Transcription System" loading="lazy"></div>
-  <div class="portfolio-content">
-    <span class="project-year">2024</span>
-    <h3>Automatic Bengali Transcription System</h3>
-    <p>Robust Bangla ASR system using Whisper; deployment targets a web interface generating CSV/Excel outputs from audio inputs.</p>
-    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Speech NLP</span><span class="tag">Whisper</span><span class="tag">ASR</span></div>
-    <div class="portfolio-links"><a href="https://github.com/RezuwanHassan262/Automatic-Bangla-Transcription" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a></div>
-  </div>
-</div>
-<div class="portfolio-item" data-category="ml" data-year="2024">
+<div class="portfolio-item" data-category="nlp" data-year="2024">
   <div class="portfolio-image"><img src="../images/w2v2_char_tok.png" alt="Bengali Speech Recognition with Regional Dialects" loading="lazy"></div>
   <div class="portfolio-content">
     <span class="project-year">2024</span>
     <h3>Bengali Speech Recognition with Regional Dialects</h3>
     <p>M.Sc. thesis project — regional speech corpus for Bengali dialects, fine-tuned Wav2Vec2 and Whisper models, live ASR demo deployed on Hugging Face.</p>
-    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Speech NLP</span><span class="tag">Wav2Vec2</span><span class="tag">Whisper</span><span class="tag">ASR</span></div>
+    <div class="publication-tags"><span class="tag">Bangla NLP</span><span class="tag">Speech NLP</span><span class="tag">Wav2Vec2</span><span class="tag">Whisper</span><span class="tag">ASR</span><span class="tag">NLP</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://www.researchgate.net/publication/387686959_A_character_gram_modeling_approach_towards_Bengali_Speech_to_Text_with_Regional_Dialects" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a><a href="https://github.com/RezuwanHassan262/Bengali-Speech-Recognition-with-Regional-Dialects" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a><a href="https://huggingface.co/spaces/Rezuwan/Regional_Speech_ASR" class="btn-link" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> Demo</a></div>
   </div>
 </div>
-<div class="portfolio-item" data-category="ml" data-year="2024">
+<div class="portfolio-item" data-category="nlp" data-year="2024">
   <div class="portfolio-image"><img src="https://raw.githubusercontent.com/RezuwanHassan262/Multi-label-Film-Classifier/main/images/fgcw.PNG" alt="Multi-label Film Genre Classifier" loading="lazy"></div>
   <div class="portfolio-content">
     <span class="project-year">2024</span>
     <h3>Multi-label Film Genre Classifier</h3>
     <p>Scraped movie/TV data, fine-tuned RoBERTa for multi-label genre classification, converted to ONNX, deployed via Flask on Hugging Face Space and Render.</p>
-    <div class="publication-tags"><span class="tag">NLP</span><span class="tag">Text Classification</span><span class="tag">RoBERTa</span><span class="tag">ONNX</span></div>
+    <div class="publication-tags"><span class="tag">NLP</span><span class="tag">Text Classification</span><span class="tag">RoBERTa</span><span class="tag">ONNX</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://github.com/RezuwanHassan262/Multi-label-Film-Classifier/tree/main" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a><a href="https://multi-label-film-classifier.onrender.com/" class="btn-link" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> Demo</a></div>
   </div>
 </div>
@@ -154,7 +183,7 @@
     <span class="project-year">2024</span>
     <h3>Road Object Detection with YOLOv8</h3>
     <p>Fine-tuned YOLOv8n on a custom Bangladeshi road dataset; detects vehicles, pedestrians, and signboards. Deployed on Hugging Face Spaces (Streamlit).</p>
-    <div class="publication-tags"><span class="tag">Computer Vision</span><span class="tag">YOLOv8</span><span class="tag">Roboflow</span><span class="tag">Streamlit</span></div>
+    <div class="publication-tags"><span class="tag">Computer Vision</span><span class="tag">YOLOv8</span><span class="tag">Roboflow</span><span class="tag">Streamlit</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://github.com/RezuwanHassan262/Custom-Training-YOLOv8-to-detect-Vehicle-Pedestrians-and-Signboards" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a><a href="https://huggingface.co/spaces/Rezuwan/Road_and_Pedestrian_Detection" class="btn-link" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> Demo</a></div>
   </div>
 </div>
@@ -164,7 +193,7 @@
     <span class="project-year">2023</span>
     <h3>Parrot Species Classifier</h3>
     <p>Fine-tuned a fast.ai classifier achieving 93% accuracy across 60 parrot species; deployed via Hugging Face API integrated into a custom website.</p>
-    <div class="publication-tags"><span class="tag">Computer Vision</span><span class="tag">fast.ai</span><span class="tag">Web Scraping</span><span class="tag">Hugging Face</span></div>
+    <div class="publication-tags"><span class="tag">Computer Vision</span><span class="tag">fast.ai</span><span class="tag">Web Scraping</span><span class="tag">Hugging Face</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://github.com/RezuwanHassan262/Parrot-Species-Classifier" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a><a href="https://parrot-classifier-60.netlify.app/" class="btn-link" target="_blank" rel="noopener"><i class="fas fa-play-circle"></i> Demo</a></div>
   </div>
 </div>
@@ -174,7 +203,7 @@
     <span class="project-year">2022</span>
     <h3>Heart Disease Detection using Horizontal Federated Learning</h3>
     <p>Federated Random Forest combining decentralized hospital data for heart disease detection — 7.1% accuracy improvement over baseline.</p>
-    <div class="publication-tags"><span class="tag">Federated Learning</span><span class="tag">Healthcare AI</span><span class="tag">Random Forest</span><span class="tag">Privacy-Preserving ML</span></div>
+    <div class="publication-tags"><span class="tag">Federated Learning</span><span class="tag">Healthcare AI</span><span class="tag">Random Forest</span><span class="tag">Privacy-Preserving ML</span><span class="tag">Machine Learning</span></div>
     <div class="portfolio-links"><a href="https://ieeexplore.ieee.org/document/9929490" class="btn-link" target="_blank" rel="noopener"><i class="fa-regular fa-file"></i> Paper</a><a href="https://github.com/federated-heart-disease" class="btn-link" target="_blank" rel="noopener"><i class="fa-solid fa-code"></i> Code</a></div>
   </div>
 </div>
