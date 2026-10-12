@@ -1036,6 +1036,10 @@ a:hover {
     gap: 0.75rem;
 }
 
+.publication-tags + .portfolio-links {
+    margin-top: 1rem;
+}
+
 .btn-link {
     padding: 0.5rem 1rem;
     background: transparent;
@@ -1675,7 +1679,7 @@ a:hover {
 }
 
 .service-list > li {
-  padding: 1rem 0 1rem 1.1rem;
+  padding: 1rem 1rem 1rem 1.1rem;
   border-left: 3px solid #20BEFF;
   margin-bottom: 1rem;
   background: #fbfbfb;
@@ -2641,6 +2645,14 @@ body {
   vertical-align: top;
 }
 
+/* Label column: never split a word mid-way ("Profession-al"); long values in the
+   other columns still wrap. */
+.page__content table td:first-child,
+.page__content table th:first-child {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 /* Media can never exceed its column. */
 .page__content img,
 .gallery-strip img,
@@ -3364,4 +3376,67 @@ html {
    background shade; in dark mode that is nearly invisible on the grey chip. */
 [data-theme="dark"] .teaching-meta .term {
   color: var(--link-color);
+}
+
+/* --- Touch targets and legibility on phones/tablets ------------------------
+   Controls at 24-28px tall are hard to hit with a thumb; 40px is comfortable.
+   Everything here is scoped to narrow screens so desktop is untouched. */
+@media (max-width: 768px) {
+  .site-title a,
+  .scholar-mini__link,
+  .scholar-stats__link,
+  .highlight-card__more,
+  .testimonial__name {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  .tag-filter__btn {
+    min-height: 40px;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+  }
+
+  .testimonial__title,
+  .testimonial__meta,
+  .scholar-stat__label,
+  .scholar-stat__sub {
+    font-size: 0.8125rem;
+  }
+}
+
+/* --- Experience / education / skills cards on phones ------------------------
+   The stacked about_card is centred as a block (logo, title, dates), which also
+   centred every bullet list inside it and left stray bullets floating beside
+   short lines. Justified text on a ~300px column leaves rivers of white space.
+   Keep the header centred; read the body left-aligned. */
+@media (max-width: 768px) {
+  .about_card__content__details {
+    text-align: left;
+    text-justify: auto;
+  }
+
+  .about_card__content__details,
+  .about_card__content ul,
+  .about_card__content ul.supervisor-list {
+    text-align: left;
+  }
+
+  /* <ul> inside the details <p> is closed out of it by the HTML parser, so it
+     sits beside it rather than within it. */
+  .about_card__content ul {
+    padding-left: 1.25em;
+    margin: 0.4em 0 0.9em;
+  }
+
+  ul:has(> .about_item) {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .about_item {
+    text-align: left;
+    list-style: none;
+  }
 }
