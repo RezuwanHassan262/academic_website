@@ -13,6 +13,13 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- Logo rows: kept on the page so they stay small even if a cached older main.css is served. -->
+    <style>
+      .service-list__head { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; }
+      .service-list__logo { width: 72px; height: 72px; max-width: 72px; object-fit: contain; flex-shrink: 0; background: #fff; border-radius: 8px; }
+      .service-list__titles { min-width: 0; line-height: 1.2; }
+      .service-list__titles .service-list__role { display: block; }
+    </style>
     <link rel="stylesheet" href="../assets/css/academicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -101,7 +108,7 @@
 <ul class="service-list">
   <li>
     <div class="service-list__head">
-      <img class="service-list__logo" src="../images/bai_logo.PNG" alt="Bengali.AI logo" loading="lazy">
+      <img class="service-list__logo" width="72" height="72" src="../images/bai_logo.PNG" alt="Bengali.AI logo" loading="lazy">
       <div class="service-list__titles">
         <span class="service-list__role">AI/ML Researcher &amp; Assistant Co-ordinator</span>
         <span class="service-list__org">Bengali.AI<span class="service-list__date">Ongoing</span></span>
@@ -117,7 +124,7 @@
   </li>
     <li>
     <div class="service-list__head">
-      <img class="service-list__logo" src="../images/hccs_logo.jpg" alt="HCCS logo" loading="lazy">
+      <img class="service-list__logo" width="72" height="72" src="../images/hccs_logo.jpg" alt="HCCS logo" loading="lazy">
       <div class="service-list__titles">
         <span class="service-list__role">AI/ML Researcher &amp; Implementation Engineer</span>
         <span class="service-list__org">HUMAN-CENTERED COMPUTING &amp; SOCIETY (HCCS)<span class="service-list__date">Ongoing</span></span>

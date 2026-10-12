@@ -27,6 +27,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..');
 const PAGES = path.join(ROOT, 'webpages');
@@ -172,6 +173,21 @@ function externalLinksInNewTab(html) {
   return { html: out, count: changed };
 }
 
+// Appends ?v=<content hash> to local CSS/JS links so a browser or CDN that cached
+// an older main.css cannot keep serving it after a deploy: the URL changes
+// exactly when the file's content does.
+function cacheBustAssets(html) {
+  let count = 0;
+  const out = html.replace(/((?:\.\.\/)?assets\/(?:css|js)\/[^"'?#\s]+\.(?:css|js))(?=["'])/g, (match, ref) => {
+    const file = path.join(ROOT, ref.replace(/^\.\.\//, ''));
+    if (!fs.existsSync(file)) return match;
+    const hash = crypto.createHash('md5').update(fs.readFileSync(file)).digest('hex').slice(0, 8);
+    count += 1;
+    return ref + '?v=' + hash;
+  });
+  return { html: out, count: count };
+}
+
 if (!fs.existsSync(PAGES)) {
   console.error(`No ${path.relative(ROOT, PAGES)}/ directory — run scripts/build-static.js first.`);
   process.exit(1);
@@ -194,7 +210,8 @@ for (const page of pages) {
   scholarFilled += withStats.count;
   const withTargets = externalLinksInNewTab(withStats.html);
   linksRetargeted += withTargets.count;
-  fs.writeFileSync(path.join(OUT, page), withTargets.html);
+  const busted = cacheBustAssets(withTargets.html);
+  fs.writeFileSync(path.join(OUT, page), busted.html);
 }
 
 const copiedDirs = [];
