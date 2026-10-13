@@ -140,10 +140,10 @@ Each inner page opens with a title, an italic tagline, and a breadcrumb trail.
 ### Quick facts
 
 - **Birthday:** 20th August
-- **Website:** [https://www.rezuwan.me](https://www.rezuwan.me)
+- **Website:** [https://www.bio.rezuwan.me](https://www.bio.rezuwan.me)
 - **Phone/WhatsApp:** +8801735066946
 - **Education:** Masters
-- **Email:** [rezwanhasan262@gmail.com](mailto:rezwanhasan262@gmail.com)
+- **Email:** [mdrezuwanhassan@gmail.com](mailto:mdrezuwanhassan@gmail.com)
 - **City:** Dhaka, Bangladesh
 
 ### Profile image
@@ -1133,7 +1133,7 @@ All · Federated Learning · Natural Language Processing · Computer Vision · A
 **Links:**
 
 - [View Code](https://github.com/RezuwanHassan262/personal_portfolio_website)
-- [View Demo](https://www.rezuwan.me)
+- [View Demo](https://www.bio.rezuwan.me)
 
 **Thumbnail:** `assets/img/others/ppc.PNG`
 
@@ -1339,10 +1339,10 @@ Section heading: **Hobbies** — *Hobbies & Interests*
 
 - **Address:** Khilgaon, Dhaka-1219, Bangladesh
 - **Call/WhatsApp:** [+8801735066946](tel:+8801735066946)
-- **Email:** [rezwanhasan262@gmail.com](mailto:rezwanhasan262@gmail.com)
+- **Email:** [mdrezuwanhassan@gmail.com](mailto:mdrezuwanhassan@gmail.com)
 - **LinkedIn:** [md-rezuwan-hassan/](https://www.linkedin.com/in/md-rezuwan-hassan/)
 
-Also stored in the site's shared constants: **Location** — Dhaka, Bangladesh; **Website** — `rezuwan262.vercel.app`. Note that the About page and the Portfolio Website project both give the site as [https://www.rezuwan.me](https://www.rezuwan.me), so the two values disagree.
+Also stored in the site's shared constants: **Location** — Dhaka, Bangladesh; **Website** — `rezuwan262.vercel.app`. Note that the About page and the Portfolio Website project both give the site as [https://www.bio.rezuwan.me](https://www.bio.rezuwan.me), so the two values disagree.
 
 ### Contact section copy
 
@@ -1367,7 +1367,7 @@ Also stored in the site's shared constants: **Location** — Dhaka, Bangladesh; 
 
 **Validation message:** Please fill in all required fields (Name, Email, and Message).
 
-The form has no backend. Submitting opens a Gmail compose window addressed to rezwanhasan262@gmail.com, pre-filled with a default subject of "Message from {name} - Portfolio Contact" and this body:
+The form has no backend. Submitting opens a Gmail compose window addressed to mdrezuwanhassan@gmail.com, pre-filled with a default subject of "Message from {name} - Portfolio Contact" and this body:
 
 > Hello Md. Rezuwan Hassan,
 >

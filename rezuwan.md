@@ -7,8 +7,8 @@
 **Full Name:** Md. Rezuwan Hassan  
 **Professional Title:** Artificial Intelligence (AI) Engineer & Research Scientist  
 **Location:** Dhaka, Bangladesh  
-**Website:** https://www.rezuwan.me  
-**Email:** rezwanhasan262@gmail.com  
+**Website:** https://www.bio.rezuwan.me  
+**Email:** mdrezuwanhassan@gmail.com  
 **Phone/WhatsApp:** +8801735066946  
 **Google Scholar:** https://scholar.google.com/citations?user=ZUrWZhQAAAAJ&hl=en  
 **ResearchGate:** https://www.researchgate.net/profile/Md-Hassan-82  
@@ -343,7 +343,7 @@ An Artificial Intelligence (AI) engineer with a strong passion for **Deep Learni
 - **Technologies:** React, TypeScript, CSS
 - **Links:**
   - GitHub: https://github.com/RezuwanHassan262/personal_portfolio_website
-  - Live: https://www.rezuwan.me
+  - Live: https://www.bio.rezuwan.me
 
 ---
 

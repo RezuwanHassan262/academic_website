@@ -34,9 +34,9 @@ Processing as my core research area.
 | **Professional title** | Sr. Technical Project Manager, SysModeler, Inc. |
 | **Location** | Khilgaon, Dhaka-1219, Bangladesh |
 | **Education** | M.Sc. in Computer Science & Engineering |
-| **Email** | [rezwanhasan262@gmail.com](mailto:rezwanhasan262@gmail.com) |
+| **Email** | [mdrezuwanhassan@gmail.com](mailto:mdrezuwanhassan@gmail.com) |
 | **Phone / WhatsApp** | [+8801735066946](tel:+8801735066946) |
-| **Website** | [https://www.rezuwan.me](https://www.rezuwan.me) |
+| **Website** | [https://www.bio.rezuwan.me](https://www.bio.rezuwan.me) |
 | **Birthday** | 20th August |
 
 **Professional & academic profiles:**

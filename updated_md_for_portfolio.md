@@ -1,6 +1,6 @@
 # Portfolio Content Update Specification
 
-**Target codebase:** `personal_website/` (rezuwan.me) — Create-React-App + TypeScript, React Router, react-bootstrap.
+**Target codebase:** `personal_website/` (bio.rezuwan.me) — Create-React-App + TypeScript, React Router, react-bootstrap.
 **Source of truth:** `portfolio_content_update_source.md` (academic website content as of 2026-09).
 **Audit baseline:** portfolio commit `0c69439` (59 uncommitted local files present at audit time — none affect the content below).
 
@@ -76,7 +76,7 @@ So *Adjudications*, *Teaching*, *Workshops* and *Invited Talks* from the academi
 - RoboFication *AI Engineer* card reads "July, 2025 – Present" while SysModeler AI Engineer starts October 2025. The academic site no longer lists RoboFication at all, so there is no authoritative end date. **Do not invent one.**
 - Freelance Data Scientist "July, 2022 – Present" — not on the academic site; unknown whether still active.
 - B.Sc. thesis co-author: portfolio (Research card *and* Education card's paper) say **Mohammad Saiful Huq**; source §7 says **Mohammad Saiful Hossain** for the thesis but **Huq** for the ICEPE paper. Same person, spelling differs by document. **Leave as-is; confirm with the author.**
-- Email: portfolio uses `rezwanhasan262@gmail.com` throughout; source lists `mdrezuwanhassan@gmail.com` as primary and `rezwanhasan262@gmail.com` as alternative. Both are valid; the update below follows the academic site's primary.
+- Email: portfolio uses `mdrezuwanhassan@gmail.com` throughout; source lists `mdrezuwanhassan@gmail.com` as primary and `mdrezuwanhassan@gmail.com` as alternative. Both are valid; the update below follows the academic site's primary.
 
 ---
 
@@ -85,12 +85,12 @@ So *Adjudications*, *Teaching*, *Workshops* and *Invited Talks* from the academi
 ### 2.1 `src/utils/constants.ts` → `PERSONAL_INFO`
 
 **Current**
-> `title: 'AI Engineer'`, `email: 'rezwanhasan262@gmail.com'`, `website: 'rezuwan262.vercel.app'`
+> `title: 'AI Engineer'`, `email: 'mdrezuwanhassan@gmail.com'`, `website: 'rezuwan262.vercel.app'`
 
 **Replace with**
 > `title: 'Sr. Technical Project Manager'`
 > `email: 'mdrezuwanhassan@gmail.com'`
-> `website: 'https://rezuwan.me'`
+> `website: 'https://bio.rezuwan.me'`
 
 **Reason:** the only hard-coded professional title in the codebase, and the website value points at a retired Vercel host. Verified: `PERSONAL_INFO` is defined but not imported by any component today, so this is invisible on the live site — update it anyway so a stale title cannot resurface if it is wired in later.
 
@@ -119,8 +119,8 @@ So *Adjudications*, *Teaching*, *Workshops* and *Invited Talks* from the academi
 | Field | Current | Replace with | Reason |
 |---|---|---|---|
 | Education | `Masters` | `M.Sc. in Computer Science & Engineering` | Source §3 |
-| Email | `rezwanhasan262@gmail.com` | `mdrezuwanhassan@gmail.com` | Source §3 primary address |
-| Website | `https://www.rezuwan.me` | keep | Current |
+| Email | `mdrezuwanhassan@gmail.com` | `mdrezuwanhassan@gmail.com` | Source §3 primary address |
+| Website | `https://www.bio.rezuwan.me` | keep | Current |
 | Birthday / Phone / City | — | keep | Current |
 
 ### 2.5 Keep unchanged in this layer
@@ -414,11 +414,11 @@ Already present in **Volunteering** as "Manuscript Reviewer — IEEE • Septemb
 ## 11. Social / Contact / External Links
 
 ### `src/pages/Contact.tsx`
-- **Email** (`contactInfo[2]` content + `mailto:`): `rezwanhasan262@gmail.com` → `mdrezuwanhassan@gmail.com`
-- **Gmail compose URL** (`handleSendMessage`, `&to=`): `rezwanhasan262@gmail.com` → `mdrezuwanhassan@gmail.com`
+- **Email** (`contactInfo[2]` content + `mailto:`): `mdrezuwanhassan@gmail.com` → `mdrezuwanhassan@gmail.com`
+- **Gmail compose URL** (`handleSendMessage`, `&to=`): `mdrezuwanhassan@gmail.com` → `mdrezuwanhassan@gmail.com`
 - Address "Khilgaon, Dhaka-1219, Bangladesh", phone, LinkedIn: **keep** (match source §3).
 
-> If the author prefers to keep `rezwanhasan262@gmail.com` as the public contact (it is listed as a valid alternative), leave all three email sites unchanged — but keep them **consistent** with each other and with `About.tsx` and `constants.ts`.
+> If the author prefers to keep `mdrezuwanhassan@gmail.com` as the public contact (it is listed as a valid alternative), leave all three email sites unchanged — but keep them **consistent** with each other and with `About.tsx` and `constants.ts`.
 
 ### `src/utils/constants.ts › SOCIAL_LINKS` and `Footer.tsx › socialLinks`
 LinkedIn, GitHub, Google Scholar, Hugging Face, Kaggle — all URLs match the academic site. **Keep.**
@@ -428,7 +428,7 @@ LinkedIn, GitHub, Google Scholar, Hugging Face, Kaggle — all URLs match the ac
 Google Scholar and ResearchGate links: keep.
 
 ### Website URL
-Only `constants.ts` carried a stale host (`rezuwan262.vercel.app`) — corrected in §2.1. All other references already use rezuwan.me.
+Only `constants.ts` carried a stale host (`rezuwan262.vercel.app`) — corrected in §2.1. All other references already use bio.rezuwan.me.
 
 ---
 
@@ -505,8 +505,8 @@ Already covered in prose on the Experience cards. Nothing missing.
 ```text
 src/utils/constants.ts
   PERSONAL_INFO.title    'AI Engineer'              -> 'Sr. Technical Project Manager'
-  PERSONAL_INFO.email    'rezwanhasan262@gmail.com' -> 'mdrezuwanhassan@gmail.com'
-  PERSONAL_INFO.website  'rezuwan262.vercel.app'    -> 'https://rezuwan.me'
+  PERSONAL_INFO.email    'mdrezuwanhassan@gmail.com' -> 'mdrezuwanhassan@gmail.com'
+  PERSONAL_INFO.website  'rezuwan262.vercel.app'    -> 'https://bio.rezuwan.me'
 
 src/pages/About.tsx
   PageTitle description  -> new professional summary (§2.2)
@@ -514,7 +514,7 @@ src/pages/About.tsx
 src/components/sections/About.tsx
   bio paragraph          -> new bio (§2.3)
   info grid Education    'Masters'                  -> 'M.Sc. in Computer Science & Engineering'
-  info grid Email        'rezwanhasan262@gmail.com' -> 'mdrezuwanhassan@gmail.com'
+  info grid Email        'mdrezuwanhassan@gmail.com' -> 'mdrezuwanhassan@gmail.com'
 
 src/pages/Contact.tsx
   contactInfo Email content + mailto  -> 'mdrezuwanhassan@gmail.com'
