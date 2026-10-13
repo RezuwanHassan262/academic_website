@@ -95,6 +95,12 @@ portfolio_category:
     title: "Data Science & Analytics"
   dev:
     title: "Open-Source Tools & Web Development"
+  vision:
+    title: "Computer Vision"
+  nlp:
+    title: "Natural Language Processing"
+  banglanlp:
+    title: "Bangla Natural Language Processing"
 
 # Site Settings
 teaser: # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
