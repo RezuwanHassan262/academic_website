@@ -13,7 +13,7 @@ tags:
   - TypeScript
 description: "Web Development · React · TypeScript"
 projecturl: https://github.com/RezuwanHassan262/personal_portfolio_website
-demourl: https://www.bio.rezuwan.me
+demourl: https://bio.rezuwan.me/
 ---
 
 Personal portfolio website showcasing research, projects, and professional experience. Built with **React** and **TypeScript**.
@@ -23,4 +23,4 @@ React · TypeScript · CSS
 
 ### Links
 - [GitHub Repository](https://github.com/RezuwanHassan262/personal_portfolio_website)
-- [Live Site](https://www.bio.rezuwan.me)
+- [Live Site](https://bio.rezuwan.me/)

@@ -131,7 +131,7 @@ navbar_background: "#000000"
 - `experienceData`: `id: 4` used twice (Research Engineer, Freelance Data Scientist); `id: 7` used twice (Chief Author & Coordinator, Sr. Content Writer & Coordinator).
 - `achievementData`: `id: 1` used twice (IELTS, Runners up - National AI Hackathon).
 - `volunteeringData`: `id: 2` used twice (BAU workshop, IUT workshop).
-- Socials are duplicated across `src/utils/constants.ts` and `src/components/layout/Footer.tsx` with different icon sources; `constants.ts` `PERSONAL_INFO.website` is `rezuwan262.vercel.app` while About/Projects use `https://www.bio.rezuwan.me`.
+- Socials are duplicated across `src/utils/constants.ts` and `src/components/layout/Footer.tsx` with different icon sources; `constants.ts` `PERSONAL_INFO.website` is `rezuwan262.vercel.app` while About/Projects use `https://bio.rezuwan.me/`.
 - Two `Research.tsx` entries share `id: 2` (AACL-IJCNLP paper and RegSpeech12).
 
 ---
@@ -248,7 +248,7 @@ Human | Learner | Believer | Bengali 🇧🇩
 ```yaml
 column_1:
   - { label: "Birthday",       value: "20th August" }
-  - { label: "Website",        value: "https://www.bio.rezuwan.me" }
+  - { label: "Website",        value: "https://bio.rezuwan.me/" }
   - { label: "Phone/WhatsApp", value: "+8801735066946" }
 column_2:
   - { label: "Education", value: "Masters" }
@@ -1663,7 +1663,7 @@ image: "assets/img/others/ppc.PNG"
 technologies: ["React", "TypeScript", "CSS"]
 links:
   github: "https://github.com/RezuwanHassan262/personal_portfolio_website"
-  demo: "https://www.bio.rezuwan.me"
+  demo: "https://bio.rezuwan.me/"
 ```
 
 **description:** My personal portfolio website showcasing my projects and skills.
@@ -1722,7 +1722,7 @@ title: "AI Engineer"
 email: "mdrezuwanhassan@gmail.com"
 phone: "+8801735066946"
 location: "Dhaka, Bangladesh"
-website: "rezuwan262.vercel.app"   # NOTE: diverges from https://www.bio.rezuwan.me used elsewhere
+website: "rezuwan262.vercel.app"   # NOTE: diverges from https://bio.rezuwan.me/ used elsewhere
 ```
 
 ### 14.2 Contact page items (`src/pages/Contact.tsx` → `contactInfo`)
@@ -1803,7 +1803,7 @@ creative:
   deviantart:  "https://www.deviantart.com/noobdoodlerrazor"
   medium:      "https://medium.com/@rezwanhasan626"
 sites:
-  primary: "https://www.bio.rezuwan.me"
+  primary: "https://bio.rezuwan.me/"
   vercel:  "rezuwan262.vercel.app"
 ```
 
@@ -1860,7 +1860,7 @@ content.json
 ```
 
 2. **Resolve the duplicate `id` values** listed in §0.5 before keying React lists by `id`.
-3. **Unify the two socials arrays** (§14.4 vs §14.5) and pick one website value (`https://www.bio.rezuwan.me` appears to be canonical).
+3. **Unify the two socials arrays** (§14.4 vs §14.5) and pick one website value (`https://bio.rezuwan.me/` appears to be canonical).
 4. **`description` fields contain raw HTML** in `achievementData`, `volunteeringData`, `awardsData`, and two `experienceData` entries. Either keep an HTML-capable renderer or convert those strings to Markdown during migration.
 5. **Keep `scholarData.json` separate and machine-written** — `scripts/scholarScraper.js` (npm script `update-scholar`) rewrites it on a schedule; folding it into a hand-edited content file would break the automation.
 6. **Many images are hot-linked to third-party hosts** (shields.io, flaticon, vecteezy, wikimedia, ibb.co, g2crowd, freepnglogos, archive.org). These are fragile; consider vendoring them into `/assets` during migration.

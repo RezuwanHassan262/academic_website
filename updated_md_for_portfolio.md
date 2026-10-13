@@ -120,7 +120,7 @@ So *Adjudications*, *Teaching*, *Workshops* and *Invited Talks* from the academi
 |---|---|---|---|
 | Education | `Masters` | `M.Sc. in Computer Science & Engineering` | Source §3 |
 | Email | `mdrezuwanhassan@gmail.com` | `mdrezuwanhassan@gmail.com` | Source §3 primary address |
-| Website | `https://www.bio.rezuwan.me` | keep | Current |
+| Website | `https://bio.rezuwan.me/` | keep | Current |
 | Birthday / Phone / City | — | keep | Current |
 
 ### 2.5 Keep unchanged in this layer

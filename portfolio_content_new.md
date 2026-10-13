@@ -140,7 +140,7 @@ Each inner page opens with a title, an italic tagline, and a breadcrumb trail.
 ### Quick facts
 
 - **Birthday:** 20th August
-- **Website:** [https://www.bio.rezuwan.me](https://www.bio.rezuwan.me)
+- **Website:** [https://bio.rezuwan.me/](https://bio.rezuwan.me/)
 - **Phone/WhatsApp:** +8801735066946
 - **Education:** Masters
 - **Email:** [mdrezuwanhassan@gmail.com](mailto:mdrezuwanhassan@gmail.com)
@@ -1133,7 +1133,7 @@ All · Federated Learning · Natural Language Processing · Computer Vision · A
 **Links:**
 
 - [View Code](https://github.com/RezuwanHassan262/personal_portfolio_website)
-- [View Demo](https://www.bio.rezuwan.me)
+- [View Demo](https://bio.rezuwan.me/)
 
 **Thumbnail:** `assets/img/others/ppc.PNG`
 
@@ -1342,7 +1342,7 @@ Section heading: **Hobbies** — *Hobbies & Interests*
 - **Email:** [mdrezuwanhassan@gmail.com](mailto:mdrezuwanhassan@gmail.com)
 - **LinkedIn:** [md-rezuwan-hassan/](https://www.linkedin.com/in/md-rezuwan-hassan/)
 
-Also stored in the site's shared constants: **Location** — Dhaka, Bangladesh; **Website** — `rezuwan262.vercel.app`. Note that the About page and the Portfolio Website project both give the site as [https://www.bio.rezuwan.me](https://www.bio.rezuwan.me), so the two values disagree.
+Also stored in the site's shared constants: **Location** — Dhaka, Bangladesh; **Website** — `rezuwan262.vercel.app`. Note that the About page and the Portfolio Website project both give the site as [https://bio.rezuwan.me/](https://bio.rezuwan.me/), so the two values disagree.
 
 ### Contact section copy
 
