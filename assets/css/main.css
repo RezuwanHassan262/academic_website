@@ -3440,3 +3440,14 @@ html {
     list-style: none;
   }
 }
+
+/* Visitor map badge in the footer. */
+.page__footer-visitors {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.page__footer-visitors img {
+  max-width: 100%;
+  height: auto;
+}

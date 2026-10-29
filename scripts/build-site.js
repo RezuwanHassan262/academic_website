@@ -140,7 +140,7 @@ function injectScholarStats(html, data) {
  * rel="noopener" stops the opened page reaching back through window.opener.
  * ------------------------------------------------------------------------ */
 
-const SITE_HOSTS = ['rezuwanhassan262.github.io'];
+const SITE_HOSTS = ['bio.rezuwan.me', 'rezuwanhassan262.github.io'];
 
 function externalLinksInNewTab(html) {
   let changed = 0;
