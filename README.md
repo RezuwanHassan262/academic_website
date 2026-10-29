@@ -3,13 +3,9 @@
 Personal academic site: publications, projects, talks, teaching, adjudications,
 awards, volunteering and interests.
 
-**Live:** <https://rezuwanhassan262.github.io/academic_website/>
+**Live:** <https://bio.rezuwan.me/>
 
-<a href="https://mapmyvisitors.com/web/1c808" title="Visitor map"><img src="https://mapmyvisitors.com/map.png?d=oZ7twHnHRCM2pyNbeV_7e1COrf67qUQgkA9FCDx-HgA&cl=ffffff" alt="Visitor map" /></a>
-
-> The map above records views of **this README**, not of the live site — the
-> counter registers a hit wherever the image is loaded. See
-> [Visitor tracking](#visitor-tracking) for what that means and how to change it.
+**Visitor map:** <https://mapmyvisitors.com/web/1c96h>
 
 ---
 
@@ -207,23 +203,18 @@ rule, so a filtered view never leaves a bare heading.
 
 ## Visitor tracking
 
-The site is registered with [Map My Visitors](https://mapmyvisitors.com/);
-the dashboard lives at <https://mapmyvisitors.com/web/1c808>.
+The live site (<https://bio.rezuwan.me/>) is registered with
+[Map My Visitors](https://mapmyvisitors.com/); the dashboard lives at
+<https://mapmyvisitors.com/web/1c96h>.
 
-The badge is currently embedded **in this README only** — it was removed from
-the site footer. Be aware of what that means:
+The badge (an `<a>/<img>` pair) sits in the footer of every page in
+`webpages/` except `demo.html`. The counter records a hit wherever that image
+loads, so it counts visitors to the site. It is deliberately **not** embedded in
+this README: that would add GitHub repository views to the same map.
 
-> The counter records a hit wherever the image is loaded. In this README it
-> counts people viewing the repository, **not** people visiting the live site.
-
-Pick whichever you actually want:
-
-- **Track repository views** (current setup) — leave it as is.
-- **Track website visitors** — put the same `<a>/<img>` snippet back into the
-  footer of the pages in `webpages/`. It can be styled small or visually hidden;
-  what matters is that the page loads the image.
-- **Track both, viewed from GitHub** — keep the snippet on the site *and* in
-  this README, and accept that the map mixes both audiences.
+The `<script>` variant of the snippet (`map.js`) renders a live map widget
+instead of a static badge; the image form is used here to avoid loading extra
+third-party JavaScript on every page.
 
 ## Repository layout
 
